@@ -72,3 +72,6 @@ v6.0.1 (May 8, 2025)
 v6.5 (Nay 15, 2025)
 -Removed PC version as the Mobile version can detect whether the user is on desktop/mobile.
 -Mobile is now responsive! If you press “View desktop version,” the navigation bar will change.
+
+v7.0 (May 17, 2025)
+-Added loading screens with nauseating background.
