@@ -1101,9 +1101,52 @@ form button:hover {
 .topnav.desktop #morebtn {
   display: none !important;
 }
+
+@keyframes loadingBackground {
+ 0% {background-color: black;}
+ 20% {background-color: blueviolet;}
+ 40% {background-color: #5c1111;}
+ 60% {background-color: #4CAF50;}
+ 80% {background-color: white;}
+ 100% {background-color: black;}
+}
+
+#loading-screen {
+  background-color: #5c1111;
+  position: fixed;
+  background-repeat: no-repeat;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: 500px;
+  background-position: center;
+  font-size: 20px;
+  text-align: center;
+  animation: loadingBackground 4s infinite;
+  pointer-events: none;
+}
+
+#loading-screen img {
+  position: absolute;
+  object-fit: contain;
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+#loader {
+  display: none;
+}
+
   </style>
 </head>
-<body class="dark-mode nav-collapsed">
+<body class="dark-mode nav-collapsed" onload="isIt()" style="margin: 0;">
+  <div id="loading-screen"><b>Loading...</b></div>
+  <div style="display: none;" id="loader" class="beepBoop">
   <div class="topnav" id="tabside">
     <a href="#" class="closebtn" onclick="event.preventDefault(); closeNav()">&#10006;</a>
     <a class="active" href="#home">Home
@@ -1184,12 +1227,13 @@ form button:hover {
   </div>
   <div id="themes" class="tab-content">
     <h2>Current themes are:</h2>
-    <button style="background: linear-gradient(45deg, yellow, orange, red);color: black;" onclick="themeChange('default')">Default</button>
-    <button style="background: linear-gradient(lightgreen, lime, green, darkgreen);color: black;" onclick="themeChange('leaf')">Leaf Green</button>
-    <button style="background: black;color: white;" onclick="themeChange('vanta')">Pure Black</button>
-    <button style="background: white;color: black;" onclick="themeChange('white')">Pure White</button>
-    <button style="background: linear-gradient(purple, darkorchid, black);color: white;" onclick="themeChange('purple')">Jade Theme</button>
+    <button style="background: linear-gradient(45deg, yellow, orange, red);color: black; border: #aa2e25 2px solid;" onclick="themeChange('default')">Default</button>
+    <button style="background: linear-gradient(lightgreen, lime, green, darkgreen);color: black; border: #388e3c 2px solid;" onclick="themeChange('leaf')">Leaf Green</button>
+    <button style="background: black;color: white; border: gray 2px solid;" onclick="themeChange('vanta')">Pure Black</button>
+    <button style="background: white;color: black; border: gainsboro 2px solid;" onclick="themeChange('white')">Pure White</button>
+    <button style="background: linear-gradient(purple, darkorchid, black);color: white; border: blueviolet 2px solid;" onclick="themeChange('purple')">Jade Theme</button>
   </div>
+</div>
   <script>
     let editId = null; // Define editId globally
     document.addEventListener("DOMContentLoaded", function() {
@@ -1328,7 +1372,7 @@ async function checkthem() {
   await fetchingIP();
 
   const video1 = "https://youtu.be/tXEPbotEjZE?si=I5tqckckyLVazLtC"; //thick of it
-  const video2 = "https://www.youtube.com/watch?v=Q_nxgjIY6qQ"; //chest pain
+  const video2 = "https://youtu.be/nfI8hKtZPBM?si=Jcq_SvM0gbmk18hO&t=21"; //chest pain
   const video3 = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; //rickroll
   const video4 = "https://www.youtube.com/watch?v=R93Uy0dQazE"; //coconut mall
 
@@ -1666,6 +1710,37 @@ window.importRuns = importRuns;
       }
     }
     console.log("navbar.js loaded.");
+  </script>
+  <script>
+    //loading screen
+    var screen;
+
+    function loadingRoulette() {
+
+      const load = document.getElementById("loading-screen");
+      const gifsOnLoad = [
+      "https://c.tenor.com/mE8nn_h06gEAAAAd/tenor.gif", //topaz
+      "https://media1.tenor.com/m/mL10Z_GmC2MAAAAC/zzz-zenless.gif", //nagi
+      "https://media.tenor.com/Kw0QG2VrCo0AAAAM/honkai-pardofelis.gif", //pardo
+      "https://media1.tenor.com/m/SH8ydUM4vlcAAAAC/yanfei.gif" //yanfei 
+    ];
+    const selection = gifsOnLoad[Math.floor(Math.random() * gifsOnLoad.length)];
+    const bust = document.createElement("img");
+    bust.src = selection;
+
+    load.appendChild(bust);
+    load.style.display = "block";
+    }
+
+    function isIt() {
+      screen = setTimeout(isLoading, 3000);
+      loadingRoulette();
+    }
+    function isLoading() {
+      document.getElementById("loading-screen").style.display = "none";
+      document.getElementById("loader").style.display = "block";
+        }
+
   </script>
   <script>
     document.addEventListener("DOMContentLoaded", generateTable());
