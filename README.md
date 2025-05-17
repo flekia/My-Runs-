@@ -75,3 +75,4 @@ v6.5 (Nay 15, 2025)
 
 v7.0 (May 17, 2025)
 -Added loading screens with nauseating background.
+-Added the option to search
