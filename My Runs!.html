@@ -1173,14 +1173,17 @@ form button:hover {
     style="font-size: 12px;cursor: pointer; position: fixed; top: 10px;left: 10px; z-index: 2;background: none;display: block; transition: opacity 0.3s;" onclick="openNav()">&#9776; More...</span>
   </div>
   <div id="home" class="tab-content active">
+    <input type="search" id="search-home" placeholder="Seach specific route...">
     <h2>Top Runs of All Time</h2>
     <div id="leaderboard-table"></div>
   </div>
   <div id="goes" class="tab-content">
+    <input type="search" id="search-goes" placeholder="Seach specific route...">
     <h2>Going out</h2>
     <div id="going-runs"></div>
   </div>
   <div id="homeother" class="tab-content">
+    <input type="search" id="search-ho" placeholder="Seach specific route...">
     <h2>Going home</h2>
     <div id="home-runs"></div>
   </div>
@@ -1214,7 +1217,8 @@ form button:hover {
     <button type="submit">Add Run</button>
     <label for="newest">New Option</label>
       <input type="text" id="newest" placeholder="New Route..."><br>
-      <button onclick="editValues(event)">Edit Routes</button>
+      <button type="button" onclick="editValues(event)">Edit Routes</button> <br>
+      <button type="button" onclick="addValue()">Add Route?</button>
     
     </form>
   </div>
@@ -1391,13 +1395,19 @@ async function checkthem() {
   }
 }
 
-//error
+//error so that it doesn't show
+
+ if (runDate === "" && runStart === "" && runLocation === "" && runMinutes !== "" && runSeconds !== "") {
+
+ } else{
+
     if (!runDate || !runStart|| !runLocation || runMinutes === "" || runSeconds === "") {
       if (confirm(`Please watch this tutorial on how to use this app:`)) {
        checkthem();
       }
       return;
     }
+  }
 
 
 //renamed for id
@@ -1585,6 +1595,21 @@ function editValues(event){
   
 }
 
+//add routes
+function addValue() {
+  const newValue = document.getElementById("newest").value.trim();
+  const newRoute = document.getElementById("run-location");
+  
+  if (!newValue) {
+    alert("No route added, fatso.")
+  } else {
+    const newOption = document.createElement("option");
+    newOption.value = newValue;
+    newOption.textContent = newValue;
+    newRoute.appendChild(newOption);
+    alert("Route added.");
+  }
+}
 //error on storage
 
 try {
@@ -1741,6 +1766,55 @@ window.importRuns = importRuns;
       document.getElementById("loader").style.display = "block";
         }
 
+  </script>
+  <script>
+    //filter/search bar
+
+    //home tab
+    document.getElementById("search-home").addEventListener("input", function() {
+      const query = this.value.toLowerCase();
+      const rows = document.querySelectorAll("#leaderboard-table table tbody tr");
+      rows.forEach(row => {
+        const cells = row.querySelectorAll("td");
+        let found = false;
+        cells.forEach(cell => {
+          if (cell.textContent.toLowerCase().includes(query)) 
+            found = true;
+        });
+        row.style.display = found ? "" : "none";
+      });
+    });
+
+    //going tab
+    document.getElementById("search-goes").addEventListener("input", function() {
+      const query = this.value.toLowerCase();
+      const rows = document.querySelectorAll("#going-runs table tbody tr");
+      rows.forEach(row => {
+        const cells = row.querySelectorAll("td");
+        let found = false;
+        cells.forEach(cell => {
+          if (cell.textContent.toLowerCase().includes(query))
+            found = true;
+        });
+        row.style.display = found ? "" : "none";
+      });
+    });
+
+    //ho(me) tab
+    document.getElementById("search-ho").addEventListener("input", function() {
+      const query = this.value.toLowerCase();
+      const rows = document.querySelectorAll("#home-runs table tbody tr");
+      rows.forEach(row => {
+        const cells = row.querySelectorAll("td");
+        let found = false;
+        cells.forEach(cell => {
+          if (cell.textContent.toLowerCase().includes(query)) 
+            found = true;        
+        });
+        row.style.display = found ? "" : "none";
+      });
+    });
+    
   </script>
   <script>
     document.addEventListener("DOMContentLoaded", generateTable());
