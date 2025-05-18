@@ -242,7 +242,7 @@ body.nav-collapsed .tab-content {
   display: flex;
 }
 
-table {
+.table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 16px;
@@ -1142,6 +1142,8 @@ form button:hover {
   display: none;
 }
 
+
+
   </style>
 </head>
 <body class="dark-mode nav-collapsed" onload="isIt()" style="margin: 0;">
@@ -1173,18 +1175,18 @@ form button:hover {
     style="font-size: 12px;cursor: pointer; position: fixed; top: 10px;left: 10px; z-index: 2;background: none;display: block; transition: opacity 0.3s;" onclick="openNav()">&#9776; More...</span>
   </div>
   <div id="home" class="tab-content active">
-    <input type="search" id="search-home" placeholder="Seach specific route...">
     <h2>Top Runs of All Time</h2>
+    <input type="search" id="search-home" class="searching" placeholder="Seach specific route...">
     <div id="leaderboard-table"></div>
   </div>
   <div id="goes" class="tab-content">
-    <input type="search" id="search-goes" placeholder="Seach specific route...">
     <h2>Going out</h2>
+    <input type="search" id="search-goes" class="searching" placeholder="Seach specific route...">
     <div id="going-runs"></div>
   </div>
   <div id="homeother" class="tab-content">
-    <input type="search" id="search-ho" placeholder="Seach specific route...">
     <h2>Going home</h2>
+    <input type="search" id="search-ho" class="searching" placeholder="Seach specific route...">
     <div id="home-runs"></div>
   </div>
   <div id="publish" class="tab-content">
@@ -1477,7 +1479,7 @@ function updateFilteredRuns(runs, time, containerId) {
 function generateTable(data) {
   if (!data.length) return '<p style="text-align: center; font-size: 24px;">Nothing?? <img src="https://c.tenor.com/v7hqpHXFfg8AAAAC/tenor.gif" style="width: 20px; height: 20px;"></p>';
 
-  let table = `<table>
+  let table = `<table class="table">
     <thead>
       <tr>
         <th>Date</th>
@@ -1758,7 +1760,7 @@ window.importRuns = importRuns;
     }
 
     function isIt() {
-      screen = setTimeout(isLoading, 3000);
+      screen = setTimeout(isLoading, 3);
       loadingRoulette();
     }
     function isLoading() {
@@ -1817,7 +1819,9 @@ window.importRuns = importRuns;
     
   </script>
   <script>
-    document.addEventListener("DOMContentLoaded", generateTable());
+    document.addEventListener("DOMContentLoaded", function() {
+
+    generateTable(data) });
   </script>
 </body>
 </html>
