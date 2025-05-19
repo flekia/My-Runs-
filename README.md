@@ -52,27 +52,24 @@ v4.0 (April 27, 2025)
 -Added a roulette when you leave blanks on the publish form.
 -Added an easter egg
 
-v5.0 (April 28, 2025)
--Added the “Edit” option on both the table and the routes.
-
-v5.5 (May 1, 2025)
+v5.0 (May 1, 2025)
 -Added transition images when pressing the “Edit” option on the leaderboard.
 -Added 4 transition images with a random chance to get them (25% each).
 
-v5.5.1 (May 1, 2025 (took an hour to realize and change))
+v5.0.1 (May 1, 2025 (took an hour to realize and change))
 -Cleaned the code for less lines (querySelectorAll). 
 -Gifs on the sidebar enlarge when it is the active tab.
 
-v6.0 (May 3, 2025)
+v5.5 (May 3, 2025)
 -When changing to different themes, gifs of the same color palette will appear on the sidebar and leaderboard.
 
-v6.0.1 (May 8, 2025)
+v5.5.1 (May 8, 2025)
 -Added a transition when changing themes on mobile.
 
-v6.5 (Nay 15, 2025)
+v6.0 (Nay 15, 2025)
 -Removed PC version as the Mobile version can detect whether the user is on desktop/mobile.
 -Mobile is now responsive! If you press “View desktop version,” the navigation bar will change.
 
-v7.0 (May 17, 2025)
+v6.5 (May 17, 2025)
 -Added loading screens with nauseating background.
 -Added the option to search
