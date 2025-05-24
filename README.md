@@ -73,3 +73,7 @@ v6.0 (Nay 15, 2025)
 v6.5 (May 17, 2025)
 -Added loading screens with nauseating background.
 -Added the option to search
+
+==FIXES/THEMES--
+v6.5.1 (May 24, 2025)
+-Fixes the edit and add routes. 
