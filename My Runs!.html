@@ -105,7 +105,7 @@
   </script>
   <style>
     
-    @media (max-height: 450px) {
+    @media (max-height: 700px) and (max-width: 1920px) {
       .topnav {padding-top: 15px;}
       .topnav a {font-size: 18px;}
     }
@@ -117,6 +117,11 @@ body {
   font-size: 14px;
   margin-left: 0px;
   transition: .3s ease-in-out;
+}
+
+html, body{
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body.nav-collapsed .topnav {
@@ -237,9 +242,11 @@ body.nav-collapsed .tab-content {
 }
 
 .tablebutts{
+  display: flex;
   flex-direction: column;
   align-items: center;
   display: flex;
+  gap: 20px;
 }
 
 .table {
@@ -247,18 +254,9 @@ body.nav-collapsed .tab-content {
   border-collapse: collapse;
   margin-top: 16px;
   font-size: 12px;
-  overflow-x: auto;
 }
 
-.default th {
-  border: 1px solid white;
-  padding: 5px;
-  text-align: center;
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.default td {
+th, td {
   border: 1px solid white;
   padding: 5px;
   text-align: center;
@@ -468,14 +466,6 @@ form button:hover {
   width: 30px;
 }
 
-.leaf th, td {
-  border: 1px solid white;
-  padding: 5px;
-  text-align: center;
-  display: table-cell;
-  vertical-align: middle;
-}
-
 .leaf thead {
   background-color: green;
 }
@@ -620,18 +610,6 @@ form button:hover {
 
 .vanta #gifs{
   width: 30px;
-}
-
-.vanta th, td {
-  border: 1px solid white;
-  padding: 5px;
-  text-align: center;
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.vanta thead {
-  background-color: darkgray;
 }
 .vanta button {
   padding: 5px 10px;
@@ -944,14 +922,6 @@ form button:hover {
   width: 30px;
 }
 
-.purple th, td {
-  border: 1px solid white;
-  padding: 5px;
-  text-align: center;
-  display: table-cell;
-  vertical-align: middle;
-}
-
 .purple thead {
   background-color: darkorchid;
 }
@@ -1043,6 +1013,18 @@ form button:hover {
   display: flex;
   background: linear-gradient(45deg, red, orange, yellow);
 }
+.default.desktop {
+  position: static !important;
+  width: 100vw !important;
+  padding-top: 0 !important;
+  align-items: center;
+  border-right: none;
+  z-index: 10;
+  display: flex;
+  background: linear-gradient(180deg, orange, red, darkred, black);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 .leaf .topnav.desktop {
   position: static !important;
   width: 100vw !important;
@@ -1053,6 +1035,18 @@ form button:hover {
   z-index: 10;
   display: flex;
   background: linear-gradient(45deg, green, lime, darkgreen);
+  background-attachment: fixed;
+}
+.leaf.desktop {
+  position: static !important;
+  width: 100vw !important;
+  padding-top: 0 !important;
+  align-items: center;
+  border-right: none;
+  z-index: 10;
+  display: flex;
+  background: linear-gradient(180deg, lime, green, darkgreen, black);
+  background-attachment: fixed;
 }
 .vanta .topnav.desktop {
   position: static !important;
@@ -1089,6 +1083,19 @@ form button:hover {
   display: flex;
   background: linear-gradient(45deg, purple, darkslateblue, black);
 }
+
+.purple.desktop {
+  position: static !important;
+  width: 100vw !important;
+  padding-top: 0 !important;
+  align-items: center;
+  border-right: none;
+  z-index: 10;
+  display: flex;
+  background: linear-gradient(180deg, purple, darkslateblue, black);
+  background-attachment: fixed;
+}
+
 .topnav.desktop a {
   font-size: 14px !important;
   padding: 8px 16px !important;
@@ -1101,6 +1108,54 @@ form button:hover {
 .topnav.desktop #morebtn {
   display: none !important;
 }
+
+.desktop .table, .topnav.desktop ~ .tab-content .table{
+  width: 100% !important;
+  max-width: 100vw;
+  table-layout: auto;
+}
+
+body.desktop .tab-content{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+body.desktop.table{
+  width: 100vw;
+  max-width: 100vw;
+}
+
+body.desktop .tab-content,
+body.desktop #leaderboard-table,
+body.desktop #going-runs,
+body.desktop #home-runs {
+  width: 95% !important;
+  max-width: 100vw !important;
+  margin: auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box;
+}
+
+body.desktop .table td:last-child{
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+.desktop .searching{
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  vertical-align: middle;
+  justify-content: space-between;
+}
+
+.titles{
+  text-align: center;
+  vertical-align: middle;
+}
+
 
 @keyframes loadingBackground {
  0% {background-color: black;}
@@ -1143,7 +1198,6 @@ form button:hover {
 }
 
 
-
   </style>
 </head>
 <body class="dark-mode nav-collapsed" onload="isIt()" style="margin: 0;">
@@ -1175,17 +1229,17 @@ form button:hover {
     style="font-size: 12px;cursor: pointer; position: fixed; top: 10px;left: 10px; z-index: 2;background: none;display: block; transition: opacity 0.3s;" onclick="openNav()">&#9776; More...</span>
   </div>
   <div id="home" class="tab-content active">
-    <h2>Top Runs of All Time</h2>
+    <h2 class="titles">Top Runs of All Time</h2>
     <input type="search" id="search-home" class="searching" placeholder="Seach specific route...">
     <div id="leaderboard-table"></div>
   </div>
   <div id="goes" class="tab-content">
-    <h2>Going out</h2>
+    <h2 class="titles>Going out</h2>
     <input type="search" id="search-goes" class="searching" placeholder="Seach specific route...">
     <div id="going-runs"></div>
   </div>
   <div id="homeother" class="tab-content">
-    <h2>Going home</h2>
+    <h2 class="titles">Going home</h2>
     <input type="search" id="search-ho" class="searching" placeholder="Seach specific route...">
     <div id="home-runs"></div>
   </div>
@@ -1216,8 +1270,8 @@ form button:hover {
       <input type="number" id="run-minutes" placeholder="Minutes" min="0"/>
       <label for="run-seconds">Seconds?</label>
       <input type="number" id="run-seconds" placeholder="Seconds" min="0" max="59" /><br><br>
-    <button type="submit">Add Run</button>
-    <label for="newest">New Option</label>
+    <button type="submit">Add Run</button><br>
+    <label for="newest">New Route/Save Route</label>
       <input type="text" id="newest" placeholder="New Route..."><br>
       <button type="button" onclick="editValues(event)">Edit Routes</button> <br>
       <button type="button" onclick="addValue()">Add Route?</button>
@@ -1468,14 +1522,12 @@ function updateLeaderboard(runs) {
   const leaderboard = document.getElementById("leaderboard-table");
   leaderboard.innerHTML = generateTable(runs);
 }
-
 function updateFilteredRuns(runs, time, containerId) {
   const filtered = runs.filter(run => run.where === time);
   const container = document.getElementById(containerId);
   container.innerHTML = generateTable(filtered);
-  
 }
-//leaderboard format + award
+    //leaderboard format + award
 function generateTable(data) {
   if (!data.length) return '<p style="text-align: center; font-size: 24px;">Nothing?? <img src="https://c.tenor.com/v7hqpHXFfg8AAAAC/tenor.gif" style="width: 20px; height: 20px;"></p>';
 
@@ -1506,10 +1558,12 @@ function generateTable(data) {
       <td>${run.where}</td>
       <td>${run.location}</td>
       <td>${run.duration}</td>
-      <td><button id="tablebuttdel" class="tablebutts" onclick="deleteRun(${run.id})">Delete</button> 
-        &nbsp; &nbsp;
-        <button id="tablebuttedit" class="tablebutts" onclick="editRun(${run.id})">Edit</button></td> 
-    </tr>`;
+      <td>
+        <div class="tablebutts">
+        <button id="tablebuttdel" onclick="deleteRun(${run.id})">Delete</button> 
+        <button id="tablebuttedit" onclick="editRun(${run.id})">Edit</button></td> 
+          </div>
+        </tr>`;
   });
   table += "</tbody></table>";
   return table;
@@ -1590,11 +1644,9 @@ function editValues(event){
     }
   selectedOp.textContent = editTableValue;
   selectedOp.value = editTableValue;
+  saveTheRoutesDamnit();
   alert("Edited successfully.");
 
-  document.getElementById("newest").value = '';
-
-  
 }
 
 //add routes
@@ -1604,13 +1656,63 @@ function addValue() {
   
   if (!newValue) {
     alert("No route added, fatso.")
-  } else {
+  } 
+    const dupes = document.getElementById("run-location");
+
+    const existentialCrisis = Array.from(dupes.options).some(opt => opt.value === newValue);
+    if (existentialCrisis) {
+      alert("Do you have dementia?");
+      return;
+    }
     const newOption = document.createElement("option");
     newOption.value = newValue;
     newOption.textContent = newValue;
     newRoute.appendChild(newOption);
+    saveTheRoutesDamnit();
     alert("Route added.");
-  }
+  
+
+}
+
+//load routes when user changes
+
+function myLoad() {
+  const storeThem = JSON.parse(localStorage.getItem("routes")) || [
+    "Harmony (1.7km)",
+    "Shorterville (1.9km - 2km)",
+    "Midville (2km - 2.2km)",
+    "Longerville (2.2km)",
+    "Hospital (4.7km)"
+  ];
+
+  const options = document.getElementById("run-location");
+  options.innerHTML = "";
+
+  const defaulting = document.createElement("option");
+  defaulting.value = "";
+  defaulting.disabled = true;
+  defaulting.selected = true;
+  defaulting.textContent = "Location";
+  options.appendChild(defaulting);
+
+  storeThem.forEach(route => {
+    const option = document.createElement("option");
+    option.value = route;
+    option.textContent = route;
+    options.appendChild(option);
+  });
+}
+
+//saves changes
+
+function saveTheRoutesDamnit() {
+  const options = Array.from(document.getElementById("run-location").options) 
+  .filter(opt => opt.value && opt.value !== "")
+  .map(opt => opt.value);
+
+  localStorage.setItem("routes", JSON.stringify(options));
+  document.dispatchEvent(new Event("DOMContentLoaded"));
+  myLoad();
 }
 //error on storage
 
@@ -1622,6 +1724,8 @@ try {
   alert("Error loading runs. Please try again.");
 }
     console.log("leaderboard.js loaded.");
+
+    document.addEventListener("DOMContentLoaded", myLoad);
   </script>
   <script>
     //tabs
@@ -1749,7 +1853,8 @@ window.importRuns = importRuns;
       "https://c.tenor.com/mE8nn_h06gEAAAAd/tenor.gif", //topaz
       "https://media1.tenor.com/m/mL10Z_GmC2MAAAAC/zzz-zenless.gif", //nagi
       "https://media.tenor.com/Kw0QG2VrCo0AAAAM/honkai-pardofelis.gif", //pardo
-      "https://media1.tenor.com/m/SH8ydUM4vlcAAAAC/yanfei.gif" //yanfei 
+      "https://media1.tenor.com/m/SH8ydUM4vlcAAAAC/yanfei.gif", //yanfei
+      "https://media1.tenor.com/m/p-Z9nSROXNEAAAAC/zani-zani-wuwa.gif" //zani 
     ];
     const selection = gifsOnLoad[Math.floor(Math.random() * gifsOnLoad.length)];
     const bust = document.createElement("img");
@@ -1760,7 +1865,7 @@ window.importRuns = importRuns;
     }
 
     function isIt() {
-      screen = setTimeout(isLoading, 3);
+      screen = setTimeout(isLoading, 3000);
       loadingRoulette();
     }
     function isLoading() {
