@@ -1,4 +1,4 @@
-"My Runs!" is an "app" made in HTML, CSS, and JS that's composed of a leaderboard documenting my jogging time or bike runs, and having it ranked and serving as a time-attack like in trackmania. It has 4 sections in v1.0, and these are currently:
+"My Runs!" is an "app" made in HTML, CSS, and JS that's composed of a leaderboard documenting my jogging time or bike runs, and having it ranked and serving as a time-attack like in Burnout. It has 4 sections in v1.0, and these are currently:
 Home
 Morning
 Night
@@ -77,3 +77,7 @@ v6.5 (May 17, 2025)
 ==FIXES/THEMES--
 v6.5.1 (May 24, 2025)
 -Fixes the edit and add routes. 
+
+v6.5.2 (May 25, 2025)
+-Added a delete route button.
+-Edited roulette system when pressing the "Edit" button on runs to accomodate more "transition" pictures in further updates.
