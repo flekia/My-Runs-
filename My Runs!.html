@@ -292,61 +292,6 @@ th, td {
   color: black;
   margin: 5px 0;
 }
-#transi1 {
-  background-image: url(https://i.imgflip.com/9po71x.jpg);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 9999;
-  pointer-events: none;
-  transition: 1s ease-in-out;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-#transi2 {
-  background-image: url(https://pbs.twimg.com/media/Gp2B43TbQAAOHF9?format=jpg&name=small);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 9999;
-  pointer-events: none;
-  transition: 1s ease-in-out;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-#transi3 {
-  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjHrKWHBXfZCZe5aTiDsdkSPWSoS1QfDxMlg&s);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 9999;
-  pointer-events: none;
-  transition: 1s ease-in-out;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-#transi4 {
-  background-image: url(https://i.pinimg.com/736x/5c/c3/e4/5cc3e49257b1ff5e5f257cfbd9e98788.jpg);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 9999;
-  pointer-events: none;
-  transition: 1s ease-in-out;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 
 .awards{
   width: 40px;
@@ -1274,7 +1219,8 @@ body.desktop .table td:last-child{
     <label for="newest">New Route/Save Route</label>
       <input type="text" id="newest" placeholder="New Route..."><br>
       <button type="button" onclick="editValues(event)">Edit Routes</button> <br>
-      <button type="button" onclick="addValue()">Add Route?</button>
+      <button type="button" onclick="addValue()">Add Route?</button><br>
+      <button type="button" onclick="deleteOption()">Delete Route?</button>
     
     </form>
   </div>
@@ -1300,94 +1246,35 @@ body.desktop .table td:last-child{
   updateAll();
 //transition
 function transition() {
-    //function of transition imgs
-    function trans1() {
-      const transitionImg1 = document.createElement("img");
-      transitionImg1.id = 'transi1';
-        document.body.appendChild(transitionImg1);
+    const transitionImages = [
+      "https://pbs.twimg.com/media/Gp2B43TbQAAOHF9?format=jpg&name=small", //andrie
+      "https://i.pinimg.com/736x/c9/31/92/c93192b782081d4d1d70b03a3c1cf011.jpg", //fartnite
+      "https://i.pinimg.com/736x/5c/c3/e4/5cc3e49257b1ff5e5f257cfbd9e98788.jpg", //car
+      "https://i.imgflip.com/9po71x.jpg" //cat
+    ];
+
+    const random = transitionImages[Math.floor(Math.random() * transitionImages.length)];
+    const hehe = document.createElement("img");
+    hehe.src = random;
+    hehe.style.position = "fixed";
+    hehe.style.top = "0";
+    hehe.style.left =  "0";
+    hehe.style.width = "100vw";
+    hehe.style.height = "100vh";
+    hehe.style.zIndex = "9999";
+    hehe.style.pointerEvents = "none";
+    hehe.style.transition = "1s ease-in-out";
+    hehe.style.backgroundRepeat = "no-repeat";
+    hehe.style.backgroundSize = "cover";
+      document.body.appendChild(hehe);
         setTimeout(() => {
-          transitionImg1.style.opacity = "0";
-          transitionImg1.style.transition = "5s ease-out";
+          hehe.style.opacity = "0";
+          hehe.style.transition = "5s ease-out";
           setTimeout(() => {
-            document.body.removeChild(transitionImg1);
+            document.body.removeChild(hehe);
           }, 5000); //duration
         }, 500); //end
-    }
-    function trans2() {
-      const transitionImg2 = document.createElement("img"); 
-      transitionImg2.id = 'transi2';
-      transitionImg2.src = "https://pbs.twimg.com/media/Gp2B43TbQAAOHF9?format=jpg&name=small"; //andrie
-      transitionImg2.style.position = "fixed";
-        transitionImg2.style.top = "0";
-        transitionImg2.style.left = "0";
-        transitionImg2.style.width = "100vw";
-        transitionImg2.style.height = "100vh";
-        transitionImg2.style.zIndex = "9999";
-        transitionImg2.style.transition = "1s ease-in";
-        transitionImg2.style.pointerEvents = "none";
-        document.body.appendChild(transitionImg2);
-        setTimeout(() => {
-          transitionImg2.style.opacity = "0";
-          transitionImg2.style.transition = "5s ease-out";
-          setTimeout(() => {
-            document.body.removeChild(transitionImg2);
-          }, 5000); //duration
-        }, 500); //end
-    }
-    function trans3() {
-      const transitionImg3 = document.createElement("img");
-      transitionImg3.id = 'transi3';
-      transitionImg3.src = "https://i.pinimg.com/736x/c9/31/92/c93192b782081d4d1d70b03a3c1cf011.jpg"; //fartnite
-      transitionImg3.style.position = "fixed";
-        transitionImg3.style.top = "0";
-        transitionImg3.style.left = "0";
-        transitionImg3.style.width = "100vw";
-        transitionImg3.style.height = "100vh";
-        transitionImg3.style.zIndex = "9999";
-        transitionImg3.style.transition = "1s ease-in";
-        transitionImg3.style.pointerEvents = "none";
-        document.body.appendChild(transitionImg3);
-        setTimeout(() => {
-          transitionImg3.style.opacity = "0";
-          transitionImg3.style.transition = "5s ease-out";
-          setTimeout(() => {
-            document.body.removeChild(transitionImg3);
-          }, 5000); //duration
-        }, 500); //end
-    }
-    function trans4() {
-      const transitionImg4 = document.createElement("img");
-      transitionImg4.id = 'transi4';
-      transitionImg4.src = "https://i.pinimg.com/736x/5c/c3/e4/5cc3e49257b1ff5e5f257cfbd9e98788.jpg"; //car
-      transitionImg4.style.position = "fixed";
-        transitionImg4.style.top = "0";
-        transitionImg4.style.left = "0";
-        transitionImg4.style.width = "100vw";
-        transitionImg4.style.height = "100vh";
-        transitionImg4.style.zIndex = "9999";
-        transitionImg4.style.transition = "1s ease-in";
-        transitionImg4.style.pointerEvents = "none";
-        document.body.appendChild(transitionImg4);
-        setTimeout(() => {
-          transitionImg4.style.opacity = "0";
-          transitionImg4.style.transition = "5s ease-out";
-          setTimeout(() => {
-            document.body.removeChild(transitionImg4);
-          }, 5000); //duration
-        }, 500); //end
-    }
-    //math
-    const invisi = Math.floor(Math.random() * 101);
-    console.log(`${invisi}`);
-    if (invisi <= 25) {
-      trans1();
-    } else if (invisi <=50) {
-      trans2();
-    } else if (invisi <= 75) {
-      trans3();
-    } else {
-      trans4();
-    }
+
   } 
   document.querySelectorAll("#home, #goes, #homeother").forEach((edit) => {
     edit.addEventListener("click", function(e) {
@@ -1552,7 +1439,7 @@ function generateTable(data) {
   award = `<div class="awards top3"></div>`;
 } else {
   award = "";
-  } console.log(`Award of ${i}: ${award}`);
+  } console.log("Awards and rank are working.");
   table += `<tr>
       <td>${award} ${run.date}</td>
       <td>${run.where}</td>
@@ -1672,6 +1559,17 @@ function addValue() {
     alert("Route added.");
   
 
+}
+
+//delete route
+
+function deleteOption() {
+  if (confirm("Do you want to delete this route?")) {
+  var x = document.getElementById("run-location");
+  x.remove(x.selectedIndex);
+  }
+  saveTheRoutesDamnit();
+  alert("Route is deleted.");
 }
 
 //load routes when user changes
@@ -1872,7 +1770,8 @@ window.importRuns = importRuns;
       document.getElementById("loading-screen").style.display = "none";
       document.getElementById("loader").style.display = "block";
         }
-
+console.log("Loading loaded.");
+console.log("Edit roulette is working.");
   </script>
   <script>
     //filter/search bar
