@@ -1250,10 +1250,14 @@ function transition() {
       "https://pbs.twimg.com/media/Gp2B43TbQAAOHF9?format=jpg&name=small", //andrie
       "https://i.pinimg.com/736x/c9/31/92/c93192b782081d4d1d70b03a3c1cf011.jpg", //fartnite
       "https://i.pinimg.com/736x/5c/c3/e4/5cc3e49257b1ff5e5f257cfbd9e98788.jpg", //car
-      "https://i.imgflip.com/9po71x.jpg" //cat
+      "https://i.imgflip.com/9po71x.jpg", //cat
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlkvMHFDO10nxx3lVvpJvz-QpdE11h8Bg1Rg&s", //tyler
+      "https://media.tenor.com/gDDm8YwvWKEAAAAM/jork.gif", //man face george the pig
+      "https://media1.tenor.com/m/Rze6ZnVMFgsAAAAC/i-don%27t-know-what-to-say.gif" //alden richards
     ];
 
     const random = transitionImages[Math.floor(Math.random() * transitionImages.length)];
+    console.log(`Selected image: ${random}`);
     const hehe = document.createElement("img");
     hehe.src = random;
     hehe.style.position = "fixed";
@@ -1319,7 +1323,7 @@ async function checkthem() {
   await fetchingIP();
 
   const video1 = "https://youtu.be/tXEPbotEjZE?si=I5tqckckyLVazLtC"; //thick of it
-  const video2 = "https://youtu.be/nfI8hKtZPBM?si=Jcq_SvM0gbmk18hO&t=21"; //chest pain
+  const video2 = "https://www.youtube.com/watch?v=AuTUI8QaSMA"; //chest pain
   const video3 = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; //rickroll
   const video4 = "https://www.youtube.com/watch?v=R93Uy0dQazE"; //coconut mall
 
@@ -1566,10 +1570,18 @@ function addValue() {
 function deleteOption() {
   if (confirm("Do you want to delete this route?")) {
   var x = document.getElementById("run-location");
+  if (x.value === "") {
+    alert("You can't delete that!! That's the default option.");
+    console.log("Route was not deleted.");
+  } else{
   x.remove(x.selectedIndex);
-  }
-  saveTheRoutesDamnit();
   alert("Route is deleted.");
+  console.log("Route deleted.");
+  saveTheRoutesDamnit();
+  }
+  return;
+}
+
 }
 
 //load routes when user changes
@@ -1750,11 +1762,17 @@ window.importRuns = importRuns;
       const gifsOnLoad = [
       "https://c.tenor.com/mE8nn_h06gEAAAAd/tenor.gif", //topaz
       "https://media1.tenor.com/m/mL10Z_GmC2MAAAAC/zzz-zenless.gif", //nagi
-      "https://media.tenor.com/Kw0QG2VrCo0AAAAM/honkai-pardofelis.gif", //pardo
+      "https://media.tenor.com/5ghu_DSDgCEAAAAM/zzz-zenless-zone-zero.gif", //LICK ME PLEASE
+      "https://media.tenor.com/4I-78PH3xygAAAAM/honkai-reverist-calico.gif", //pardo
       "https://media1.tenor.com/m/SH8ydUM4vlcAAAAC/yanfei.gif", //yanfei
-      "https://media1.tenor.com/m/p-Z9nSROXNEAAAAC/zani-zani-wuwa.gif" //zani 
+      "https://media1.tenor.com/m/p-Z9nSROXNEAAAAC/zani-zani-wuwa.gif", //zani
+      "https://media.tenor.com/QGX83HXecF0AAAAi/honkai-ai.gif", //ai hyperion
+      "https://media.tenor.com/zTQfeuVPWhEAAAAm/mobius-honkai.webp", //mobius
+      "https://media1.tenor.com/m/hIAkWeic5mYAAAAC/troll-troll-face.gif", //epic fail
+      "https://media.tenor.com/rsbaMamvwTIAAAA1/pat-patrick-bateman.webp" //patrick
     ];
     const selection = gifsOnLoad[Math.floor(Math.random() * gifsOnLoad.length)];
+    console.log(`Selected image: ${selection}`);
     const bust = document.createElement("img");
     bust.src = selection;
 
