@@ -81,3 +81,6 @@ v6.5.1 (May 24, 2025)
 v6.5.2 (May 25, 2025)
 -Added a delete route button.
 -Edited roulette system when pressing the "Edit" button on runs to accomodate more "transition" pictures in further updates.
+
+v6.5.3 (May 26, 2025)
+-Added a popup when loading is done if you want to check my logbook on making this "app."
