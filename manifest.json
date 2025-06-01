@@ -1,0 +1,14 @@
+{
+
+  "name": "My Runs!",
+
+  "short_name": "Runs!",
+
+  "start_url": "./index.html",
+
+  "display": "minimal-ui",
+
+  "orientation": "portrait",
+
+  "lang": "en-US"
+}
