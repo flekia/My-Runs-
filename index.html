@@ -1976,17 +1976,10 @@ console.log("Edit roulette is working.");
     });
 
     if('serviceWorker' in navigator) {
-       window.addEventListener('load', function () {
-      navigator.serviceWorker
-        .register('./sw.js')
-        .then(function (registration) {
-          console.log(registration.scope);
-        })
-                               .catch(function (error) {
-                                 console.error('PWA Failed', error)
-                               });
-       });
-    }
+       navigator.serviceWorker.register {
+      '/My-Runs-/sw.js',
+        {scope: '/My-Runs/'}
+       }
   </script>
 </body>
 </html>
