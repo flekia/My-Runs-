@@ -10,41 +10,38 @@ const urlsToCache = [
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(cache => {
-        return cache.addAll(urlsToCache);
-      }).catch(hehe => {
-        console.error('Failed caching', hehe);
-      })
+      .then(cache => 
+        cache.addAll(urlsToCache))
     );
 });
 self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then(cacheNames => {
-      // Remove all caches that aren't the current one
-      return Promise.all(
-        cacheNames
-          .filter(name => name !== CACHE_NAME)
-          .map(name => caches.delete(name))
-      );
-    }).then(() => self.clients.claim())
+    caches.keys().then(keys =>
+      Promise.all(
+        keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))
+      )
+    )
   );
-})
+  self.clients.claim();
+});
+
 
 self.addEventListener('fetch', event => {
   if (event.request.mode === 'navigate') {
-    // Handle navigation requests
     event.respondWith(
-      fetch(event.request).catch(() =>
-        caches.match('/index.html')
-      )
+      fetch(event.request)
+        .then(response => {
+           const copy = response.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
+          return response;
+        })
+        .catch(() => caches.match('/index.html'))
     );
   } else {
-    // Handle other requests
-    event.respondWith(
-      caches.match(event.request)
-        .then(response => { 
-          response || fetch(event.request);
-        }
+     event.respondWith(
+      caches.match(event.request).then(response =>
+        response || fetch(event.request)
+      )
     );
   }
 });
