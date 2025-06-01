@@ -1,8 +1,10 @@
 const CACHE_NAME = 'necessary-resources';
+const base = self.location.pathname.replace(/\/[^/]*$, '/');
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/manifest.json'
+  base,
+  base + 'index.html',
+  base + 'manifest.json',
+  base + 'sw.js'
 ];
 
 self.addEventListener('install', (event) => {
