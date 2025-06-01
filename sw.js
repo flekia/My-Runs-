@@ -1,5 +1,5 @@
 const CACHE_NAME = 'necessary-resources';
-const base = self.location.pathname.origin + '/My-Runs-/';
+const base = self.location.pathname.replace(/sw\.js/, '');
 const urlsToCache = [
   base,
   base + 'index.html',
@@ -34,6 +34,7 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request)
-      .then(response => response || fetch(event.request))
+            if (cachedResponse) return cachedResponse;
+      return fetch(event.request).catch(() => {}
   );
 });
