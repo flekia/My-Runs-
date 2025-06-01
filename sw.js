@@ -1,5 +1,5 @@
 const CACHE_NAME = 'necessary-resources';
-const base = self.location.pathname.replace('/\/[^/]*$, '/');
+const base = self.location.pathname.replace('/\/[^/]*$', '/');
 const urlsToCache = [
   base,
   base + 'index.html',
