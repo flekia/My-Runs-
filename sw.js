@@ -1,7 +1,7 @@
 const CACHE_NAME = 'site-cache-v1';
 const FILES_TO_CACHE = [
-  '/',
-  '/index.html' //inlined
+  './index.html', //inlined
+  './manifest.json' //manifest
 ];
 
 self.addEventListener('install', (event) => {
