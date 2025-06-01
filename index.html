@@ -1973,6 +1973,19 @@ console.log("Edit roulette is working.");
       }
     });
     });
+
+    if('serviceWorker in navigator) {
+       window.addEventListener('load', function {
+      navigator.serviceWorker
+        .register('/sw.js')
+        .then(function (registration) {
+          console.log(registration.scope);
+        })
+                               .catch(function (error) {
+                                 console.error('PWA Failed', error)
+                               });
+       });
+    }
   </script>
 </body>
 </html>
