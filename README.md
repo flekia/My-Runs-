@@ -74,6 +74,10 @@ v6.5 (May 17, 2025)
 -Added loading screens with nauseating background.
 -Added the option to search
 
+v7.0 (June 1, 2025)
+-It's now a website! No need for downloading repeated versions as it can be dynamically changed online and will automatically download.
+-Works offline with lots of commit changes due to different approaches in making saving data and the ability for it to go offline.
+
 ==FIXES/THEMES--
 v6.5.1 (May 24, 2025)
 -Fixes the edit and add routes. 
