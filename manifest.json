@@ -4,7 +4,13 @@
 
   "short_name": "Runs!",
 
-  "start_url": "./index.html",
+  "scope": "/My-Runs-/",
+  
+  "start_url": "/My-Runs-/",
+
+  "background_color": "#ffffff",
+
+  "theme_color": "#ffffff",
 
   "display": "minimal-ui",
 
