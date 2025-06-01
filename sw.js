@@ -42,7 +42,9 @@ self.addEventListener('fetch', event => {
     // Handle other requests
     event.respondWith(
       caches.match(event.request)
-        .then(response => response || fetch(event.request))
+        .then(response => { 
+          response || fetch(event.request))
+        }
     );
   }
 });
