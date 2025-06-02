@@ -3,6 +3,7 @@ const BASE = self.location.origin + '/My-Runs-/';
 const urlsToCache = [
   BASE,
   BASE + 'index.html',
+  BASE + 'offline.html',
   BASE + 'manifest.json',
   BASE + 'sw.js'
 ];
@@ -47,8 +48,11 @@ self.addEventListener('fetch', event => {
           return response;
            
         })
-        .catch(() => caches.match(BASE +'index.html'))
-    );
+        .catch(() => {
+          console.warn("I'm serving the offline.html version.");
+          caches.match(BASE +'offline.html');
+  })
+);
   } else {
      event.respondWith(
       caches.match(event.request)
