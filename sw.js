@@ -50,7 +50,7 @@ self.addEventListener('fetch', event => {
         })
         .catch(() => {
           console.warn("I'm serving the offline.html version.");
-          caches.match(BASE +'offline.html');
+          return caches.match(BASE +'offline.html');
   })
 );
   } else {
