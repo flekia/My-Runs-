@@ -1,4 +1,4 @@
-const CACHE_NAME = 'necessary-resources';
+const CACHE_NAME = 'necessary-resources-v1';
 const BASE = self.location.origin + '/My-Runs-/';
 const urlsToCache = [
   BASE,
@@ -20,6 +20,7 @@ self.addEventListener('install', (event) => {
       }
     })
   );
+  self.skipWaiting();
 });
 
 self.addEventListener('activate', event => {
@@ -41,7 +42,7 @@ self.addEventListener('fetch', event => {
         .then(response => {
            const copy = response.clone();
            event.waitUntil(
-          caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy))
+          caches.open(CACHE_NAME).then(cache => cache.put(event.request, responseClone))
            );
           return response;
            
