@@ -12,7 +12,7 @@ self.addEventListener('install', (event) => {
     caches.open(CACHE_NAME)
       .then(cache => 
         cache.addAll(urlsToCache)).catch(err => {
-          console.error('SW Failed :(', err)
+          console.error('SW Failed', err)
         })
     );
 });
