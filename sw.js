@@ -50,8 +50,14 @@ self.addEventListener('fetch', event => {
     );
   } else {
      event.respondWith(
-      caches.match(event.request).then(response =>
-        response || fetch(event.request)
+      caches.match(event.request).then(response => {
+        if (response) {
+          console.log('Serving from cache', event.request.url);
+          return response
+        }
+        console.log('Fetching from...', event.request.url);
+        return fetch(event.request);
+      }
       )
     );
   }
