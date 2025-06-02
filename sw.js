@@ -1,17 +1,19 @@
 const CACHE_NAME = 'necessary-resources';
-const base = self.location.pathname.replace(/sw\.js/, '');
+const BASE = self.location.pathname.replace(/sw\.js/, '');
 const urlsToCache = [
-  base,
-  base + 'index.html',
-  base + 'manifest.json',
-  base + 'sw.js'
+  BASE,
+  BASE + 'index.html',
+  BASE + 'manifest.json',
+  BASE + 'sw.js'
 ];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => 
-        cache.addAll(urlsToCache))
+        cache.addAll(urlsToCache)).catch(err => {
+          console.error('SW Failed :(', err)
+        })
     );
 });
 self.addEventListener('activate', event => {
