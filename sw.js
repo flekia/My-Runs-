@@ -1,3 +1,4 @@
+self.addEventListener('install', (event) => {
 const CACHE_NAME = 'necessary-resources-v1';
 const BASE = self.location.origin + '/My-Runs-/';
 const urlsToCache = [
@@ -8,7 +9,7 @@ const urlsToCache = [
   BASE + 'sw.js'
 ];
 
-self.addEventListener('install', (event) => {
+
   event.waitUntil(
     caches.open(CACHE_NAME).then(async (cache) => {
       for (const url of urlsToCache) {
@@ -25,6 +26,8 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('activate', event => {
+  const CACHE_NAME = 'necessary-resources-v1';
+
   event.waitUntil(
     caches.keys().then(keys =>
       Promise.all(
@@ -43,14 +46,14 @@ self.addEventListener('fetch', event => {
         .then(response => {
            const copy = response.clone();
            event.waitUntil(
-          caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy))
+          caches.open('necessary-resources-v1').then(cache => cache.put(event.request, copy))
            );
           return response;
            
         })
         .catch(() => {
           console.warn("I'm serving the offline.html version.");
-          return caches.match(BASE +'offline.html');
+          return caches.match(self.location.origin + '/My-Runs-/offline.html');
   })
 );
   } else {
