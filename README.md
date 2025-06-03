@@ -76,6 +76,7 @@ v6.5 (May 17, 2025)
 
 v7.0 (June 1, 2025)
 -It's now a website!
+-It's now offline available (pls dont check commiy history update messages)
 
 ==FIXES/THEMES--
 v6.5.1 (May 24, 2025)
