@@ -1798,13 +1798,21 @@ if (runs.length === 0) {
  const blob = new Blob([json], {type: "application/json"});
  const url = URL.createObjectURL(blob);
  const a = document.createElement("a");
+ var userInput = prompt("Do you want a name for this file?", "jogging");
+ if (userInput === null  || userInput.trim() === "") {
+  userInput = "runs.json";
+ } else {
+  userInput = userInput.trim() + ".json";
+ }
  a.href = url;
- a.download = "runs_data.json";
+ a.download = userInput;
  document.body.appendChild(a);
  a.click();
- document.body.removeChild(a);
  URL.revokeObjectURL(url);
- alert("Run Saved!");
+ document.body.removeChild(a);
+ alert(`Run saved as ${userInput}!`);
+ console.log(`Run exported successfully as ${userInput}.`); //file name in console
+ return;
 }
 
 
