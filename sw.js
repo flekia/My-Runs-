@@ -1,5 +1,7 @@
+const CACHE_VERSION = 'v2';
+const CACHE_NAME = `necessary-resources-${CACHE_VERSION}`; 
+
 self.addEventListener('install', (event) => {
-const CACHE_NAME = Date.now() + '-necessary-resources';
 const BASE = self.location.origin + '/My-Runs-/';
 const urlsToCache = [
   BASE,
@@ -26,7 +28,6 @@ const urlsToCache = [
 });
 
 self.addEventListener('activate', event => {
-  const CACHE_NAME = Date.now() + '-necessary-resources';
 
   event.waitUntil(
     caches.keys().then(keys =>
@@ -41,7 +42,6 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', event => {
   if (event.request.mode === 'navigate') {
-    const CACHE_NAME = Date.now() + '-necessary-resources';
     event.respondWith(
       fetch(event.request)
         .then(response => {
