@@ -1,5 +1,5 @@
 self.addEventListener('install', (event) => {
-const CACHE_NAME = 'necessary-resources-v1';
+const CACHE_NAME = Date.now() + '-necessary-resources-v1';
 const BASE = self.location.origin + '/My-Runs-/';
 const urlsToCache = [
   BASE,
