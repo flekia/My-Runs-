@@ -40,8 +40,8 @@ self.addEventListener('activate', event => {
 
 
 self.addEventListener('fetch', event => {
-  const CACHE_NAME = Date.now() + '-necessary-resources';
   if (event.request.mode === 'navigate') {
+    const CACHE_NAME = Date.now() + '-necessary-resources';
     event.respondWith(
       fetch(event.request)
         .then(response => {
