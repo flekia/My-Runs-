@@ -1336,7 +1336,7 @@ body.desktop .table td:last-child{
     <button id="export-button">Save</button>
     <input type="file" id="export-file" onchange="exportRuns" style="display: none;">
     <h2>Want to load your file?</h2>
-    <input type="file" id="import-button" onchange="importRuns(event)">
+    <input type="file" id="import-button">
   </div>
   <div id="themes" class="tab-content">
     <h2>Current themes are:</h2>
@@ -1798,10 +1798,15 @@ if (runs.length === 0) {
  const url = URL.createObjectURL(blob);
  const a = document.createElement("a");
  var userInput = prompt("Do you want a name for this file?", "jogging");
- if (userInput === null  || userInput.trim() === "") {
+ if (userInput === null) {
+  alert("Cancelled save.");
+  console.log("Did not save run.");
+ }
+ userInput = userInput.trim();
+ if (userInput === "") {
   userInput = "runs.json";
  } else {
-  userInput = userInput.trim() + ".json";
+  userInput += ".json";
  }
  a.href = url;
  a.download = userInput;
