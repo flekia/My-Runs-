@@ -1,4 +1,4 @@
-"My Runs!" is an "app" made in HTML, CSS, and JS that's composed of a leaderboard documenting my jogging time or bike runs, and having it ranked and serving as a time-attack like in Burnout. It has 4 sections in v1.0, and these are currently:Add commentMore actions
+"My Runs!" is an "app" made in HTML, CSS, and JS that's composed of a leaderboard documenting my jogging time or bike runs, and having it ranked and serving as a time-attack like in Burnout. It has 4 sections in v1.0, and these are currently:
 Home
 Morning
 Night
@@ -76,7 +76,7 @@ v6.5 (May 17, 2025)
 
 v7.0 (June 1, 2025)
 -It's now a website!
--It's now offline available (pls dont check commiy history update messages)
+-It's now offline available (pls dont check commit history update messages)
 
 ==FIXES/THEMES--
 v6.5.1 (May 24, 2025)
@@ -88,3 +88,7 @@ v6.5.2 (May 25, 2025)
 
 v6.5.3 (May 26, 2025)
 -Added a popup when loading is done if you want to check my logbook on making this "app."
+
+v.7.0.1 (June 5, 2025)
+-Removed double alert when loading file
+-Added a prompt on renaming file instead of having the default "runs_data.json" all the time.
