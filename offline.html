@@ -67,6 +67,8 @@
   } else {
     console.error("Can't handle more...");
   }
+  scrollable();
+  adjustNavLayout();
   updateAll();
 }
   
@@ -77,8 +79,6 @@
   });
   window.themeChange = themeChange;
   console.log("themes.js loaded.");
-  </script>
-  <script>
     function isMobile() {
       return /Android|webOS|iPhone|iPad|Opera Mini/i.test(navigator.userAgent);
     }
@@ -100,7 +100,18 @@
         topnav.style = "";
       }
     }
-    document.addEventListener("DOMContentLoaded", adjustNavLayout);
+    //if scrollable
+    function scrollable() {
+      const scroll = document.body.scrollHeight > window.innerHeight;
+      document.body.style.backgroundAttachment = scroll ? "scroll" : "fixed";
+      document.body.style.backgroundRepeat = "no-repeat"; 
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      adjustNavLayout();
+      scrollable();
+    });
+    window.addEventListener("load", scrollable);
+    window.addEventListener("scroll", scrollable)
     window.addEventListener("resize", adjustNavLayout);
     window.addEventListener("orientationchange", adjustNavLayout);
   </script>
