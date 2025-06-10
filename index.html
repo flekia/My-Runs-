@@ -1243,6 +1243,9 @@ body.desktop .tab-content{
   justify-content: space-between;
   margin-bottom: 10px;
 }
+body > *:not(#loading-screen) {
+  display: none;
+}
   </style>
 </head>
 <body class="dark-mode nav-collapsed" onload="isIt()" style="margin: 0;">
@@ -1944,6 +1947,9 @@ window.importRuns = importRuns;
     function isLoading() {
       document.getElementById("loading-screen").style.display = "none";
       document.getElementById("loader").style.display = "block";
+      document.querySelectorAll("body > *not(#loading-screen)").forEach(seamen => {
+        seamen.style.display = "block";
+      });
         }
 console.log("Loading loaded.");
 console.log("Edit roulette is working.");
