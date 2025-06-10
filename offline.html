@@ -126,6 +126,15 @@
     padding-top: 50px;
     overflow-x: hidden;
   }
+  .table {
+    min-width: 350px;
+    width: auto;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .table-responsive {
+    justify-content: flex-start;
+  }
 }
 body {
   margin: 0;
@@ -286,7 +295,13 @@ body.nav-collapsed .tab-content {
   margin-right: auto;
   box-sizing: border-box;
 }
-
+.table-responsive{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
 th, td {
   border: 1px solid white;
   padding: 5px;
@@ -1592,7 +1607,7 @@ function generateTable(data) {
         </tr>`;
   });
   table += "</tbody></table>";
-  return table;
+  return `<div class="table-responsive">${table}</div>`;
 }
 //delete option
 function deleteRun(id, hehe = true) {
