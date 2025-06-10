@@ -5,7 +5,6 @@
   <meta charset="UTF-8"/>
   <title>My Runs!</title>
   <link rel="icon" href="https://cdn.cdnstep.com/7UsQ6JTnJUwP7g5Nj81r/cover-1.thumb256.png" type="image/png">
- <link rel="manifest" href="manifest.json"> 
   <script>
     //themes
     function themeChange(theme) {
@@ -67,20 +66,10 @@
   } else {
     console.error("Can't handle more...");
   }
-  scrollable();
-  adjustNavLayout();
   updateAll();
 }
-  
-  document.addEventListener("DOMContentLoaded", function() {
-    const savedTheme = localStorage.getItem("preferredTheme") || "default";
-    themeChange(savedTheme);
-    closeNav();
-  });
-  window.themeChange = themeChange;
-  console.log("themes.js loaded.");
     function isMobile() {
-      return /Android|webOS|iPhone|iPad|Opera Mini/i.test(navigator.userAgent);
+      return window.innerWidth <= 768;
     }
     function adjustNavLayout() {
       const topnav = document.getElementById("tabside");
@@ -90,30 +79,29 @@
         topnav.classList.add("desktop");
         topnav.style.width = "100%";
         topnav.style.height = "auto";
-        topnav.style.position = "flex";
+        topnav.style.position = "static";
         topnav.style.flexDirection = "row";
         document.querySelectorAll('.tab-content').forEach(tab => tab.style.marginLeft = "0");
       } else {
         document.body.classList.add("mobile");
         document.body.classList.remove("desktop");
         topnav.classList.remove("desktop");
-        topnav.style = "";
+        topnav.style.width = "";
+        topnav.style.height = "";
+        topnav.style.position = "";
+        topnav.style.flexDirection = "";
+        document.querySelectorAll('.tab-content').forEach(tab => tab.style.marginLeft = "");
       }
     }
-    //if scrollable
-    function scrollable() {
-      const scroll = document.body.scrollHeight > window.innerHeight;
-      document.body.style.backgroundAttachment = scroll ? "scroll" : "fixed";
-      document.body.style.backgroundRepeat = "no-repeat"; 
-    }
-    document.addEventListener("DOMContentLoaded", () => {
-      adjustNavLayout();
-      scrollable();
-    });
-    window.addEventListener("load", scrollable);
-    window.addEventListener("scroll", scrollable)
     window.addEventListener("resize", adjustNavLayout);
-    window.addEventListener("orientationchange", adjustNavLayout);
+    window.themeChange = themeChange;
+    document.addEventListener("DOMContentLoaded", function() {
+    const savedTheme = localStorage.getItem("preferredTheme") || "default";
+    themeChange(savedTheme);
+    adjustNavLayout();
+    closeNav();
+  });
+    console.log("themes.js loaded.");
   </script>
   <style>
     
@@ -121,6 +109,24 @@
       .topnav {padding-top: 15px;}
       .topnav a {font-size: 18px;}
     }
+    @media (max-width: 768px) {
+  .topnav {
+    width: 0;
+    overflow: hidden;
+    transition: width 0.3s;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    z-index: 10;
+    padding-top: 0;
+  }
+  .topnav.mobile {
+    width: 100px;
+    padding-top: 50px;
+    overflow-x: hidden;
+  }
+}
 body {
   margin: 0;
   font-family: 'Comic Sans MS', Arial, sans-serif;
@@ -146,7 +152,15 @@ body.nav-collapsed .topnav {
 body.nav-collapsed .tab-content {
   margin-left: 0;
 }
-.default .topnav {
+
+.tab-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.default .topnav.mobile {
   overflow: hidden;
   background: linear-gradient(180deg, orange, red, darkred);
   width: 100px;
@@ -365,7 +379,7 @@ form button:hover {
   color: white;
   background-attachment: fixed;
 }
- .leaf .topnav {
+ .leaf .topnav.mobile {
   overflow: hidden;
   background: linear-gradient(lime, green, darkgreen);
   width: 100px;
@@ -510,7 +524,7 @@ form button:hover {
   background: black;
   color: white;
   }
-  .vanta .topnav {
+  .vanta .topnav.mobile {
   overflow: hidden;
   background: black;
   width: 100px;
@@ -655,7 +669,7 @@ form button:hover {
   background: white;
   color: black;
 }
-  .white  .topnav {
+  .white  .topnav.mobile {
   overflow: hidden;
   background: white;
   width: 100px;
@@ -821,7 +835,7 @@ form button:hover {
   background: rgba(59, 0, 84, 0.907);
   color: white;
 }
-.purple .topnav {
+.purple .topnav.mobile {
   overflow: hidden;
   background: linear-gradient( purple, darkslateblue, black);
   width: 100px;
@@ -963,150 +977,8 @@ form button:hover {
 
 .purple .awards.top3{
   background-image: url(https://media.tenor.com/7qFsWfcOb5UAAAAm/yae-miko.webp);
-  }
-.default .topnav.desktop {
-  position: static !important;
-  width: 100vw !important;
-  padding-top: 0 !important;
-  border-bottom: 2px solid black;
-  align-items: center;
-  border-right: none;
-  z-index: 10;
-  display: flex;
-  background: linear-gradient(45deg, red, orange, yellow);
-}
-.default.desktop {
-  position: static !important;
-  width: 100vw !important;
-  padding-top: 0 !important;
-  align-items: center;
-  border-right: none;
-  z-index: 10;
-  display: flex;
-  background: linear-gradient(180deg, orange, red, darkred, black);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-.leaf .topnav.desktop {
-  position: static !important;
-  width: 100vw !important;
-  padding-top: 0 !important;
-  border-bottom: 2px solid black;
-  align-items: center;
-  border-right: none;
-  z-index: 10;
-  display: flex;
-  background: linear-gradient(45deg, green, lime, darkgreen);
-  background-attachment: fixed;
-}
-.leaf.desktop {
-  position: static !important;
-  width: 100vw !important;
-  padding-top: 0 !important;
-  align-items: center;
-  border-right: none;
-  z-index: 10;
-  display: flex;
-  background: linear-gradient(180deg, lime, green, darkgreen, black);
-  background-attachment: fixed;
-}
-.vanta .topnav.desktop {
-  position: static !important;
-  width: 100vw !important;
-  padding-top: 0 !important;
-  border-bottom: 2px solid white;
-  align-items: center;
-  border-right: none;
-  z-index: 10;
-  display: flex;
-  background: black;
-  color: black;
-}
-.white .topnav.desktop {
-  position: static !important;
-  width: 100vw !important;
-  padding-top: 0 !important;
-  border-bottom: 2px solid black;
-  align-items: center;
-  border-right: none;
-  z-index: 10;
-  display: flex;
-  background: lightgray;
-  color: black;
-}
-.purple .topnav.desktop {
-  position: static !important;
-  width: 100vw !important;
-  padding-top: 0 !important;
-  border-bottom: 2px solid black;
-  align-items: center;
-  border-right: none;
-  z-index: 10;
-  display: flex;
-  background: linear-gradient(45deg, purple, darkslateblue, black);
 }
 
-.purple.desktop {
-  position: static !important;
-  width: 100vw !important;
-  padding-top: 0 !important;
-  align-items: center;
-  border-right: none;
-  z-index: 10;
-  display: flex;
-  background: linear-gradient(180deg, purple, darkslateblue, black);
-  background-attachment: fixed;
-}
-
-.topnav.desktop a {
-  font-size: 14px !important;
-  padding: 8px 16px !important;
-  gap: 8px !important;
-}
-.topnav.desktop a.active{
-  font-size: 0px !important;
-}
-.topnav.desktop .closebtn,
-.topnav.desktop #morebtn {
-  display: none !important;
-}
-
-.desktop .table, .topnav.desktop ~ .tab-content .table{
-  width: 100% !important;
-  max-width: 100vw;
-  table-layout: auto;
-}
-
-body.desktop .tab-content{
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-body.desktop.table{
-  width: 100vw;
-  max-width: 100vw;
-}
-
-body.desktop .tab-content,
-body.desktop #leaderboard-table,
-body.desktop #going-runs,
-body.desktop #home-runs {
-  width: 95% !important;
-  max-width: 100vw !important;
-  margin: auto !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  box-sizing: border-box;
-}
-
-.desktop .searching{
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left;
-  vertical-align: middle;
-  justify-content: space-between;
-}
 
 .titles{
   text-align: center;
@@ -1247,7 +1119,138 @@ body.desktop #home-runs {
   text-align: center;
 }
 
+.default .topnav.desktop {
+  position: static !important;
+  width: 100vw !important;
+  padding-top: 0 !important;
+  border-bottom: 2px solid black;
+  align-items: center;
+  border-right: none;
+  z-index: 10;
+  display: flex;
+  background: linear-gradient(45deg, red, orange, yellow);
+}
+.default.desktop {
+  position: static !important;
+  width: 100vw !important;
+  padding-top: 0 !important;
+  align-items: center;
+  border-right: none;
+  z-index: 10;
+  display: flex;
+  background: linear-gradient(180deg, orange, red, darkred, black);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.leaf .topnav.desktop {
+  position: static !important;
+  width: 100vw !important;
+  padding-top: 0 !important;
+  border-bottom: 2px solid black;
+  align-items: center;
+  border-right: none;
+  z-index: 10;
+  display: flex;
+  background: linear-gradient(45deg, green, lime, darkgreen);
+  background-attachment: fixed;
+}
+.leaf.desktop {
+  position: static !important;
+  width: 100vw !important;
+  padding-top: 0 !important;
+  align-items: center;
+  border-right: none;
+  z-index: 10;
+  display: flex;
+  background: linear-gradient(180deg, lime, green, darkgreen, black);
+  background-attachment: fixed;
+}
+.vanta .topnav.desktop {
+  position: static !important;
+  width: 100vw !important;
+  padding-top: 0 !important;
+  border-bottom: 2px solid white;
+  align-items: center;
+  border-right: none;
+  z-index: 10;
+  display: flex;
+  background: black;
+  color: black;
+}
+.white .topnav.desktop {
+  position: static !important;
+  width: 100vw !important;
+  padding-top: 0 !important;
+  border-bottom: 2px solid black;
+  align-items: center;
+  border-right: none;
+  z-index: 10;
+  display: flex;
+  background: lightgray;
+  color: black;
+}
+.purple .topnav.desktop {
+  position: static !important;
+  width: 100vw !important;
+  padding-top: 0 !important;
+  border-bottom: 2px solid black;
+  align-items: center;
+  border-right: none;
+  z-index: 10;
+  display: flex;
+  background: linear-gradient(45deg, purple, darkslateblue, black);
+}
 
+.purple.desktop {
+  position: static !important;
+  width: 100vw !important;
+  padding-top: 0 !important;
+  align-items: center;
+  border-right: none;
+  z-index: 10;
+  display: flex;
+  background: linear-gradient(180deg, purple, darkslateblue, black);
+  background-attachment: fixed;
+}
+
+.topnav.desktop a {
+  font-size: 14px !important;
+  padding: 8px 16px !important;
+  gap: 8px !important;
+}
+.topnav.desktop a.active{
+  font-size: 0px !important;
+}
+.topnav.desktop .closebtn,
+.topnav.desktop #morebtn {
+  display: none !important;
+}
+
+.desktop .table, .topnav.desktop ~ .tab-content .table{
+  width: 100% !important;
+  max-width: 100vw;
+  table-layout: auto;
+}
+
+body.desktop .tab-content{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+body.desktop.table{
+  width: 100vw;
+  max-width: 100vw;
+}
+
+.searching, .deleting{
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  vertical-align: middle;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
   </style>
 </head>
 <body class="dark-mode nav-collapsed" onload="isIt()" style="margin: 0;">
@@ -1258,8 +1261,9 @@ body.desktop #home-runs {
       <button class="closeing" id="closePop">&times;</button>
       <div class="popUpContent">
         <h2>Hey!</h2>
-        <p>If you want to see my update logs, check here!
-            (If you can read this, then you're offline.)
+        <p>If you want to see my update logs, check here!</p>
+        <p>If you can read this, then you're offline.
+          <img src="https://media.tenor.com/OBkRaT_acycAAAAi/genshin-impact-emote.gif" style="width: 10px;">
         </p>
         <a target="_blank"
          href="https://docs.google.com/document/d/1N2OYKNmBhTMqolOBUDwR4YxRvkl80arNILWPor_lCiI/edit?usp=sharing">Google Documents</a><br>
@@ -1271,40 +1275,52 @@ body.desktop #home-runs {
   <div class="topnav" id="tabside">
     <a href="#" class="closebtn" onclick="event.preventDefault(); closeNav()">&#10006;</a>
     <a class="active" href="#home">Home
-      <img class="gifs" id="gifs1" placeholder="Greeting">
+      <img class="gifs" id="gifs1">
     </a>
     <a href="#goes">Going out
-      <img class="gifs" id="gifs2" placeholder="Going out">
+      <img class="gifs" id="gifs2">
     </a>
     <a href="#homeother">Going home
-      <img class="gifs" id="gifs3" placeholder="Going Home">
+      <img class="gifs" id="gifs3"
+      >
     </a>
     <a href="#publish">Publish
-      <img class="gifs" id="gifs4" placeholder="Thinking">
+      <img class="gifs" id="gifs4">
     </a>
     <a href="#importexport">Save/Load
-      <img class="gifs" id="gifs5" placeholder="Floppy Disk">
+      <img class="gifs" id="gifs5">
     </a>
     <a href="#themes">Themes
-      <img class="gifs" id="gifs6" placeholder="Changes skin color">
+      <img class="gifs" id="gifs6">
     </a>
     <span 
     id="morebtn"
-    style="font-size: 12px;cursor: pointer; position: fixed; top: 10px;left: 10px; z-index: 2;background: none;display: block; transition: opacity 0.3s;" onclick="openNav()">&#9776; More...</span>
+    style="font-size: 12px;
+    cursor: pointer; 
+    position: fixed; 
+    top: 10px;
+    left: 10px; 
+    z-index: 2;
+    background: none;
+    display: block; 
+    transition: opacity 0.3s;" onclick="openNav()">&#9776; More...</span>
   </div>
   <div id="home" class="tab-content active">
     <h2 class="titles">Top Runs of All Time</h2>
     <input type="search" id="search-home" class="searching" placeholder="&#128269;Search specific route...">
+    <button type="button" onclick="deletion()" class="deleting" id="dlete">Delete All?</button>
     <div id="leaderboard-table"></div>
   </div>
   <div id="goes" class="tab-content">
     <h2 class="titles">Going out</h2>
     <input type="search" id="search-goes" class="searching" placeholder="&#128269;Search specific route...">
+    <button type="button" onclick="deletion()" class="deleting" id="dlete">Delete All?</button>
     <div id="going-runs"></div>
   </div>
   <div id="homeother" class="tab-content">
     <h2 class="titles">Going home</h2>
     <input type="search" id="search-ho" class="searching" placeholder="&#128269;Search specific route...">
+    <button type="button" onclick="deletion()" class="deleting" id="dlete">Delete All?</button>
     <div id="home-runs"></div>
   </div>
   <div id="publish" class="tab-content">
@@ -1320,11 +1336,11 @@ body.desktop #home-runs {
       <label for="run-location">Where?</label>
       <select id="run-location">
       <option value="" disabled selected>Location</option>
-      <option value="Harmony">Harmony</option>
-      <option value="Shorterville">Shorterville</option>
-      <option value="Midville">Midville</option>
-      <option value="Longerville">Longerville</option>
-      <option value="Hospital">Hospital</option>
+      <option value="Harmony">Harmony (1.7km)</option>
+      <option value="Shorterville">Shorterville (1.9km - 2km)</option>
+      <option value="Midville">Midville (2km - 2.2km)</option>
+      <option value="Longerville">Longerville (2.2km)</option>
+      <option value="Hospital">Hospital (4.7km)</option>
       </select>
       
       <label for="run-date">When?</label>
@@ -1599,6 +1615,20 @@ function deleteRun(id, hehe = true) {
 } return;
 }
 
+//if user wants to delete all of the runs
+
+function deletion() {
+  if(confirm("Do you want to delete all of your runs?")) {
+    localStorage.removeItem("runs");
+    updateAll();
+    alert("You have deleted all of your runs.");
+    console.log("User deleted all of their runs.");
+  } else{
+    alert("You didn't delete your runs.");
+    console.log("User didn't delete their runs.")
+  }
+}
+
 // edit option
 
 function editRun(id) {
@@ -1707,11 +1737,11 @@ function deleteOption() {
 
 function myLoad() {
   const storeThem = JSON.parse(localStorage.getItem("routes")) || [
-    "Harmony",
-    "Shorterville",
-    "Midville",
-    "Longerville",
-    "Hospital"
+    "Harmony (1.7km)",
+    "Shorterville (1.9km - 2km)",
+    "Midville (2km - 2.2km)",
+    "Longerville (2.2km)",
+    "Hospital (4.7km)"
   ];
 
   const options = document.getElementById("run-location");
@@ -1834,7 +1864,7 @@ if (runs.length === 0) {
 
 //load
 function importRuns(event) {
-    const file = event.target.files[0];
+  const file = event.target.files[0];
     const read = new FileReader();
     read.onload = function(event) {
         try{
@@ -1863,12 +1893,16 @@ window.importRuns = importRuns;
   <script>
     //side navbar
     function openNav() {
-      document.getElementById("tabside").style.width = "100px";
+      const top = document.getElementById("tabside");
+      top.classList.add("mobile", "active");
+      top.style.width = "100px";
       document.getElementById("morebtn").style.display = "none";
       document.body.classList.remove("nav-collapsed");
     }
     function closeNav() {
-      document.getElementById("tabside").style.width = "0";
+      const top = document.getElementById("tabside");
+      top.classList.remove("mobile");
+      top.style.width = "0";
       document.getElementById("morebtn").style.display = "block";
       document.body.classList.add("nav-collapsed");
 
@@ -1876,7 +1910,7 @@ window.importRuns = importRuns;
       const activeTab = document.querySelector('.topnav a.active');
       if (activeTab){
         const tabId = activeTab.getAttribute('href').substring(1);
-        const content = document.getElementById('tabId');
+        const content = document.getElementById(tabId);
         if (content) {
           content.classList.add('active');
         }
@@ -1885,12 +1919,14 @@ window.importRuns = importRuns;
     console.log("navbar.js loaded.");
   </script>
   <script>
+    let loading = null;
     //loading screen
     var screen;
 
     function loadingRoulette() {
 
       const load = document.getElementById("loading-screen");
+      load.style.display = "block";
       const gifsOnLoad = [
       "https://c.tenor.com/mE8nn_h06gEAAAAd/tenor.gif", //topaz
       "https://media1.tenor.com/m/mL10Z_GmC2MAAAAC/zzz-zenless.gif", //nagi
@@ -1975,8 +2011,8 @@ console.log("Edit roulette is working.");
   <script>
     document.addEventListener("DOMContentLoaded", function() {
 
-    generateTable(data);
-    });
+    generateTable(data); 
+  });
   </script>
   <script>
     //popup
@@ -2001,6 +2037,7 @@ console.log("Edit roulette is working.");
     });
     });
 
+    navigator.serviceWorker.register('/My-Runs-/sw.js', {scope: '/My-Runs-/'});
   </script>
 </body>
 </html>
