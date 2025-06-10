@@ -283,6 +283,7 @@ body.nav-collapsed .tab-content {
   table-layout: auto;
   margin-right: auto;
 }
+
 th, td {
   border: 1px solid white;
   padding: 5px;
@@ -1233,7 +1234,6 @@ body.desktop .tab-content{
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
-
 .searching, .deleting{
   display: flex;
   margin-left: auto;
@@ -1243,8 +1243,8 @@ body.desktop .tab-content{
   justify-content: space-between;
   margin-bottom: 10px;
 }
-body > *:not(#loading-screen) {
-  display: none;
+body.content-ready > *:not(#loading-screen) {
+  display: block !important;
 }
   </style>
 </head>
@@ -1366,7 +1366,7 @@ body > *:not(#loading-screen) {
     <button style="background: white;color: black; border: gainsboro 2px solid;" onclick="themeChange('white')">Pure White</button>
     <button style="background: linear-gradient(purple, darkorchid, black);color: white; border: blueviolet 2px solid;" onclick="themeChange('purple')">Jade Theme</button>
   </div>
-</div>
+
   <script>
     let editId = null; // Define editId globally
     document.addEventListener("DOMContentLoaded", function() {
@@ -1777,8 +1777,7 @@ try {
     console.log("leaderboard.js loaded.");
 
     document.addEventListener("DOMContentLoaded", myLoad);
-  </script>
-  <script>
+  
     //tabs
     document.addEventListener("DOMContentLoaded", function() {
   const hyperlink = document.querySelectorAll(".topnav a");
@@ -1816,8 +1815,7 @@ try {
   });
 });
     console.log("tabs.js loaded.");
-  </script>
-  <script>
+  
     document.addEventListener("DOMContentLoaded", () => {
  updateAll();
 //save
@@ -1881,8 +1879,7 @@ window.exportRuns = exportRuns;
 window.importRuns = importRuns;
 });
     console.log("import/export.js loaded.");
-  </script>
-  <script>
+  
     //side navbar
     function openNav() {
       const top = document.getElementById("tabside");
@@ -1909,8 +1906,7 @@ window.importRuns = importRuns;
       }
     }
     console.log("navbar.js loaded.");
-  </script>
-  <script>
+  
     let loading = null;
     //loading screen
     var screen;
@@ -1947,14 +1943,11 @@ window.importRuns = importRuns;
     function isLoading() {
       document.getElementById("loading-screen").style.display = "none";
       document.getElementById("loader").style.display = "block";
-      document.querySelectorAll("body > *:not(#loading-screen)").forEach(seamen => {
-        seamen.style.display = "block";
-      });
+      document.body.classList.add("content-ready");
         }
 console.log("Loading loaded.");
 console.log("Edit roulette is working.");
-  </script>
-  <script>
+  
     //filter/search bar
 
     //home tab
@@ -2002,14 +1995,12 @@ console.log("Edit roulette is working.");
       });
     });
     
-  </script>
-  <script>
+  
     document.addEventListener("DOMContentLoaded", function() {
 
     generateTable(data); 
   });
-  </script>
-  <script>
+ 
     //popup
     document.addEventListener("DOMContentLoaded", function() {
       const popUpOverlay = document.getElementById("popupOverlay");
