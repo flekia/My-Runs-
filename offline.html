@@ -86,10 +86,10 @@
         document.body.classList.add("mobile");
         document.body.classList.remove("desktop");
         topnav.classList.remove("desktop");
-        topnav.style.width = "";
-        topnav.style.height = "";
-        topnav.style.position = "";
-        topnav.style.flexDirection = "";
+        topnav.style.width = "0";
+        topnav.style.height = "100%";
+        topnav.style.position = "fixed";
+        topnav.style.flexDirection = "column";
         document.querySelectorAll('.tab-content').forEach(tab => tab.style.marginLeft = "");
       }
     }
@@ -118,13 +118,59 @@
     left: 0;
     top: 0;
     height: 100%;
-    z-index: 10;
+    z-index: 9999;
     padding-top: 0;
+    background: inherit;
   }
-  .topnav.mobile {
+  .topnav.active.mobile {
     width: 100px;
-    padding-top: 50px;
-    overflow-x: hidden;
+    overflow: hidden;
+    transition: width 0.3s;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    z-index: 9999;
+    padding-top: 0;
+    flex-direction: column;
+  }
+  .topnav.closed{
+    width: 0 !important;
+  }
+  .topnav, .topnav.active.mobile, .topnav.closed{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    z-index: 9999;
+    overflow: hidden;
+    transition: width 0.3s;
+    display: block;
+  }
+  .default .topnav.mobile,
+  .default .topnav,
+  .default .topnav.closed {
+    background: linear-gradient(180deg, orange, red, darkred);
+  }
+  .leaf .topnav.mobile,
+  .leaf .topnav,
+  .leaf .topnav.closed {
+    background: linear-gradient(lime, green, darkgreen);
+  }
+  .vanta .topnav.mobile,
+  .vanta .topnav,
+  .vanta .topnav.closed {
+    background: black;
+  }
+  .white .topnav.mobile,
+  .white .topnav,
+  .white .topnav.closed {
+    background: white;
+  }
+  .purple .topnav.mobile,
+  .purple .topnav,
+  .purple .topnav.closed {
+    background: linear-gradient(purple, darkslateblue, black);
   }
 }
 body {
@@ -165,7 +211,7 @@ body.nav-collapsed .tab-content {
   background: linear-gradient(180deg, orange, red, darkred);
   width: 100px;
   height: 100%;
-  z-index: 1;
+  z-index: 1000;
   top: 0;
   left: 0;
   overflow-x: hidden;
@@ -354,7 +400,7 @@ form select {
   margin-bottom: 12px;
   padding: 8px;
   font-size: 14px;
-  width: 100%;
+  width: 50%;
   font-size: 12px;
 }
 
@@ -364,6 +410,7 @@ form button {
   border: none;
   color: white;
   cursor: pointer;
+  width: 50%;
 }
 
 form button:hover {
@@ -381,7 +428,7 @@ form button:hover {
   background: linear-gradient(lime, green, darkgreen);
   width: 100px;
   height: 100%;
-  z-index: 1;
+  z-index: 9999;
   top: 0;
   left: 0;
   overflow-x: hidden;
@@ -526,7 +573,7 @@ form button:hover {
   background: black;
   width: 100px;
   height: 100%;
-  z-index: 1;
+  z-index: 9999;
   top: 0;
   left: 0;
   overflow-x: hidden;
@@ -671,7 +718,7 @@ form button:hover {
   background: white;
   width: 100px;
   height: 100%;
-  z-index: 1;
+  z-index: 9999;
   top: 0;
   left: 0;
   overflow-x: hidden;
@@ -837,7 +884,7 @@ form button:hover {
   background: linear-gradient( purple, darkslateblue, black);
   width: 100px;
   height: 100%;
-  z-index: 1;
+  z-index: 9999;
   top: 0;
   left: 0;
   overflow-x: hidden;
@@ -1246,6 +1293,9 @@ body.desktop .tab-content{
 body.content-ready > *:not(#loading-screen) {
   display: block !important;
 }
+script, style {
+  display: none;
+}
   </style>
 </head>
 <body class="dark-mode nav-collapsed" onload="isIt()" style="margin: 0;">
@@ -1257,6 +1307,9 @@ body.content-ready > *:not(#loading-screen) {
       <div class="popUpContent">
         <h2>Hey!</h2>
         <p>If you want to see my update logs, check here!</p>
+        <p>If you can read this, then you're offline.
+          <img src="https://media.tenor.com/OBkRaT_acycAAAAj/genshin-impact-emote.gif" style="width: 10px;">
+        </p>
         <a target="_blank"
          href="https://docs.google.com/document/d/1N2OYKNmBhTMqolOBUDwR4YxRvkl80arNILWPor_lCiI/edit?usp=sharing">Google Documents</a><br>
         <a target="_blank"
@@ -1328,11 +1381,11 @@ body.content-ready > *:not(#loading-screen) {
       <label for="run-location">Where?</label>
       <select id="run-location">
       <option value="" disabled selected>Location</option>
-      <option value="Harmony">Harmony (1.7km)</option>
-      <option value="Shorterville">Shorterville (1.9km - 2km)</option>
-      <option value="Midville">Midville (2km - 2.2km)</option>
-      <option value="Longerville">Longerville (2.2km)</option>
-      <option value="Hospital">Hospital (4.7km)</option>
+      <option value="Harmony">Harmony</option>
+      <option value="Shorterville">Shorterville</option>
+      <option value="Midville">Midville</option>
+      <option value="Longerville">Longerville</option>
+      <option value="Hospital">Hospital</option>
       </select>
       
       <label for="run-date">When?</label>
@@ -1366,7 +1419,8 @@ body.content-ready > *:not(#loading-screen) {
     <button style="background: white;color: black; border: gainsboro 2px solid;" onclick="themeChange('white')">Pure White</button>
     <button style="background: linear-gradient(purple, darkorchid, black);color: white; border: blueviolet 2px solid;" onclick="themeChange('purple')">Jade Theme</button>
   </div>
-
+</div>
+<div>
   <script>
     let editId = null; // Define editId globally
     document.addEventListener("DOMContentLoaded", function() {
@@ -1729,11 +1783,11 @@ function deleteOption() {
 
 function myLoad() {
   const storeThem = JSON.parse(localStorage.getItem("routes")) || [
-    "Harmony (1.7km)",
-    "Shorterville (1.9km - 2km)",
-    "Midville (2km - 2.2km)",
-    "Longerville (2.2km)",
-    "Hospital (4.7km)"
+    "Harmony",
+    "Shorterville",
+    "Midville",
+    "Longerville",
+    "Hospital"
   ];
 
   const options = document.getElementById("run-location");
@@ -1884,6 +1938,7 @@ window.importRuns = importRuns;
     function openNav() {
       const top = document.getElementById("tabside");
       top.classList.add("mobile", "active");
+      top.classList.remove("closed");
       top.style.width = "100px";
       document.getElementById("morebtn").style.display = "none";
       document.body.classList.remove("nav-collapsed");
@@ -1891,10 +1946,10 @@ window.importRuns = importRuns;
     function closeNav() {
       const top = document.getElementById("tabside");
       top.classList.remove("mobile");
+      top.classList.add("closed");
       top.style.width = "0";
       document.getElementById("morebtn").style.display = "block";
       document.body.classList.add("nav-collapsed");
-
 
       const activeTab = document.querySelector('.topnav a.active');
       if (activeTab){
@@ -1904,6 +1959,7 @@ window.importRuns = importRuns;
           content.classList.add('active');
         }
       }
+      
     }
     console.log("navbar.js loaded.");
   
