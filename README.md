@@ -89,6 +89,10 @@ v6.5.2 (May 25, 2025)
 v6.5.3 (May 26, 2025)
 -Added a popup when loading is done if you want to check my logbook on making this "app."
 
-v.7.0.1 (June 5, 2025)
+v7.0.1 (June 5, 2025)
 -Removed double alert when loading file
--Added a prompt on renaming file instead of having the default "runs_data.json" all the time.
+-Added a prompt on renaming the file instead of having the default "runs_data.json" all the time.
+
+v7.0.1 (June 10, 2025)
+-Fixed table shenanigans
+-Instead of user.Agent, My Runs! will respond to the width of the browser, making it more responsive than the user.Agent (in desktop I hope).
