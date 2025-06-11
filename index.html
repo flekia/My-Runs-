@@ -92,7 +92,8 @@
         topnav.style.position = "fixed";
         topnav.style.flexDirection = "column";
         document.querySelectorAll('.tab-content').forEach(tab => tab.style.marginLeft = "");
-        if (morebtn) morebtn.style.display = "block";
+       if (morebtn) morebtn.style.display = "block";
+
       }
     }
     window.addEventListener("resize", adjustNavLayout);
@@ -135,9 +136,11 @@
     z-index: 9999;
     padding-top: 0;
     flex-direction: column;
+    display: block;
   }
   .topnav.closed{
     width: 0 !important;
+    display: block;
   }
   .topnav, .topnav.active.mobile, .topnav.closed{
     position: fixed;
@@ -1056,6 +1059,7 @@ form button:hover {
   text-align: center;
   animation: loadingBackground 4s infinite;
   pointer-events: none;
+  visibility: visible;
 }
 
 #loading-screen img {
@@ -1292,15 +1296,13 @@ body.desktop .tab-content{
   justify-content: space-between;
   margin-bottom: 10px;
 }
-body.content-ready > *:not(#loading-screen) {
-  display: block !important;
-}
 script, style {
   display: none;
 }
+
   </style>
 </head>
-<body class="dark-mode nav-collapsed" onload="isIt()" style="margin: 0;">
+<body class="dark-mode nav-collapsed" style="margin: 0;">
   <div id="loading-screen"><b>Loading...</b></div>
   <div style="display: none;" id="loader" class="beepBoop">
     <div class="popUp-overlay" id="popupOverlay">
@@ -1418,8 +1420,8 @@ script, style {
     <button style="background: white;color: black; border: gainsboro 2px solid;" onclick="themeChange('white')">Pure White</button>
     <button style="background: linear-gradient(purple, darkorchid, black);color: white; border: blueviolet 2px solid;" onclick="themeChange('purple')">Jade Theme</button>
   </div>
-</div>
-<div>
+  </div>
+  <div>
   <script>
     let editId = null; // Define editId globally
     document.addEventListener("DOMContentLoaded", function() {
@@ -1427,7 +1429,7 @@ script, style {
 //transition
 function transition() {
     const transitionImages = [
-      "https://pbs.twimg.com/media/Gp2B43TbQAAOHF9?format=jpg&name=small", 
+      "https://pbs.twimg.com/media/Gp2B43TbQAAOHF9?format=jpg&name=small",
       "https://i.pinimg.com/736x/c9/31/92/c93192b782081d4d1d70b03a3c1cf011.jpg", //fartnite
       "https://i.pinimg.com/736x/5c/c3/e4/5cc3e49257b1ff5e5f257cfbd9e98788.jpg", //car
       "https://i.imgflip.com/9po71x.jpg", //cat
@@ -1962,7 +1964,6 @@ window.importRuns = importRuns;
     }
     console.log("navbar.js loaded.");
   
-    let loading = null;
     //loading screen
     var screen;
 
@@ -1991,20 +1992,21 @@ window.importRuns = importRuns;
     load.style.display = "block";
     }
 
-    function isIt() {
+  function isIt() {
       loadingRoulette();
       document.body.style.visibility = "hidden";
-  setTimeout(() => {
-    document.getElementById("loading-screen").style.display = "block";
-    document.body.style.visibility = "visible";
-    setTimeout(isLoading, 3000); 
-  }, 3000);
-    }
+  }
     function isLoading() {
       document.getElementById("loading-screen").style.display = "none";
       document.getElementById("loader").style.display = "block";
-      document.body.classList.add("content-ready");
-        }
+  }
+  document.addEventListener("DOMContentLoaded", function() {
+    isIt();
+    setTimeout(() => {
+      isLoading();
+      document.body.style.visibility = "visible";
+    }, 3000);
+  });
 console.log("Loading loaded.");
 console.log("Edit roulette is working.");
   
