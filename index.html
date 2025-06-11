@@ -1427,7 +1427,7 @@ script, style {
 //transition
 function transition() {
     const transitionImages = [
-      "https://pbs.twimg.com/media/Gp2B43TbQAAOHF9?format=jpg&name=small", //andrie
+      "https://pbs.twimg.com/media/Gp2B43TbQAAOHF9?format=jpg&name=small", 
       "https://i.pinimg.com/736x/c9/31/92/c93192b782081d4d1d70b03a3c1cf011.jpg", //fartnite
       "https://i.pinimg.com/736x/5c/c3/e4/5cc3e49257b1ff5e5f257cfbd9e98788.jpg", //car
       "https://i.imgflip.com/9po71x.jpg", //cat
@@ -1992,8 +1992,13 @@ window.importRuns = importRuns;
     }
 
     function isIt() {
-      screen = setTimeout(isLoading, 3000);
       loadingRoulette();
+      document.body.style.visibility = "hidden";
+  setTimeout(() => {
+    document.getElementById("loading-screen").style.display = "block";
+    document.body.style.visibility = "visible";
+    setTimeout(isLoading, 3000); 
+  }, 3000);
     }
     function isLoading() {
       document.getElementById("loading-screen").style.display = "none";
