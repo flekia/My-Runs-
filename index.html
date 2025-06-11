@@ -82,6 +82,7 @@
         topnav.style.position = "static";
         topnav.style.flexDirection = "row";
         document.querySelectorAll('.tab-content').forEach(tab => tab.style.marginLeft = "0");
+        if (morebtn) morebtn.style.display = "none";
       } else {
         document.body.classList.add("mobile");
         document.body.classList.remove("desktop");
@@ -91,6 +92,7 @@
         topnav.style.position = "fixed";
         topnav.style.flexDirection = "column";
         document.querySelectorAll('.tab-content').forEach(tab => tab.style.marginLeft = "");
+        if (morebtn) morebtn.style.display = "block";
       }
     }
     window.addEventListener("resize", adjustNavLayout);
