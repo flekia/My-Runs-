@@ -8,9 +8,9 @@
   
   "start_url": "/My-Runs-/",
 
-  "background_color": "#222222",
+  "background_color": "#000000",
 
-  "theme_color": "#222222",
+  "theme_color": "#000000",
 
   "display": "minimal-ui",
 
