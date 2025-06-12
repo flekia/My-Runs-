@@ -98,15 +98,70 @@
 
       }
     }
-    window.addEventListener("resize", adjustNavLayout);
+        //loading screen
+    var screen;
+
+    function loadingRoulette() {
+
+      const load = document.getElementById("loading-screen");
+      load.style.display = "block";
+      const gifsOnLoad = [
+      "https://c.tenor.com/mE8nn_h06gEAAAAd/tenor.gif", //topaz
+      "https://media1.tenor.com/m/mL10Z_GmC2MAAAAC/zzz-zenless.gif", //nagi
+      "https://media.tenor.com/5ghu_DSDgCEAAAAM/zzz-zenless-zone-zero.gif", //LICK ME PLEASE
+      "https://media.tenor.com/4I-78PH3xygAAAAM/honkai-reverist-calico.gif", //pardo
+      "https://media1.tenor.com/m/SH8ydUM4vlcAAAAC/yanfei.gif", //yanfei
+      "https://media1.tenor.com/m/p-Z9nSROXNEAAAAC/zani-zani-wuwa.gif", //zani
+      "https://media.tenor.com/QGX83HXecF0AAAAi/honkai-ai.gif", //ai hyperion
+      "https://media.tenor.com/zTQfeuVPWhEAAAAm/mobius-honkai.webp", //mobius
+      "https://media1.tenor.com/m/hIAkWeic5mYAAAAC/troll-troll-face.gif", //epic fail
+      "https://media.tenor.com/rsbaMamvwTIAAAA1/pat-patrick-bateman.webp" //patrick
+    ];
+    const selection = gifsOnLoad[Math.floor(Math.random() * gifsOnLoad.length)];
+    console.log(`Selected image: ${selection}`);
+    const bust = document.createElement("img");
+    bust.src = selection;
+
+    load.appendChild(bust);
+    load.style.display = "block";
+    }
+
+  function isIt() {
+      loadingRoulette();
+      document.body.classList.remove("loads-ugh");
+  }
+    function isLoading() {
+      document.getElementById("loading-screen").style.display = "none";
+      document.getElementById("loader").style.display = "block";
+  }
+  let sizing = null;
+  function sizingWhenDesktopOrMobileSite() {
+    isIt();
+    clearTimeout(sizing);
+    sizing = setTimeout(() =>{
+      isLoading();
+      document.body.add("loads-ugh");
+    }, 3000);
+  }
+    window.addEventListener("resize", function() {
+      sizingWhenDesktopOrMobileSite();
+      adjustNavLayout();
+    });
     window.themeChange = themeChange;
+    window.addEventListener("orientationchange", sizingWhenDesktopOrMobileSite);
     document.addEventListener("DOMContentLoaded", function() {
     const savedTheme = localStorage.getItem("preferredTheme") || "default";
+    isIt();
     themeChange(savedTheme);
     adjustNavLayout();
     closeNav();
+    setTimeout(() =>{
+      isLoading();
+      document.body.classList.add("loads-ugh");
+    }, 3000);
   });
-    console.log("themes.js loaded.");
+  console.log("Loading loaded.");
+  console.log("themes.js loaded.");
   </script>
   <style>
     
@@ -1970,51 +2025,6 @@ window.importRuns = importRuns;
       
     }
     console.log("navbar.js loaded.");
-  
-    //loading screen
-    var screen;
-
-    function loadingRoulette() {
-
-      const load = document.getElementById("loading-screen");
-      load.style.display = "block";
-      const gifsOnLoad = [
-      "https://c.tenor.com/mE8nn_h06gEAAAAd/tenor.gif", //topaz
-      "https://media1.tenor.com/m/mL10Z_GmC2MAAAAC/zzz-zenless.gif", //nagi
-      "https://media.tenor.com/5ghu_DSDgCEAAAAM/zzz-zenless-zone-zero.gif", //LICK ME PLEASE
-      "https://media.tenor.com/4I-78PH3xygAAAAM/honkai-reverist-calico.gif", //pardo
-      "https://media1.tenor.com/m/SH8ydUM4vlcAAAAC/yanfei.gif", //yanfei
-      "https://media1.tenor.com/m/p-Z9nSROXNEAAAAC/zani-zani-wuwa.gif", //zani
-      "https://media.tenor.com/QGX83HXecF0AAAAi/honkai-ai.gif", //ai hyperion
-      "https://media.tenor.com/zTQfeuVPWhEAAAAm/mobius-honkai.webp", //mobius
-      "https://media1.tenor.com/m/hIAkWeic5mYAAAAC/troll-troll-face.gif", //epic fail
-      "https://media.tenor.com/rsbaMamvwTIAAAA1/pat-patrick-bateman.webp" //patrick
-    ];
-    const selection = gifsOnLoad[Math.floor(Math.random() * gifsOnLoad.length)];
-    console.log(`Selected image: ${selection}`);
-    const bust = document.createElement("img");
-    bust.src = selection;
-
-    load.appendChild(bust);
-    load.style.display = "block";
-    }
-
-  function isIt() {
-      loadingRoulette();
-      document.body.classList.remove("loads-ugh");
-  }
-    function isLoading() {
-      document.getElementById("loading-screen").style.display = "none";
-      document.getElementById("loader").style.display = "block";
-  }
-  document.addEventListener("DOMContentLoaded", function() {
-    isIt();
-    setTimeout(() => {
-      isLoading();
-      document.body.classList.add("loads-ugh")
-    }, 3000);
-  });
-console.log("Loading loaded.");
 console.log("Edit roulette is working.");
   
     //filter/search bar
