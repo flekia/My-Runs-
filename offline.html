@@ -187,10 +187,11 @@ body {
   font-size: 14px;
   margin-left: 0px;
   transition: .3s ease-in-out;
+  visibility: hidden;
 }
 
 body.loads-ugh {
-  visibility: hidden;
+  visibility: visible;
 }
 
 html, body{
@@ -1999,7 +2000,7 @@ window.importRuns = importRuns;
 
   function isIt() {
       loadingRoulette();
-      document.body.classList.add("loads-ugh");
+      document.body.classList.remove("loads-ugh");
   }
     function isLoading() {
       document.getElementById("loading-screen").style.display = "none";
@@ -2009,7 +2010,7 @@ window.importRuns = importRuns;
     isIt();
     setTimeout(() => {
       isLoading();
-      document.body.classList.remove("loads-ugh");
+      document.body.classList.add("loads-ugh");
     }, 3000);
   });
 console.log("Loading loaded.");
