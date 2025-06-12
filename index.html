@@ -144,6 +144,10 @@
     isIt();
     setTimeout(() => {
       isLoading();
+      document.body.classList.add("loads-ugh");
+      setTimeout(() => {
+        document.body.classList.remove("loads-ugh");
+      });
     }, 3000);
   });
   console.log("Loading loaded.");
