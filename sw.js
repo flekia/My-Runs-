@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v27';
+const CACHE_VERSION = 'v28';
 const CACHE_NAME = `necessary-resources-${CACHE_VERSION}`; 
 
 self.addEventListener('install', (event) => {

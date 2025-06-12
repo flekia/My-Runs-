@@ -6,10 +6,12 @@
   <title>My Runs!</title>
   <link rel="icon" href="https://cdn.cdnstep.com/7UsQ6JTnJUwP7g5Nj81r/cover-1.thumb256.png" type="image/png">
   <link rel="manifest" href="manifest.json">
+
   <script>
     //themes
     function themeChange(theme) {
-    document.body.className = "";
+    const allOfThem = ["default", "leaf", "vanta", "white", "purple"];
+    document.body.classList.remove(...allOfThem);
     document.body.classList.add(theme);
     localStorage.setItem("preferredTheme", theme);
 
@@ -131,8 +133,8 @@
   }
     function isLoading() {
       document.getElementById("loading-screen").style.display = "none";
-      document.getElementById("loader").style.display = "block";
-  }
+      document.getElementById("loader").style.display = "block"; 
+    }
     window.addEventListener("resize", adjustNavLayout);
     window.themeChange = themeChange;
     document.addEventListener("DOMContentLoaded", function() {
@@ -141,16 +143,13 @@
     adjustNavLayout();
     closeNav();
     isIt();
-    setTimeout(() => {
+    setTimeout(() =>{
       isLoading();
       document.body.classList.add("loads-ugh");
-      setTimeout(() => {
-        document.body.classList.remove("loads-ugh");
-      });
     }, 3000);
   });
-console.log("Loading loaded.");
-console.log("themes.js loaded.");
+  console.log("Loading loaded.");
+  console.log("themes.js loaded.");
   </script>
   <style>
     
@@ -2013,7 +2012,7 @@ window.importRuns = importRuns;
       }
       
     }
-console.log("navbar.js loaded.");
+    console.log("navbar.js loaded.");
 console.log("Edit roulette is working.");
   
     //filter/search bar

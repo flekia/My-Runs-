@@ -10,7 +10,8 @@
   <script>
     //themes
     function themeChange(theme) {
-    document.body.className = "";
+    const allOfThem = ["default", "leaf", "vanta", "white", "purple"];
+    document.body.classList.remove(...allOfThem);
     document.body.classList.add(theme);
     localStorage.setItem("preferredTheme", theme);
 
@@ -132,8 +133,8 @@
   }
     function isLoading() {
       document.getElementById("loading-screen").style.display = "none";
-      document.getElementById("loader").style.display = "block";
-  }
+      document.getElementById("loader").style.display = "block"; 
+    }
     window.addEventListener("resize", adjustNavLayout);
     window.themeChange = themeChange;
     document.addEventListener("DOMContentLoaded", function() {
@@ -142,12 +143,9 @@
     adjustNavLayout();
     closeNav();
     isIt();
-    setTimeout(() => {
+    setTimeout(() =>{
       isLoading();
       document.body.classList.add("loads-ugh");
-      setTimeout(() => {
-        document.body.classList.remove("loads-ugh");
-      });
     }, 3000);
   });
   console.log("Loading loaded.");
