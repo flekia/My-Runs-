@@ -189,6 +189,10 @@ body {
   transition: .3s ease-in-out;
 }
 
+body.loads-ugh {
+  visibility: hidden;
+}
+
 html, body{
   overflow-x: hidden;
   max-width: 100vw;
@@ -1995,7 +1999,7 @@ window.importRuns = importRuns;
 
   function isIt() {
       loadingRoulette();
-      document.body.style.visibility = "hidden";
+      document.body.classList.add("loads-ugh");
   }
     function isLoading() {
       document.getElementById("loading-screen").style.display = "none";
@@ -2005,7 +2009,7 @@ window.importRuns = importRuns;
     isIt();
     setTimeout(() => {
       isLoading();
-      document.body.style.visibility = "visible";
+      document.body.classList.remove("loads-ugh");
     }, 3000);
   });
 console.log("Loading loaded.");
