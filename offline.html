@@ -133,28 +133,15 @@
       document.getElementById("loading-screen").style.display = "none";
       document.getElementById("loader").style.display = "block";
   }
-  let sizing = null;
-  function sizingWhenDesktopOrMobileSite() {
-    isIt();
-    clearTimeout(sizing);
-    sizing = setTimeout(() =>{
-      isLoading();
-      document.body.add("loads-ugh");
-    }, 3000);
-  }
-    window.addEventListener("resize", function() {
-      sizingWhenDesktopOrMobileSite();
-      adjustNavLayout();
-    });
+    window.addEventListener("resize", adjustNavLayout);
     window.themeChange = themeChange;
-    window.addEventListener("orientationchange", sizingWhenDesktopOrMobileSite);
     document.addEventListener("DOMContentLoaded", function() {
     const savedTheme = localStorage.getItem("preferredTheme") || "default";
-    isIt();
     themeChange(savedTheme);
     adjustNavLayout();
     closeNav();
-    setTimeout(() =>{
+    isIt();
+    setTimeout(() => {
       isLoading();
       document.body.classList.add("loads-ugh");
     }, 3000);
