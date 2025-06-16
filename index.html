@@ -1369,8 +1369,10 @@ script, style {
   </style>
 </head>
 <body class="dark-mode nav-collapsed" style="margin: 0;">
+<!--Loading screen-->
   <div id="loading-screen"><b>Loading...</b></div>
   <div style="display: none;" id="loader" class="beepBoop">
+    <!--popup when "logging in"-->
     <div class="popUp-overlay" id="popupOverlay">
     <div class="popUp" id="popUp">
       <button class="closeing" id="closePop">&times;</button>
@@ -1384,6 +1386,99 @@ script, style {
       </div>
     </div>
   </div>
+  <!--edit routes blank-->
+  <div class="popUp-overlay" id="popupOverlayEdit">
+    <div class="popUp" id="popUpEdit">
+      <div class="popUpContent">
+        <h2>🤨🤨🤨</h2>
+        <p>You sure about this?</p>
+        <button class="closeedit" id="closePopeditAgree">Yes</button>
+        <button class="closedit" id="closePopeditDisagree">No</button>
+      </div>
+    </div>
+  </div>
+  <!--edit routes edit blank-->
+  <div class="popUp-overlay" id="popupOverlayEditB">
+    <div class="popUp" id="popUpEeditBB">
+      <div class="popUpContent">
+        <h2>⚠️WAIT!⚠️</h2>
+        <p>You can't change that!</p>
+        <button class="closedit" id="closePopedditB">Aw... Okay...</button>
+      </div>
+    </div>
+  </div>
+  <!--edit routes completion-->
+  <div class="popUp-overlay" id="popupOverlayEditC">
+    <div class="popUp" id="popUpEeditC">
+      <div class="popUpContent">
+        <h2>GREAT‼️</h2>
+        <p>It edited successfully!</p>
+        <button class="closedit" id="closePopedditC">Okay!</button>
+      </div>
+    </div>
+  </div>
+  <!--add routes blank-->
+  <div class="popUp-overlay" id="popupOverlayAddB">
+    <div class="popUp" id="popUpAadBB">
+      <div class="popUpContent">
+        <h2>⚠️Hey!⚠️</h2>
+        <p>No route added, fatso.</p>
+        <button class="closeadd" id="closePopaddB">..Damn bro</button>
+      </div>
+    </div>
+  </div>
+  <!--add routes dupe-->
+<div class="popUp-overlay" id="popupOverlayAddD">
+    <div class="popUp" id="popUpAadD">
+      <div class="popUpContent">
+        <h2>⚠️Hold it!⚠️</h2>
+        <p>Do you have dementia?</p>
+        <button class="closeadd" id="closePopaddD">...Maybe</button>
+      </div>
+    </div>
+  </div>
+  <!--add routes completion-->
+<div class="popUp-overlay" id="popupOverlayAddC">
+    <div class="popUp" id="popUpAadC">
+      <div class="popUpContent">
+        <h2>New Route?</h2>
+        <p>That's great!</p>
+        <button class="closeadd" id="closePopaddC">Thanks!</button>
+      </div>
+    </div>
+  </div>
+  <!--delete routes confirmation-->
+<div class="popUp-overlay" id="popupOverlayDellCon">
+    <div class="popUp" id="popUpDeelCon">
+      <div class="popUpContent">
+        <h2>Huh?</h2>
+        <p>Do you want to delete this route?</p>
+        <button class="closeadd" id="closePopdelCongree">Yes...</button>
+        <button class="closeadd" id="closePopdelCondisree">No!</button>
+      </div>
+    </div>
+  </div>
+  <!--delete routes when deleting blank-->
+<div class="popUp-overlay" id="popupOverlayDellB">
+    <div class="popUp" id="popUpDeelB">
+      <div class="popUpContent">
+        <h2>What the-</h2>
+        <p>You can't delete the default option, you moron!</p>
+        <button class="closeadd" id="closePopdelB">Sorry!</button>
+      </div>
+    </div>
+  </div>
+  <!--delete routes completion-->
+<div class="popUp-overlay" id="popupOverlayDellCom">
+    <div class="popUp" id="popUpDeelCom">
+      <div class="popUpContent">
+        <h2>You deleted your route.</h2>
+        <p>I hope you're happy.</p>
+        <button class="closeadd" id="closePopdelCom">You're overexaggerating brocho✌️🤣</button>
+      </div>
+    </div>
+  </div>
+  <!--nav bar-->
   <div class="topnav" id="tabside">
     <a href="#" class="closebtn" onclick="event.preventDefault(); closeNav()">&#10006;</a>
     <a class="active" href="#home">Home
@@ -1418,6 +1513,7 @@ script, style {
     transition: opacity 0.3s;" onclick="openNav()">&#9776; More...</span>
   </div>
   <div id="home" class="tab-content active">
+    <!--runs display-->
     <h2 class="titles">Top Runs of All Time</h2>
     <input type="search" id="search-home" class="searching" placeholder="&#128269;Search specific route...">
     <button type="button" onclick="deletion()" class="deleting" id="dlete">Delete All?</button>
@@ -1435,6 +1531,7 @@ script, style {
     <button type="button" onclick="deletion()" class="deleting" id="dlete">Delete All?</button>
     <div id="home-runs"></div>
   </div>
+  <!--publishing runs-->
   <div id="publish" class="tab-content">
     <h2>Another Run?</h2>
     <form id="publish-form">
@@ -1471,6 +1568,7 @@ script, style {
     
     </form>
   </div>
+  <!--loading/saving JSON files-->
   <div id="importexport" class="tab-content">
     <h2>Want to save your file?</h2>
     <button id="export-button">Save</button>
@@ -1478,6 +1576,7 @@ script, style {
     <h2>Want to load your file?</h2>
     <input type="file" id="import-button">
   </div>
+  <!--themes-->
   <div id="themes" class="tab-content">
     <h2>Current themes are:</h2>
     <button style="background: linear-gradient(45deg, yellow, orange, red);color: black; border: #aa2e25 2px solid;" onclick="themeChange('default')">Default</button>
@@ -1489,7 +1588,7 @@ script, style {
   </div>
   <div>
   <script>
-    let editId = null; // Define editId globally
+    let editId = null; 
     document.addEventListener("DOMContentLoaded", function() {
   updateAll();
 //transition
@@ -1787,26 +1886,46 @@ function editValues(event){
 
 
   if (!editTableValue) {
-    if (confirm("You sure about this?")) {
-    window.open("https://www.youtube.com/watch?v=eDuRoPIOBjE", "_blank");
-    } else {
-
-    }
+    const overlay = document.getElementById("popupOverlayEdit");
+    overlay.style.display = "block";
+    document.getElementById("closePopeditAgree").onclick = function() {
+      overlay.style.display = "none";
+      window.open("https://www.youtube.com/watch?v=eDuRoPIOBjE");
+    };
+    document.getElementById("closePopeditDisagree").onclick = function() {
+      overlay.style.display = "none";
+    };
     return;
   }
+
 
   const selectedOp = editTableOption.options[editTableOption.selectedIndex];
 
     //if user overrides no value
-    if (selectedOp.value === "") {
-      alert("You can't change that!");
-      return;
-    }
+    if (selectedOp.disabled) {
+    const overlay = document.getElementById("popupOverlayEditB");
+    overlay.style.display = "block";
+    document.getElementById("closePopedditB").onclick = function() {
+      overlay.style.display = "none";
+    };
+    return;
+  }
+  const overlayConfirm = document.getElementById("popupOverlayEdit");
+  overlayConfirm.style.display = "block";
+  document.getElementById("closePopeditAgree").onclick = function() {
+    overlayConfirm.style.display = "none";
   selectedOp.textContent = editTableValue;
   selectedOp.value = editTableValue;
   saveTheRoutesDamnit();
-  alert("Edited successfully.");
-
+const overlaySuccess = document.getElementById("popupOverlayEditC");
+    overlaySuccess.style.display = "block";
+    document.getElementById("closePopedditC").onclick = function() {
+      overlaySuccess.style.display = "none";
+    };
+  };
+    document.getElementById("closePopeditDisagree").onclick = function() {
+    overlayConfirm.style.display = "none";
+  };
 }
 
 //add routes
@@ -1815,13 +1934,22 @@ function addValue() {
   const newRoute = document.getElementById("run-location");
   
   if (!newValue) {
-    alert("No route added, fatso.")
+    const overlay = document.getElementById("popupOverlayAddB");
+    overlay.style.display = "block";
+    document.getElementById("closePopaddB").onclick = function() {
+      overlay.style.display = "none";
+    };
+    return;
   } 
     const dupes = document.getElementById("run-location");
 
     const existentialCrisis = Array.from(dupes.options).some(opt => opt.value === newValue);
     if (existentialCrisis) {
-      alert("Do you have dementia?");
+    const overlay = document.getElementById("popupOverlayAddD");
+    overlay.style.display = "block";
+    document.getElementById("closePopaddD").onclick = function() {
+      overlay.style.display = "none";
+    };
       return;
     }
     const newOption = document.createElement("option");
@@ -1829,7 +1957,11 @@ function addValue() {
     newOption.textContent = newValue;
     newRoute.appendChild(newOption);
     saveTheRoutesDamnit();
-    alert("Route added.");
+    const overlay = document.getElementById("popupOverlayAddC");
+    overlay.style.display = "block";
+    document.getElementById("closePopaddC").onclick = function() {
+      overlay.style.display = "none";
+    };
   
 
 }
@@ -1837,20 +1969,55 @@ function addValue() {
 //delete route
 
 function deleteOption() {
-  if (confirm("Do you want to delete this route?")) {
-  var x = document.getElementById("run-location");
-  if (x.value === "") {
-    alert("You can't delete that!! That's the default option.");
-    console.log("Route was not deleted.");
-  } else{
-  x.remove(x.selectedIndex);
-  alert("Route is deleted.");
-  console.log("Route deleted.");
-  saveTheRoutesDamnit();
-  }
-  return;
-}
+  const overlayConfirm = document.getElementById("popupOverlayDellCon");
+  if (!overlayConfirm) return;
+  overlayConfirm.style.display = "block";
 
+  const btnNo = document.getElementById("closePopdelCondisree");
+  if (btnNo) {
+    btnNo.onclick = function () {
+      overlayConfirm.style.display = "none";
+    };
+  }
+
+  const btnYes = document.getElementById("closePopdelCongree");
+  if (btnYes) {
+    btnYes.onclick = function () {
+      overlayConfirm.style.display = "none";
+
+      const select = document.getElementById("run-location");
+      if (!select) return;
+
+      if (select.value === "") {
+        const overlayBlank = document.getElementById("popupOverlayDellB");
+        if (overlayBlank) {
+          overlayBlank.style.display = "block";
+          const btnBlank = document.getElementById("closePopdelB");
+          if (btnBlank) {
+            btnBlank.onclick = function () {
+              overlayBlank.style.display = "none";
+            };
+          }
+        }
+        console.log("Route was not deleted.");
+      } else {
+        select.remove(select.selectedIndex);
+
+        const overlayDone = document.getElementById("popupOverlayDellCom");
+        if (overlayDone) {
+          overlayDone.style.display = "block";
+          const btnDone = document.getElementById("closePopdelCom");
+          if (btnDone) {
+            btnDone.onclick = function () {
+              overlayDone.style.display = "none";
+            };
+          }
+        }
+        console.log("Route deleted.");
+        saveTheRoutesDamnit();
+      }
+    };
+  }
 }
 
 //load routes when user changes
@@ -1890,7 +2057,6 @@ function saveTheRoutesDamnit() {
   .map(opt => opt.value);
 
   localStorage.setItem("routes", JSON.stringify(options));
-  document.dispatchEvent(new Event("DOMContentLoaded"));
   myLoad();
 }
 //error on storage
