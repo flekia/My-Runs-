@@ -96,3 +96,6 @@ v7.0.1 (June 5, 2025)
 v7.0.1 (June 10, 2025)
 -Fixed table shenanigans
 -Instead of user.Agent, My Runs! will respond to the width of the browser, making it more responsive than the user.Agent (in desktop I hope).
+
+v7.0.2 (June 17, 2025)
+-Instead of "webpage says," or so called alerts, My Runs! has popups, similar to what you will be greeted at the first time when you load onto the site.

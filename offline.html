@@ -132,6 +132,11 @@
       "https://media.tenor.com/rUh5SElHgsAAAAA1/mizuki-yumemizuki-mizuki.webp", //FREAK
       "https://media1.tenor.com/m/oVXJDLhT0dUAAAAC/doro-dorothy.gif", //tuff
       "https://media1.tenor.com/m/hIAkWeic5mYAAAAC/troll-troll-face.gif", //epic fail
+      "https://media.tenor.com/cegjpdalM4MAAAAM/zenless-zone-zero-zzz.gif", //check out this move dipshit
+      "https://media.tenor.com/Xl7Pk5aazdoAAAAM/zhu-yuan-zzz.gif", //tuff
+      "https://media.tenor.com/PMeuaj7O20QAAAAm/dynamite-teri-teri.webp", //tuff
+      "https://media.tenor.com/iem0YYteD4wAAAAM/thelema-thelemanutriscu.gif", //tufflema
+      "https://media.tenor.com/BYGtvYo5-G0AAAAM/saata-andagii.gif", //sata andagi propaganda
       "https://media.tenor.com/rsbaMamvwTIAAAA1/pat-patrick-bateman.webp" //patrick
     ];
     const selection = gifsOnLoad[Math.floor(Math.random() * gifsOnLoad.length)];
@@ -1027,7 +1032,7 @@ form button:hover {
 
 .purple button:hover {
   background-color: darkslategray;
-  color: darkslateblue;
+  color: white;
 }
 
 .purple #tablebuttdel {
@@ -1481,6 +1486,151 @@ script, style {
       </div>
     </div>
   </div>
+<!--alert IP-->
+<div class="popUp-overlay" id="popupOverlayIP">
+    <div class="popUp" id="popUpIP">
+      <div class="popUpContent">
+        <h2>You found the easter egg!!</h2>
+        <p id="IPGrabber">I</p>
+        <button class="closeadd" id="closePopIP">WHAT?! CLOSE CLOSE CLOSE!!!</button>
+      </div>
+    </div>
+  </div>
+<!--IP confirmation-->
+<div class="popUp-overlay" id="popupOverlayIPC">
+    <div class="popUp" id="popUpIPC">
+      <div class="popUpContent">
+        <h2>⚠️WAIT!⚠️</h2>
+        <p>Please watch this tutorial on how to use this app.</p>
+        <button class="closeadd" id="closePopIPY">Ooh! A tutorial!</button>
+        <button class="closeadd" id="closePopIPN">No thanks.</button>
+      </div>
+    </div>
+  </div>
+<!--deleteRun confirmation-->
+<div class="popUp-overlay" id="popupOverlaydelrCon">
+    <div class="popUp" id="popUpdelrCon">
+      <div class="popUpContent">
+        <h2>⚠️WAIT!⚠️</h2>
+        <p>Do you really want to delete this run?</p>
+        <button class="closeadd" id="closePopdelrY">Yes.</button>
+        <button class="closeadd" id="closePopdelrN">No thanks.</button>
+      </div>
+    </div>
+  </div>
+<!--deleteRun completion-->
+<div class="popUp-overlay" id="popupOverlaydelrCom">
+    <div class="popUp" id="popUpdelrCom">
+      <div class="popUpContent">
+        <h2>Successfully deleted run ID:</h2>
+        <p id="delrCom"></p>
+        <button class="closeadd" id="closePopdelrC">Yay!</button>
+      </div>
+    </div>
+  </div>
+<!--deletion confirmation-->
+<div class="popUp-overlay" id="popupOverlaydeleCon">
+    <div class="popUp" id="popUpdeleCon">
+      <div class="popUpContent">
+        <h2>⚠️WAIT!⚠️</h2>
+        <p>Do you really want to delete <b><i>all</i></b> run?</p>
+        <button class="closeadd" id="closePopdeerY">Yes.</button>
+        <button class="closeadd" id="closePopdeerN">No thanks.</button>
+      </div>
+    </div>
+  </div>
+<!--deletion yes-->
+  <div class="popUp-overlay" id="popupOverlaydeleY">
+    <div class="popUp" id="popUpdeleY">
+      <div class="popUpContent">
+        <h2>Done and dusted.</h2>
+        <p>You deleted <b><i>all</i></b> of your runs.</p>
+        <button class="closedit" id="closePopdalleY">Okay.</button>
+      </div>
+    </div>
+  </div>
+<!--deletion no-->
+  <div class="popUp-overlay" id="popupOverlaydeleN">
+    <div class="popUp" id="popUpdeleN">
+      <div class="popUpContent">
+        <h2>Cancelled!</h2>
+        <p>You didn't delete <b><i>all</i></b> of your runs.</p>
+        <button class="closedit" id="closePopdalleN">Okay!</button>
+      </div>
+    </div>
+  </div>
+<!--confirm on edit-->
+<div class="popUp-overlay" id="popupOverlayeditR">
+    <div class="popUp" id="popUpeditR">
+      <div class="popUpContent">
+        <h2>⚠️WAIT!⚠️</h2>
+        <p>Do you want to edit this run?</p>
+        <button class="closeadd" id="closePopeditY">Yes.</button>
+        <button class="closeadd" id="closePopeditN">No thanks.</button>
+      </div>
+    </div>
+  </div>
+<!--alert on no save-->
+  <div class="popUp-overlay" id="popupOverlaySave">
+    <div class="popUp" id="popUpSave">
+      <div class="popUpContent">
+        <h2>⚠️What??⚠️</h2>
+        <p>You don't have any runs to save.</p>
+        <button class="closedit" id="closePopSave">Okay...</button>
+      </div>
+    </div>
+  </div>
+<!--prompt save-->
+<div class="popUp-overlay" id="popupOverlaySaveP">
+    <div class="popUp" id="popUpSaveP">
+      <div class="popUpContent">
+        <h2>Do you want to save this file?</h2>
+        <input type="text" placeholder="Save file by name..." id="penisWarts">
+        <button class="closeadd" id="closePopSaveY">Yes.</button>
+        <button class="closeadd" id="closePopSaveN">No thanks.</button>
+      </div>
+    </div>
+  </div>
+<!--cancelled save-->
+  <div class="popUp-overlay" id="popupOverlaySaveCancel">
+    <div class="popUp" id="popUpSaveCancel">
+      <div class="popUpContent">
+        <h2>Cancelled⁉️</h2>
+        <p>You cancelled saving.</p>
+        <button class="closedit" id="closePopSaveCancel">Okay!</button>
+      </div>
+    </div>
+  </div>
+<!--save name-->
+  <div class="popUp-overlay" id="popupOverlaySaveN">
+    <div class="popUp" id="popUpSaveN">
+      <div class="popUpContent">
+        <h2>Done!</h2>
+        <p id="useraI"></p>
+        <button class="closedit" id="closePopSaveClose">Okay!</button>
+      </div>
+    </div>
+  </div>
+<!--run loaded-->
+  <div class="popUp-overlay" id="popupOverlayLoad">
+    <div class="popUp" id="popUpLoad">
+      <div class="popUpContent">
+        <h2>Done!</h2>
+        <p>Runs are now loaded!</p>
+        <button class="closedit" id="closePopLoad">Okay!</button>
+      </div>
+    </div>
+  </div>
+<!--wrong file format load-->
+  <div class="popUp-overlay" id="popupOverlayLoadW">
+    <div class="popUp" id="popUpLoadW">
+      <div class="popUpContent">
+        <h2>⚠️What??⚠️</h2>
+        <p>Wrong file format.</p>
+        <button class="closedit" id="closePopLoadW">Okay...</button>
+      </div>
+    </div>
+  </div>
   <!--nav bar-->
   <div class="topnav" id="tabside">
     <a href="#" class="closebtn" onclick="event.preventDefault(); closeNav()">&#10006;</a>
@@ -1593,7 +1743,19 @@ script, style {
   <script>
     let editId = null; 
     document.addEventListener("DOMContentLoaded", function() {
-  updateAll();
+  updateAll();         
+});
+      let IP = ('');
+async function fetchingIP() {
+  try {
+    const response = await fetch('https://api.ipify.org?format=json');
+    const data = await response.json();
+    IP = data.ip;
+  }
+  catch (error) {
+    console.error('Error fetching IP:', error);
+  }
+}
 //transition
 function transition() {
     const transitionImages = [
@@ -1607,7 +1769,6 @@ function transition() {
       "https://i.imgflip.com/9po71x.jpg", //cat
       "https://media.tenor.com/tERiuqTAHlAAAAAm/spongebob-spongebob-meme.webp", //ill have uhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
       "https://media.tenor.com/Tfj0zysntJMAAAAM/patrick-star.gif", //that one friend
-      "https://media.tenor.com/cegjpdalM4MAAAAM/zenless-zone-zero-zzz.gif", //check out this move dipshit
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlkvMHFDO10nxx3lVvpJvz-QpdE11h8Bg1Rg&s", //tyler
       "https://media.tenor.com/gDDm8YwvWKEAAAAM/jork.gif", //man face george the pig
       "https://media1.tenor.com/m/Rze6ZnVMFgsAAAAC/i-don%27t-know-what-to-say.gif" //alden richards
@@ -1637,28 +1798,7 @@ function transition() {
         }, 500); //end
 
   } 
-  document.querySelectorAll("#home, #goes, #homeother").forEach((edit) => {
-    edit.addEventListener("click", function(e) {
-      if (e.target && e.target.id === "tablebuttedit") {
-        transition ();
-        return;
-      } else {
 
-      } return;
-  });
-});          
-});
-      let IP = ('');
-async function fetchingIP() {
-  try {
-    const response = await fetch('https://api.ipify.org?format=json');
-    const data = await response.json();
-    IP = data.ip;
-  }
-  catch (error) {
-    console.error('Error fetching IP:', error);
-  }
-}
   const form = document.getElementById("publish-form");
 //publish section
   form.addEventListener("submit", function (event) {
@@ -1695,7 +1835,14 @@ async function checkthem() {
   } else if (random <= 100) {
     window.open(video4, "_blank");
   } else {
-    alert(`You found the Easter Egg! Your IP!! ${IP}`);
+    const laying = document.getElementById("popupOverlayIP");
+    const IPA = document.getElementById("IPGrabber");
+    const butt = document.getElementById("closePopIP");
+    laying.style.display = "block";
+    IPA.innerHTML = `Your IP is:${IP}`;
+    butt.addEventListener("click", function() {
+      laying.style.display = "none";
+    });
   }
 }
 
@@ -1706,9 +1853,17 @@ async function checkthem() {
  } else{
 
     if (!runDate || !runStart|| !runLocation || runMinutes === "" || runSeconds === "") {
-      if (confirm(`Please watch this tutorial on how to use this app:`)) {
-       checkthem();
-      }
+      const layman = document.getElementById("popupOverlayIPC");
+      const IAgree = document.getElementById("closePopIPY");
+      const IDisagree = document.getElementById("closePopIPN");
+      layman.style.display = "block";
+      IAgree.addEventListener("click", function() {
+        layman.style.display = "none";
+        checkthem();
+      }, {once: true});
+      IDisagree.addEventListener("click", function(){
+        layman.style.display = "none";
+      });
       return;
     }
   }
@@ -1818,7 +1973,16 @@ function generateTable(data) {
 }
 //delete option
 function deleteRun(id, hehe = true) {
-  if (hehe && confirm("Delete Run?")) {
+  const confirmation = document.getElementById("popupOverlaydelrCon");
+  const yesYes = document.getElementById("closePopdelrY");
+  const pleaseStop = document.getElementById("closePopdelrN");
+  const conCon = document.getElementById("popupOverlaydelrCom");
+  confirmation.style.display = "block";
+  pleaseStop.addEventListener("click", function() {
+    confirmation.style.display = "none";
+  });
+  yesYes.addEventListener("click", function() {
+    confirmation.style.display = "none";
 
   
   let runs = JSON.parse(localStorage.getItem("runs")) || [];
@@ -1826,38 +1990,74 @@ function deleteRun(id, hehe = true) {
   localStorage.setItem("runs", JSON.stringify(runs));
   updateAll(); 
   console.log(`Deleted ${id}.`);
-  alert(`Run ID: ${id} deleted.`);
+  conCon.style.display = "block";
+  const IDOfRun = document.getElementById("delrCom");
+  const closeing = document.getElementById("closePopdelrC");
+  IDOfRun.innerHTML = id;
+  closeing.addEventListener("click", function () {
+    conCon.style.display = "none";
+  });
   if (!hehe) {
-    alert(`Run ID: ${id} deleted.`);
+      closeing.addEventListener("click", function () {
+    conCon.style.display = "none";
+      });
+      return;
   } else{
 
   } return;
-} else {
 
-} return;
+return;
+});
+  
+  
 }
 
 //if user wants to delete all of the runs
 
 function deletion() {
-  if(confirm("Do you want to delete all of your runs?")) {
+  const laymansTerms = document.getElementById("popupOverlaydeleCon");
+  const theyDidIt = document.getElementById("closePopdalleY");
+  const theyDidntDoIt = document.getElementById("closePopdalleN");
+  const laymansTermsY = document.getElementById("closePopdeerY");
+  const laymansTermsN = document.getElementById("closePopdeerN");
+  const theyDidItButt = document.getElementById("popupOverlaydeleY");
+  const theyDidntDoItButt = document.getElementById("popupOverlaydeleN");
+  laymansTerms.style.display = "block";
+  laymansTermsY.addEventListener("click", function() {
+    laymansTerms.style.display = "none";
     localStorage.removeItem("runs");
     updateAll();
-    alert("You have deleted all of your runs.");
+    theyDidItButt.style.display = "block";
+    theyDidIt.addEventListener("click", function() {
+      theyDidItButt.style.display = "none";
     console.log("User deleted all of their runs.");
-  } else{
-    alert("You didn't delete your runs.");
-    console.log("User didn't delete their runs.")
-  }
+    });
+  });
+ 
+    laymansTermsN.addEventListener("click", function() {
+      laymansTerms.style.display = "none";
+      theyDidntDoItButt.style.display = "block";
+      theyDidntDoIt.addEventListener("click", function() {
+        theyDidntDoItButt.style.display = "none";
+    console.log("User didn't delete their runs.");
+      });
+    });
 }
 
 // edit option
 
 function editRun(id) {
  let runs = JSON.parse(localStorage.getItem("runs")) || [];
+ const laying = document.getElementById("popupOverlayeditR");
+ const horseOfAgreement = document.getElementById("closePopeditY");
+ const horseOfDisagreement = document.getElementById("closePopeditN");
+ laying.style.display = "block";
   const runToEdit = runs.find(run => run.id === id);
   if (runToEdit) {
-    if(confirm("Confirm Edit?")){
+    horseOfAgreement.addEventListener("click", function() {
+      laying.style.display = "none";
+      transition();
+      
     
     const format = new Date(runToEdit.date).toISOString().slice(0, 16);
     document.getElementById("run-date").value = format;
@@ -1873,10 +2073,13 @@ function editRun(id) {
 
     document.querySelector(".topnav a[href='#publish']").classList.add("active");
     document.getElementById("publish").classList.add("active");
-    deleteRun(id, false);
-  }  else {
-      console.error("Run not found.");
-    } 
+    
+    }, {once: true});
+    horseOfDisagreement.addEventListener("click", function() {
+      laying.style.display = "none";
+      transition();
+      console.log("Run not found/cancelled.");
+    }, {once: true}); 
 }
 }
 
@@ -2116,36 +2319,63 @@ try {
     document.addEventListener("DOMContentLoaded", () => {
  updateAll();
 //save
- function exportRuns() {
-const runs = JSON.parse(localStorage.getItem("runs")) || [];
-if (runs.length === 0) {
-    alert("Nothing to save.");
+function exportRuns() {
+  const runs = JSON.parse(localStorage.getItem("runs")) || [];
+  if (runs.length === 0) {
+    const nothing = document.getElementById("popupOverlaySave");
+    nothing.style.display = "block";
+    const closed = document.getElementById("closePopSave");
+    closed.addEventListener("click", function() {
+      nothing.style.display = "none";
+    });
     return;
-}
- const json = JSON.stringify(runs, null, 2);
- const blob = new Blob([json], {type: "application/json"});
- const url = URL.createObjectURL(blob);
- const a = document.createElement("a");
- var userInput = prompt("Do you want a name for this file?", "jogging");
- if (userInput === null) {
-  alert("Cancelled save.");
-  console.log("Did not save run.");
- }
- userInput = userInput.trim();
- if (userInput === "") {
-  userInput = "runs.json";
- } else {
-  userInput += ".json";
- }
- a.href = url;
- a.download = userInput;
- document.body.appendChild(a);
- a.click();
- URL.revokeObjectURL(url);
- document.body.removeChild(a);
- alert(`Run saved as ${userInput}!`);
- console.log(`Run exported successfully as ${userInput}.`); //file name in console
- return;
+  }
+  const savedP = document.getElementById("popupOverlaySaveP");
+  savedP.style.display = "block";
+  const cancel = document.getElementById("closePopSaveN");
+  const confirmed = document.getElementById("closePopSaveY");
+
+
+  const newConfirmed = confirmed.cloneNode(true);
+  confirmed.parentNode.replaceChild(newConfirmed, confirmed);
+
+  cancel.addEventListener("click", function() {
+    savedP.style.display = "none";
+  });
+
+  newConfirmed.addEventListener("click", function() {
+    savedP.style.display = "none";
+    const userInputField = document.getElementById("penisWarts");
+    let userInput = userInputField ? userInputField.value.trim() : "";
+
+    if (!userInput) {
+      userInput = "runs.json";
+    } else if (!userInput.endsWith(".json")) {
+      userInput += ".json";
+    }
+
+    const json = JSON.stringify(runs, null, 2);
+    const blob = new Blob([json], {type: "application/json"});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = userInput;
+    document.body.appendChild(a);
+    a.click();
+    URL.revokeObjectURL(url);
+    document.body.removeChild(a);
+
+    const name = document.getElementById("popupOverlaySaveN");
+    name.style.display = "block";
+    const closeSave = document.getElementById("closePopSaveClose");
+    const input = document.getElementById("useraI");
+    input.innerHTML = userInput;
+    closeSave.addEventListener("click", function() {
+      name.style.display = "none";
+    });
+    console.log(`Run exported successfully as ${userInput}.`);
+    return;
+  });
 }
 
 
@@ -2160,11 +2390,21 @@ function importRuns(event) {
             throw new Error("Invalid.")
         }
         localStorage.setItem("runs", JSON.stringify(runs));
-        alert("Run Loaded!");
+        const overlay = document.getElementById("popupOverlayLoad");
+        overlay.style.display = "block";
+        const close = document.getElementById("closePopLoad");
+        close.addEventListener("click", function() {
+          overlay.style.display = "none";
+        });
         updateAll();
         } catch (error) {
             console.error("Cannot load file.")
-            alert("Wrong file format.");
+            const overlaid = document.getElementById("popupOverlayLoadW");
+            const close = document.getElementById("closePopLoadW");
+            overlaid.style.display = "block";
+            close.addEventListener("click", function() {
+              overlaid.style.display = "none";            
+            });
         }
     };
     read.readAsText(file);
