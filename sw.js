@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v34';
+const CACHE_VERSION = 'v35';
 const CACHE_NAME = `necessary-resources-${CACHE_VERSION}`; 
 
 self.addEventListener('install', (event) => {
@@ -8,6 +8,9 @@ const urlsToCache = [
   BASE + 'index.html',
   BASE + 'offline.html',
   BASE + 'manifest.json',
+  BASE + 'body.js',
+  BASE + 'head.js',
+  BASE + 'tooLong.css',
   BASE + 'sw.js'
 ];
 

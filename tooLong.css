@@ -1,0 +1,1196 @@
+    @media (max-height: 700px) and (max-width: 1920px) {
+      .topnav {padding-top: 15px;}
+      .topnav a {font-size: 18px;}
+    }
+    @media (max-width: 768px) {
+  .topnav {
+    width: 0;
+    overflow: hidden;
+    transition: width 0.3s;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    z-index: 9999;
+    padding-top: 0;
+    background: inherit;
+  }
+  .topnav.active.mobile {
+    width: 100px;
+    overflow: hidden;
+    transition: width 0.3s;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    z-index: 9999;
+    padding-top: 0;
+    flex-direction: column;
+    display: block;
+  }
+  .topnav.closed{
+    width: 0 !important;
+    display: block;
+  }
+  .topnav, .topnav.active.mobile, .topnav.closed{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    z-index: 9999;
+    overflow: hidden;
+    transition: width 0.3s;
+    display: block;
+  }
+  .default .topnav.mobile,
+  .default .topnav,
+  .default .topnav.closed {
+    background: linear-gradient(180deg, orange, red, darkred);
+  }
+  .leaf .topnav.mobile,
+  .leaf .topnav,
+  .leaf .topnav.closed {
+    background: linear-gradient(lime, green, darkgreen);
+  }
+  .vanta .topnav.mobile,
+  .vanta .topnav,
+  .vanta .topnav.closed {
+    background: black;
+  }
+  .white .topnav.mobile,
+  .white .topnav,
+  .white .topnav.closed {
+    background: white;
+  }
+  .purple .topnav.mobile,
+  .purple .topnav,
+  .purple .topnav.closed {
+    background: linear-gradient(purple, darkslateblue, black);
+  }
+}
+body {
+  margin: 0;
+  font-family: 'Comic Sans MS', Arial, sans-serif;
+  background-color: #5c1111;
+  color: #f2f2f2;
+  font-size: 14px;
+  margin-left: 0px;
+  transition: .3s ease-in-out;
+  visibility: hidden;
+}
+
+body.loads-ugh {
+  visibility: visible;
+}
+
+html, body{
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+body.nav-collapsed .topnav {
+  width: 0;
+  padding-top: 0;
+  overflow: hidden;
+  display: inline;
+}
+
+body.nav-collapsed .tab-content {
+  margin-left: 0;
+}
+
+.tab-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.default .topnav.mobile {
+  overflow: hidden;
+  background: linear-gradient(180deg, orange, red, darkred);
+  width: 100px;
+  height: 100%;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 50px;
+  position: fixed;
+  flex-direction: column;
+  transition: .5s;
+  transform: .5s;
+  border: black 2px solid;
+}
+
+.default .topnav a {
+  padding: 8px 8px 8px 32px;
+  color: #f2f2f2;
+  font-size: 10px;
+  text-decoration: none;
+  padding: 8px 10px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.3s;
+}
+
+.default .topnav a:hover {
+  background: linear-gradient(45deg, orange, red, yellow);
+  color: black;
+  transition: all 0.3s ease-in-out;
+}
+
+.default .topnav a.closebtn {
+  position: absolute;
+  top: 5px;
+  text-align: center;
+  right: 0px;
+  font-size: 15px;
+  padding: 8px;
+  gap: 10px;
+}
+
+.default .topnav a.active {
+  background: linear-gradient(45deg, orange, red, yellow);
+  color: black;
+  font-size: 0px;
+}
+
+.default .topnav a.active #gifs1 {
+  transform: scale(2);
+  transition: 0.5s ease;
+  position: relative;
+  top: 2px;
+}
+
+.default .topnav a.active #gifs2 {
+  transform: scale(1.55);
+  transition: 0.5s ease;
+  position: relative;
+}
+
+.default .topnav a.active #gifs3 {
+  transform: scale(2);
+  transition: 0.5s ease;
+  position: relative;
+  bottom: 6.8px;
+}
+
+.default .topnav a.active #gifs4 {
+  transform: scale(2);
+  transition: 0.5s ease;
+  position: relative;
+  bottom: 6.9px;
+}
+
+.default .topnav a.active #gifs5 {
+  transform: scale(2);
+  transition: 0.5s ease;
+  position: relative;
+  bottom: 6.9px;
+}
+
+.default .topnav a.active #gifs6 {
+  transform: scale(2);
+  transition: 0.5s ease;
+  position: relative;
+  bottom: 6.8px;
+}
+
+.default .tab-content {
+  padding: 20px;
+  display: none;
+}
+
+.default .tab-content.active {
+  display: inline-block;
+}
+
+.gifs{
+  width: 30px;
+  height: 30px;
+}
+
+.tablebutts{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  gap: 20px;
+}
+
+.table {
+  width: 90%;
+  border-collapse: collapse;
+  font-size: 12px;
+  text-align: center !important;
+  table-layout: auto;
+  margin-right: auto;
+}
+
+th, td {
+  border: 1px solid white;
+  padding: 5px;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.default thead {
+  background-color: orangered;
+}
+.default button {
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 8px;
+  background-color: orangered;
+  color: white;
+}
+
+.default button:hover {
+  background-color: #aa2e25;
+  color: white;
+}
+
+.default #tablebuttdel {
+  background: linear-gradient(red, orange, yellow);
+  color: black;
+  margin: 5px 0;
+}
+.default #tablebuttedit {
+  background: linear-gradient(red, yellow, orange);
+  width: 44px;
+  color: black;
+  margin: 5px 0;
+}
+
+.awards{
+  width: 40px;
+  vertical-align: middle;
+  margin-right: 5px;
+  height: 40px;
+  display: inline-block;
+  background-size: cover;
+  background-position: center;
+}
+
+.default .awards.top1{
+  background-image: url(https://media.tenor.com/foX6VjiXjx0AAAAm/topaz-honkai-star-rail.webp);
+}
+
+.default .awards.top2{
+  background-image: url(https://media.tenor.com/gWchs73qUVkAAAAm/topaz-honkai-star-rail.webp);
+}
+
+.default .awards.top3{
+  background-image: url(https://media.tenor.com/g0rDWziIPrYAAAAm/topaz-honkai-star-rail.webp);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: none;
+}
+
+form input,
+form select {
+  margin-bottom: 12px;
+  padding: 8px;
+  font-size: 14px;
+  width: 50%;
+  font-size: 12px;
+}
+
+form button {
+  padding: 10px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  cursor: pointer;
+  width: 50%;
+}
+
+form button:hover {
+  background-color: #388e3c;
+  transition: 1s ease;
+}
+
+.leaf {
+  background: darkgreen;
+  color: white;
+  background-attachment: fixed;
+}
+ .leaf .topnav.mobile {
+  overflow: hidden;
+  background: linear-gradient(lime, green, darkgreen);
+  width: 100px;
+  height: 100%;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 50px;
+  position: fixed;
+  flex-direction: column;
+  transition: .5s;
+  border: black 2px solid;
+}
+
+.leaf .topnav a {
+  padding: 8px 8px 8px 32px;
+  color: #f2f2f2;
+  font-size: 10px;
+  text-decoration: none;
+  padding: 8px 10px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.leaf .topnav a:hover {
+  background: linear-gradient(45deg, lime, green, darkgreen);
+  color: black;
+  transition: all 0.3s ease-in-out;
+}
+
+.leaf .topnav a.closebtn {
+  position: absolute;
+  top: 5px;
+  text-align: center;
+  right: 0px;
+  font-size: 15px;
+  padding: 8px;
+  gap: 10px;
+}
+
+.leaf .topnav a.active {
+  background: linear-gradient(45deg, darkgreen, green, lime);
+  color: black;
+  font-size: 0px;
+}
+
+.leaf .tab-content {
+  padding: 20px;
+  display: none;
+}
+
+.leaf .tab-content.active {
+  display: inline-block;
+}
+
+.leaf #gifs{
+  width: 30px;
+}
+
+.leaf thead {
+  background-color: green;
+}
+.leaf button {
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 8px;
+  background-color: lightgreen;
+  color: white;
+}
+
+.leaf button:hover {
+  background-color: lime;
+  color: white;
+}
+
+.leaf #tablebuttdel {
+  background: linear-gradient(lime, green, darkgreen);
+  color: white;
+}
+.leaf #tablebuttedit {
+  background: linear-gradient(lime, green, darkgreen);
+  width: 44px;
+  color: white;
+}
+.leaf .topnav a.active #gifs1 {
+  transform: scale(2);
+  transition: 0.5s ease;
+  position: relative;
+  top: -2.5px;
+}
+
+.leaf .topnav a.active #gifs2 {
+  transform: scale(1.55);
+  transition: 0.5s ease;
+  position: relative;
+  top: 1.1px;
+}
+
+.leaf .topnav a.active #gifs3 {
+  transform: scale(1.55);
+  transition: 0.5s ease;
+  position: relative;
+  bottom: 0.6px;
+}
+
+.leaf .topnav a.active #gifs4 {
+  transform: scale(2);
+  transition: 0.5s ease;
+  position: relative;
+  bottom: 4.5px;
+}
+
+.leaf .topnav a.active #gifs5 {
+  transform: scale(2);
+  transition: 0.5s ease;
+  position: relative;
+  bottom: 3.5px;
+}
+
+.leaf .topnav a.active #gifs6 {
+  transform: scale(2);
+  transition: 0.5s ease;
+  position: relative;
+  top: 1px;
+}
+.leaf .awards.top1{
+  background-image: url(https://media.tenor.com/YMlFIO717K0AAAAM/huo-huo-honkai-star-rail.gif);
+}
+
+.leaf .awards.top2{
+  background-image: url(https://media.tenor.com/C9TZQStgkA0AAAAM/huohuo-huo-huo.gif);
+}
+
+.leaf .awards.top3{
+  background-image: url(https://media.tenor.com/gzGvEU_h6SMAAAAm/huohuo-honkai-star-rail.webp);
+}
+  .vanta {
+  background: black;
+  color: white;
+  }
+  .vanta .topnav.mobile {
+  overflow: hidden;
+  background: black;
+  width: 100px;
+  height: 100%;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 50px;
+  position: fixed;
+  flex-direction: column;
+  transition: 0.5s;
+  transform: 0.5s;
+  border: white 1px solid;
+}
+
+.vanta .topnav a {
+  padding: 8px 8px 8px 32px;
+  color: #f2f2f2;
+  font-size: 10px;
+  text-decoration: none;
+  padding: 8px 10px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.3s;
+}
+
+.vanta .topnav a:hover {
+  background: lightgray;
+  color: black;
+  transition: all 0.3s ease-in-out;
+}
+
+.vanta .topnav a.closebtn {
+  position: absolute;
+  top: 5px;
+  text-align: center;
+  right: 0px;
+  font-size: 15px;
+  padding: 8px;
+  gap: 10px;
+}
+
+.vanta .topnav a.active {
+  font-size: 0px;
+  background: white;
+}
+
+.vanta .tab-content {
+  padding: 20px;
+  display: none;
+}
+
+.vanta .tab-content.active {
+  display: inline-block;
+}
+
+.vanta #gifs{
+  width: 30px;
+}
+.vanta button {
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 8px;
+  background-color: gray;
+  color: white;
+}
+
+.vanta button:hover {
+  background-color: lightgray;
+  color: white;
+}
+
+.vanta #tablebuttdel {
+  background: darkslategray;
+  color: white;
+}
+.vanta #tablebuttedit {
+  background: darkslategray;
+  width: 44px;
+  color: white;
+}
+
+.vanta .topnav a.active #gifs1 {
+  transform: scale(2);
+  transition: 0.5s ease;
+  position: relative;
+  bottom: 7px;
+}
+
+.vanta .topnav a.active #gifs2 {
+  transform: scale(2);
+  transition: 0.5s ease;
+  position: relative;
+  bottom: 2px;
+}
+
+.vanta .topnav a.active #gifs3 {
+  transform: scale(2);
+  transition: 0.5s ease;
+  position: relative;
+  bottom: 2.2px;
+}
+
+.vanta .topnav a.active #gifs4 {
+  transform: scale(1.5);
+  transition: 0.5s ease;
+  position: relative;
+  bottom: 0.1px;
+}
+
+.vanta .topnav a.active #gifs5 {
+  transform: scale(1.5);
+  transition: 0.5s ease;
+  position: relative;
+  bottom: 0.1px;
+}
+
+.vanta .topnav a.active #gifs6 {
+  transform: scale(1.55);
+  transition: 0.5s ease;
+  position: relative;
+  bottom: .4px;
+}
+.vanta .awards.top1{
+  background-image: url(https://media.tenor.com/3_yoPPqYE94AAAAm/emote-emoji.webp);
+}
+
+.vanta .awards.top2{
+  background-image: url(https://media.tenor.com/VjwPRfTQeL4AAAAm/emote-emoji.webp);
+}
+
+.vanta .awards.top3{
+  background-image: url(https://media.tenor.com/R65Zl76ex8EAAAAm/xinyan-genshin-impact.webp);
+}
+
+
+.white {
+  background: white;
+  color: black;
+}
+  .white  .topnav.mobile {
+  overflow: hidden;
+  background: white;
+  width: 100px;
+  height: 100%;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 50px;
+  position: fixed;
+  flex-direction: column;
+  transition: 0.5s;
+  transform: 0.5s;
+  border: black 2px solid;
+}
+
+.white .topnav a {
+  padding: 8px 8px 8px 32px;
+  color: black;
+  font-size: 10px;
+  text-decoration: none;
+  padding: 8px 10px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.3s;
+}
+
+.white .topnav a:hover {
+  background: gray;
+  color: black;
+  transition: all 0.3s ease-in-out;
+}
+
+.white .topnav a.closebtn {
+  position: absolute;
+  top: 5px;
+  text-align: center;
+  right: 0px;
+  font-size: 15px;
+  padding: 8px;
+  gap: 10px;
+}
+
+.white .topnav a.active {
+  background: lightgray;
+  color: black;
+  font-size: 0px;
+}
+
+.white .tab-content {
+  padding: 20px;
+  display: none;
+}
+
+.white .tab-content.active {
+  display: inline-block;
+}
+
+.white #gifs{
+  width: 30px;
+}
+
+.white th {
+  border: 1px solid black;
+  padding: 5px;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.white td{
+  border: 1px solid black;
+  padding: 5px;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.white thead {
+  background-color: darkgray;
+}
+.white button {
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 8px;
+  background-color: lightgray;
+  color: black;
+}
+
+.white button:hover {
+  background-color: gray;
+  color: black;
+}
+
+.white #tablebuttdel {
+  background: lightgray;
+  color: black;
+}
+.white #tablebuttedit {
+  background: lightgray;
+  width: 44px;
+  color: black;
+}
+
+.white .topnav a.active #gifs1 {
+  transform: scale(2);
+  transition: 0.5s ease;
+  position: relative;
+  bottom: 2px;
+}
+
+.white .topnav a.active #gifs2 {
+  transform: scale(2);
+  transition: 0.5s ease;
+  position: relative;
+  bottom: 7.2px;
+}
+
+.white .topnav a.active #gifs3 {
+  transform: scale(2);
+  transition: 0.5s ease;
+  position: relative;
+  bottom: 7px;
+}
+
+.white .topnav a.active #gifs4 {
+  transform: scale(1.5);
+  transition: 0.5s ease;
+  position: relative;
+  top: 0.4px;
+}
+
+.white .topnav a.active #gifs5 {
+  transform: scale(1.5);
+  transition: 0.5s ease;
+  position: relative;
+  top: 0.4px;
+}
+
+.white .topnav a.active #gifs6 {
+  transform: scale(2);
+  transition: 0.5s ease;
+  position: relative;
+  top: .4px;
+}
+
+.white .awards.top1{
+  background-image: url(https://media.tenor.com/FwGdDBZOqtsAAAAm/anby-demara-zenless-zone-zero.webp);
+}
+
+.white .awards.top2{
+  background-image: url(https://media.tenor.com/Uerv7gsWVMYAAAAM/anby-zzz.gif);
+}
+
+.white .awards.top3{
+  background-image: url(https://media.tenor.com/EgXzNuigGVQAAAAm/anby-demara-zenless-zone-zero.webp);
+}
+
+.purple {
+  background: rgba(59, 0, 84, 0.907);
+  color: white;
+}
+.purple .topnav.mobile {
+  overflow: hidden;
+  background: linear-gradient( purple, darkslateblue, black);
+  width: 100px;
+  height: 100%;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 50px;
+  position: fixed;
+  flex-direction: column;
+  transition: 0.5s;
+  transform: 0.5s;
+  border: black 1px solid;
+}
+
+.purple .topnav a {
+  padding: 8px 8px 8px 32px;
+  color: #f2f2f2;
+  font-size: 10px;
+  text-decoration: none;
+  padding: 8px 10px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.purple .topnav a:hover {
+  background: rgb(132, 1, 180);
+  color: black;
+  transition: all 0.3s ease-in-out;
+}
+
+.purple .topnav a.closebtn {
+  position: absolute;
+  top: 5px;
+  text-align: center;
+  right: 0px;
+  font-size: 15px;
+  padding: 8px;
+  gap: 10px;
+}
+
+.purple .topnav a.active {
+  font-size: 0px;
+  background: violet;
+}
+
+.purple .tab-content {
+  padding: 20px;
+  display: none;
+}
+
+.purple .tab-content.active {
+  display: inline-block;
+}
+
+.purple #gifs{
+  width: 30px;
+}
+
+.purple thead {
+  background-color: darkorchid;
+}
+.purple button {
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 8px;
+  background-color: darkslateblue;
+  color: white;
+}
+
+.purple button:hover {
+  background-color: darkslategray;
+  color: white;
+}
+
+.purple #tablebuttdel {
+  background: darkorchid;
+  color: white;
+}
+.purple #tablebuttedit {
+  background: darkorchid;
+  width: 44px;
+  color: white;
+}
+
+.purple .topnav a.active #gifs1 {
+  transform: scale(2);
+  transition: 0.5s ease;
+  position: relative;
+  bottom: 3.1px;
+}
+
+.purple .topnav a.active #gifs2 {
+  transform: scale(2);
+  transition: 0.5s ease;
+  position: relative;
+  bottom: 3.1px;
+}
+
+.purple .topnav a.active #gifs3 {
+  transform: scale(2);
+  transition: 0.5s ease;
+  position: relative;
+  bottom: 3px;
+}
+
+.purple .topnav a.active #gifs4 {
+  transform: scale(2);
+  transition: 0.5s ease;
+  position: relative;
+  bottom: 4px;
+}
+
+.purple .topnav a.active #gifs5 {
+  transform: scale(2);
+  transition: 0.5s ease;
+  position: relative;
+  bottom: 3px;
+}
+
+.purple .topnav a.active #gifs6 {
+  transform: scale(2);
+  transition: 0.5s ease;
+  position: relative;
+  bottom: 6.8px;
+}
+
+.purple .awards.top1{
+  background-image: url(https://media.tenor.com/drHjmhQY2XcAAAAj/yae-miko-genshin-impact.gif);
+}
+
+.purple .awards.top2{
+  background-image: url(https://media.tenor.com/rVAwMtgPMMkAAAAi/yae-genshin-genshin.gif);
+}
+
+.purple .awards.top3{
+  background-image: url(https://media.tenor.com/7qFsWfcOb5UAAAAm/yae-miko.webp);
+}
+
+
+.titles{
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+@keyframes loadingBackground {
+ 0% {background-color: black;}
+ 20% {background-color: blueviolet;}
+ 40% {background-color: #5c1111;}
+ 60% {background-color: #4CAF50;}
+ 80% {background-color: white;}
+ 100% {background-color: black;}
+}
+
+#loading-screen {
+  background-color: #5c1111;
+  position: fixed;
+  background-repeat: no-repeat;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: 500px;
+  background-position: center;
+  font-size: 20px;
+  text-align: center;
+  animation: loadingBackground 4s infinite;
+  pointer-events: none;
+  visibility: visible;
+}
+
+#loading-screen img {
+  position: absolute;
+  object-fit: contain;
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+#loader {
+  display: none;
+}
+
+.popUp-overlay{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.default .popUp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 8px;
+  background: linear-gradient(45deg, orange, yellow, red);
+  color: black;
+}
+
+.leaf .popUp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 8px;
+  background: linear-gradient(45deg, lightgreen, lime, green);
+  color: black;
+}
+
+.vanta .popUp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 8px;
+  background: gray;
+}
+
+.white .popUp {  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 8px;
+  background: black;
+  color: white;
+}
+
+.purple .popUp {
+ position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 8px;
+  background: linear-gradient(45deg, purple, darkslateblue, black);
+}
+
+.default .popUp a, .leaf .popUp a{
+  color: darkslateblue;
+  text-decoration: none;
+}
+
+.vanta .popUp a{
+  text-decoration: none;
+}
+
+.white .popUp a{
+  color: wheat;
+  text-decoration: none;
+}
+
+.purple .popUp a {
+  color: lime;
+  text-decoration: none;
+}
+
+.popUp-overlay .closeing{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: white;
+}
+.popUpContent {
+  text-align: center;
+}
+
+.default .topnav.desktop {
+  position: static !important;
+  width: 100vw !important;
+  padding-top: 0 !important;
+  border-bottom: 2px solid black;
+  align-items: center;
+  border-right: none;
+  z-index: 10;
+  display: flex;
+  background: linear-gradient(45deg, red, orange, yellow);
+}
+.default.desktop {
+  position: static !important;
+  width: 100vw !important;
+  padding-top: 0 !important;
+  align-items: center;
+  border-right: none;
+  z-index: 10;
+  display: flex;
+  background: linear-gradient(180deg, orange, red, darkred, black);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.leaf .topnav.desktop {
+  position: static !important;
+  width: 100vw !important;
+  padding-top: 0 !important;
+  border-bottom: 2px solid black;
+  align-items: center;
+  border-right: none;
+  z-index: 10;
+  display: flex;
+  background: linear-gradient(45deg, green, lime, darkgreen);
+  background-attachment: fixed;
+}
+.leaf.desktop {
+  position: static !important;
+  width: 100vw !important;
+  padding-top: 0 !important;
+  align-items: center;
+  border-right: none;
+  z-index: 10;
+  display: flex;
+  background: linear-gradient(180deg, lime, green, darkgreen, black);
+  background-attachment: fixed;
+}
+.vanta .topnav.desktop {
+  position: static !important;
+  width: 100vw !important;
+  padding-top: 0 !important;
+  border-bottom: 2px solid white;
+  align-items: center;
+  border-right: none;
+  z-index: 10;
+  display: flex;
+  background: black;
+  color: black;
+}
+.white .topnav.desktop {
+  position: static !important;
+  width: 100vw !important;
+  padding-top: 0 !important;
+  border-bottom: 2px solid black;
+  align-items: center;
+  border-right: none;
+  z-index: 10;
+  display: flex;
+  background: lightgray;
+  color: black;
+}
+.purple .topnav.desktop {
+  position: static !important;
+  width: 100vw !important;
+  padding-top: 0 !important;
+  border-bottom: 2px solid black;
+  align-items: center;
+  border-right: none;
+  z-index: 10;
+  display: flex;
+  background: linear-gradient(45deg, purple, darkslateblue, black);
+}
+
+.purple.desktop {
+  position: static !important;
+  width: 100vw !important;
+  padding-top: 0 !important;
+  align-items: center;
+  border-right: none;
+  z-index: 10;
+  display: flex;
+  background: linear-gradient(180deg, purple, darkslateblue, black);
+  background-attachment: fixed;
+}
+
+.topnav.desktop a {
+  font-size: 14px !important;
+  padding: 8px 16px !important;
+  gap: 8px !important;
+}
+.topnav.desktop a.active{
+  font-size: 0px !important;
+}
+.topnav.desktop .closebtn,
+.topnav.desktop #morebtn {
+  display: none !important;
+}
+
+.desktop .table, .topnav.desktop ~ .tab-content .table{
+  width: 90% !important;
+  max-width: 100vw;
+  table-layout: auto;
+  margin: auto;
+}
+
+body.desktop .tab-content{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.searching, .deleting{
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  vertical-align: middle;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+script, style {
+  display: none;
+}
