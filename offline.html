@@ -8,7 +8,7 @@
   <link rel="manifest" href="manifest.json">
 
   <script src="head.js" defer></script>
-  <link rel="stylesheet" href="tooLong.css">
+<link rel="stylesheet" href="tooLong.css">
 </head>
 <body class="dark-mode nav-collapsed" style="margin: 0;">
 <!--Loading screen-->
@@ -170,7 +170,7 @@
     <div class="popUp" id="popUpdeleCon">
       <div class="popUpContent">
         <h2>⚠️WAIT!⚠️</h2>
-        <p>Do you really want to delete <b><i>all</i></b> run?</p>
+        <p>Do you really want to delete <b><i>all</i></b> of your runs?</p>
         <button class="closeadd" id="closePopdeerY">Yes.</button>
         <button class="closeadd" id="closePopdeerN">No thanks.</button>
       </div>
@@ -270,7 +270,7 @@
   </div>
   <!--nav bar-->
   <div class="topnav" id="tabside">
-    <a href="#" class="closebtn" onclick="event.preventDefault(); closeNav()">&#10006;</a>
+    <a href="#" class="closebtn" onclick="closeNav();"><</a>
     <a class="active" href="#home">Home
       <img class="gifs" id="gifs1">
     </a>
@@ -290,17 +290,7 @@
     <a href="#themes">Themes
       <img class="gifs" id="gifs6">
     </a>
-    <span 
-    id="morebtn"
-    style="font-size: 12px;
-    cursor: pointer; 
-    position: fixed; 
-    top: 10px;
-    left: 10px; 
-    z-index: 2;
-    background: none;
-    display: block; 
-    transition: opacity 0.3s;" onclick="openNav()">&#9776; More...</span>
+    <span class="morebtnCl" id="morebtn" onclick="openNav()">></span>
   </div>
   <div id="home" class="tab-content active">
     <!--runs display-->
