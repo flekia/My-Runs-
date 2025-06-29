@@ -85,8 +85,9 @@
         topnav.style.position = "fixed";
         topnav.style.flexDirection = "column";
         document.querySelectorAll('.tab-content').forEach(tab => tab.style.marginLeft = "");
-       if (morebtn) morebtn.style.display = "block";
-
+       if (morebtn){ morebtn.style.display = "block";
+        morebtn.value = "0";
+      }
       }
     }
         //loading screen

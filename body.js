@@ -674,23 +674,32 @@ window.importRuns = importRuns;
     console.log("import/export.js loaded.");
   
     //side navbar
-    const slider = document.getElementById("morebtn");
-    slider.addEventListener("input", function() {
-      const top = document.getElementById("tabside");
-      const value = parseInt(this.value, 10);
-      if (value > 0) {
-        top.style.width = value + "px";
-        top.style.display = "block";
-        top.classList.add("mobile", "active");
-        top.classList.remove("closed");
-        top.classList.remove("desktop");
-      } else {
-        top.style.width = "0";
-        top.classList.remove("mobile");
-        top.classList.add("closed");
-        top.classList.remove("dekstop");
-        slider.style.display = "block";
-      }
+      const tabside = document.getElementById("tabside");
+      const morebtn = document.getElementById("morebtn");
+      let isDragging = false;
+
+      function updateWidth(clientX) {
+      const minWidth = 0;
+      const maxWidth = 100;
+      let newWidth = clientX;
+
+      if (newWidth < minWidth) newWidth = minWidth;
+      if (newWidth > maxWidth) newWidth = maxWidth;
+
+      tabside.style.width = `${newWidth}px`;
+      morebtn.style.left = `${newWidth}px`;
+    }
+      morebtn.addEventListener("touchstart", () => {
+      isDragging = true;
+    });
+
+    document.addEventListener("touchmove", (e) => {
+      if (!isDragging) return;
+      updateWidth(e.touches[0].clientX);
+    });
+
+    document.addEventListener("touchend", () => {
+      isDragging = false;
     });
     console.log("navbar.js loaded.");
 console.log("Edit roulette is working.");

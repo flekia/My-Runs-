@@ -4,21 +4,20 @@
     }
     @media (max-width: 768px) {
   .topnav {
-    width: 0;
+    width: 100px;
     overflow: hidden;
-    transition: width 0.3s;
     position: fixed;
     left: 0;
     top: 0;
-    height: 100%;
+    height: 500vh;
     z-index: 9999;
     padding-top: 0;
     background: inherit;
+    overflow-y: auto;
   }
   .topnav.active.mobile {
     width: 100px;
     overflow: hidden;
-    transition: width 0.3s;
     position: fixed;
     left: 0;
     top: 0;
@@ -39,7 +38,6 @@
     height: 100%;
     z-index: 9999;
     overflow: hidden;
-    transition: width 0.3s;
     display: block;
   }
   .default .topnav.mobile,
@@ -77,7 +75,7 @@
     position: fixed;
     left: 50%;
     top: 50%;
-    z-index: 10001;
+    z-index: 9998;
     background: inherit;
     border-radius: 0 16px 16px 0;
     font-size: 50px;
@@ -150,7 +148,6 @@ body.nav-collapsed .tab-content {
   color: #f2f2f2;
   font-size: 10px;
   text-decoration: none;
-  transition: 0.3s;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -1133,7 +1130,6 @@ form button:hover {
 .topnav.desktop a.active{
   font-size: 0px !important;
 }
-.topnav.desktop .closebtn,
 .topnav.desktop #morebtn {
   display: none !important;
 }
@@ -1144,7 +1140,6 @@ form button:hover {
   table-layout: auto;
   margin: auto;
 }
-
 .topnav.desktop {
   display: flex !important;
   flex-direction: row !important;
@@ -1177,16 +1172,14 @@ script, style {
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 10001;
+  z-index: 9998;
   border-radius: 0 8px 8px 0;
   font-size: 24px;
   cursor: pointer;
   border-left: none;
-  background: inherit;
-  width: 125px;
-  height: 20px;
-  appearance: none;
-  -webkit-appearance: none;
+  background: var(--thumb-bg);
+  width: 25px;
+  height: 50px;
 }
 
 .default { --thumb-bg: linear-gradient(180deg, orange, red, darkred);}
@@ -1194,17 +1187,3 @@ script, style {
 .vanta   { --thumb-bg: linear-gradient(180deg, lightgray, darkgray, gray); }
 .white   { --thumb-bg: linear-gradient(180deg, gray, darkgray, white); }
 .purple  { --thumb-bg: linear-gradient(180deg, purple, darkslateblue, black); }
-
-
-.morebtnCl::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 25px;
-  height: 50px;
-  cursor: pointer;
-  border-radius: 0 16px 16px 0;
-  background: var(--thumb-bg);
-  background-size: cover, 60% 60%;
-  cursor: pointer;
-  background-color: inherit;
-}
