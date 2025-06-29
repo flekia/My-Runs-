@@ -46,26 +46,31 @@
   .default .topnav,
   .default .topnav.closed {
     background: linear-gradient(180deg, orange, red, darkred);
+    border: 1px solid black;
   }
   .leaf .topnav.mobile,
   .leaf .topnav,
   .leaf .topnav.closed {
-    background: linear-gradient(lime, green, darkgreen);
+    background: linear-gradient(180deg, lime, green, darkgreen);
+    border: 1px solid black;
   }
   .vanta .topnav.mobile,
   .vanta .topnav,
   .vanta .topnav.closed {
     background: black;
+    border: 1px solid white;
   }
   .white .topnav.mobile,
   .white .topnav,
   .white .topnav.closed {
     background: white;
+    border: 1px solid black;
   }
   .purple .topnav.mobile,
   .purple .topnav,
   .purple .topnav.closed {
     background: linear-gradient(purple, darkslateblue, black);
+    border: 1px solid white;
   }
   .morebtnCl {
     display: block;
@@ -82,28 +87,6 @@
     transition: background 0.2s;
     line-height: 1;
     text-align: center;
-  }
-  .topnav a.closebtn {
-    position: fixed;
-    left: 100px; 
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10002;
-    background: inherit;
-    color: #111;
-    border-radius: 10px 0 0 10px;
-    padding: 18px 10px 18px 6px;
-    font-size: 24px;
-    cursor: pointer;
-    border: none;
-    border-right: none;
-    transition: background 0.5s;
-    line-height: 1;
-    text-align: center;
-    display: none;
-  }
-  .topnav a.closebtn:hover {
-    background: #ffe0b2;
   }
 }
 body {
@@ -1162,6 +1145,17 @@ form button:hover {
   margin: auto;
 }
 
+.topnav.desktop {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+  justify-content: flex-start; 
+  width: 100vw !important;
+  height: auto !important;
+  position: static !important;
+  background: inherit;
+}
+
 body.desktop .tab-content{
   padding-left: 0 !important;
   padding-right: 0 !important;
@@ -1185,22 +1179,32 @@ script, style {
   transform: translateY(-50%);
   z-index: 10001;
   border-radius: 0 8px 8px 0;
-  padding: 10px 8px 10px 4px;
   font-size: 24px;
   cursor: pointer;
-  display: none;
   border-left: none;
+  background: inherit;
+  width: 125px;
+  height: 20px;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
-.topnav a.closebtn {
-  position: absolute;
-  top: 50%;
-  left: 70%;
-  transform: translateY(-50%);
-  text-align: center;
-  right: -5px;
-  font-size: 24px;
-  padding: 8px;
-  gap: 10px;
-  
+.default { --thumb-bg: linear-gradient(180deg, orange, red, darkred);}
+.leaf    { --thumb-bg: linear-gradient(180deg, lime, green, darkgreen); }
+.vanta   { --thumb-bg: linear-gradient(180deg, lightgray, darkgray, gray); }
+.white   { --thumb-bg: linear-gradient(180deg, gray, darkgray, white); }
+.purple  { --thumb-bg: linear-gradient(180deg, purple, darkslateblue, black); }
+
+
+.morebtnCl::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 0 16px 16px 0;
+  background: var(--thumb-bg);
+  background-size: cover, 60% 60%;
+  cursor: pointer;
+  background-color: inherit;
 }

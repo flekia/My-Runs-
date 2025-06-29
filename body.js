@@ -674,32 +674,24 @@ window.importRuns = importRuns;
     console.log("import/export.js loaded.");
   
     //side navbar
-    function openNav() {
+    const slider = document.getElementById("morebtn");
+    slider.addEventListener("input", function() {
       const top = document.getElementById("tabside");
-      top.classList.add("mobile", "active");
-      top.classList.remove("closed");
-      top.style.width = "100px";
-      document.getElementById("morebtn").style.display = "none";
-      document.body.classList.remove("nav-collapsed");
-    }
-    function closeNav() {
-      const top = document.getElementById("tabside");
-      top.classList.remove("mobile");
-      top.classList.add("closed");
-      top.style.width = "0";
-      document.getElementById("morebtn").style.display = "block";
-      document.body.classList.add("nav-collapsed");
-
-      const activeTab = document.querySelector('.topnav a.active');
-      if (activeTab){
-        const tabId = activeTab.getAttribute('href').substring(1);
-        const content = document.getElementById(tabId);
-        if (content) {
-          content.classList.add('active');
-        }
+      const value = parseInt(this.value, 10);
+      if (value > 0) {
+        top.style.width = value + "px";
+        top.style.display = "block";
+        top.classList.add("mobile", "active");
+        top.classList.remove("closed");
+        top.classList.remove("desktop");
+      } else {
+        top.style.width = "0";
+        top.classList.remove("mobile");
+        top.classList.add("closed");
+        top.classList.remove("dekstop");
+        slider.style.display = "block";
       }
-      
-    }
+    });
     console.log("navbar.js loaded.");
 console.log("Edit roulette is working.");
   

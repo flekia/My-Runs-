@@ -152,7 +152,6 @@
     const savedTheme = localStorage.getItem("preferredTheme") || "default";
     themeChange(savedTheme);
     adjustNavLayout();
-    closeNav();
     isIt();
     setTimeout(() =>{
       isLoading();
