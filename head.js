@@ -85,9 +85,7 @@
         topnav.style.position = "fixed";
         topnav.style.flexDirection = "column";
         document.querySelectorAll('.tab-content').forEach(tab => tab.style.marginLeft = "");
-       if (morebtn){ morebtn.style.display = "block";
-        morebtn.value = "0";
-      }
+       if (morebtn) morebtn.style.display = "block";
       }
     }
         //loading screen
@@ -147,7 +145,16 @@
       document.getElementById("loading-screen").style.display = "none";
       document.getElementById("loader").style.display = "block"; 
     }
-    window.addEventListener("resize", adjustNavLayout);
+     function reset() {
+      const tabside = document.getElementById("tabside");
+      const morebtn = document.getElementById("morebtn");
+      if (tabside) tabside.style.width = "0";
+      if (morebtn) morebtn.style.left = "0"
+    }
+    window.addEventListener("resize", function() {
+      adjustNavLayout();
+      reset();
+    });
     window.themeChange = themeChange;
     document.addEventListener("DOMContentLoaded", function() {
     const savedTheme = localStorage.getItem("preferredTheme") || "default";
