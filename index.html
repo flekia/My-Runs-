@@ -267,6 +267,7 @@
   </div>
   <!--nav bar-->
   <div class="topnav" id="tabside">
+        <a href="#" class="closebtn" id="closebtn" onclick="closeNav()"><</a>
     <a class="active" href="#home">Home
       <img class="gifs" id="gifs1">
     </a>
@@ -283,9 +284,10 @@
     <a href="#importexport">Save/Load
       <img class="gifs" id="gifs5">
     </a>
-    <a href="#themes">Themes
+    <a href="#settings">Settings
       <img class="gifs" id="gifs6">
     </a>
+        <span class="morebtnClm" id="morebtnm" onclick="openNav()">></span>
   </div>
 <div class="morebtnCl" id="morebtn"></div>  <div id="home" class="tab-content active">
     <!--runs display-->
@@ -352,13 +354,15 @@
     <input type="file" id="import-button">
   </div>
   <!--themes-->
-  <div id="themes" class="tab-content">
+  <div id="settings" class="tab-content">
     <h2>Current themes are:</h2>
     <button style="background: linear-gradient(45deg, yellow, orange, red);color: black; border: #aa2e25 2px solid;" onclick="themeChange('default')">Default</button>
     <button style="background: linear-gradient(lightgreen, lime, green, darkgreen);color: black; border: #388e3c 2px solid;" onclick="themeChange('leaf')">Leaf Green</button>
     <button style="background: black;color: white; border: gray 2px solid;" onclick="themeChange('vanta')">Pure Black</button>
     <button style="background: white;color: black; border: gainsboro 2px solid;" onclick="themeChange('white')">Pure White</button>
-    <button style="background: linear-gradient(purple, darkorchid, black);color: white; border: blueviolet 2px solid;" onclick="themeChange('purple')">Jade Theme</button>
+    <button style="background: linear-gradient(purple, darkorchid, black);color: white; border: blueviolet 2px solid;" onclick="themeChange('purple')">Jade Theme</button> <br> <br>
+        <button id="switchState" style="font-size: 20px; position: absolute; right: 10px;">Button Mode</button>
+
   </div>
   </div>
   <div>

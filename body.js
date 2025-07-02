@@ -676,9 +676,13 @@ window.importRuns = importRuns;
     //side navbar
       const tabside = document.getElementById("tabside");
       const morebtn = document.getElementById("morebtn");
+      const opener = document.getElementById("morebtnm");
+      const closebtn = document.getElementById("closebtn");
       let isDragging = false;
-
+      let slidingWoooo = false;
+      const switcheroni = document.getElementById("switchState");
       function updateWidth(clientX) {
+      tabside.classList.add("active");
       const minWidth = 0;
       const maxWidth = 100;
       let newWidth = clientX;
@@ -688,18 +692,83 @@ window.importRuns = importRuns;
 
       tabside.style.width = `${newWidth}px`;
       morebtn.style.left = `${newWidth}px`;
+      }
+  function openNav() {
+      const top = document.getElementById("tabside");
+      const opener = document.getElementById("morebtnm");
+      const closebtn = document.getElementById("closebtn");
+      top.classList.add("mobile", "active");
+      top.classList.remove("closed");
+      top.style.width = "100px";
+      top.style.transition = "width 0.3s ease-in-out";
+      opener.style.display = "none";
+      closebtn.style.display = "block";
+      document.body.classList.remove("nav-collapsed");
     }
-      morebtn.addEventListener("touchstart", () => {
-      isDragging = true;
-    });
+    function closeNav() {
+      const top = document.getElementById("tabside");
+      const opener = document.getElementById("morebtnm");
+      top.classList.remove("mobile");
+      top.classList.add("closed");
+      top.style.width = "0";
+      opener.style.display = "block";
+      top.style.transition = "width 0.3s ease-in-out";
+      document.body.classList.add("nav-collapsed");
 
-    document.addEventListener("touchmove", (e) => {
-      if (!isDragging) return;
-      updateWidth(e.touches[0].clientX);
-    });
-
-    document.addEventListener("touchend", () => {
-      isDragging = false;
+      const activeTab = document.querySelector('.topnav a.active');
+      if (activeTab){
+        const tabId = activeTab.getAttribute('href').substring(1);
+        const content = document.getElementById(tabId);
+        if (content) {
+          content.classList.add('active');
+        }
+      }
+      
+    }
+      function reset() {
+      const tabside = document.getElementById("tabside");
+      const morebtn = document.getElementById("morebtn");
+      if (tabside) tabside.style.width = "0";
+      if (morebtn) morebtn.style.left = "0";
+    }
+    function enableMe() {
+      slidingWoooo = true;
+      switcheroni.innerHTML = "Slider Mode";
+      morebtn.style.display = "block";
+      opener.style.display = "none";
+      closebtn.style.display = "none";
+      tabside.classList.remove("mobile", "closed");
+      tabside.classList.add("active");
+      tabside.style.transition = "none";
+      reset();
+      if (!morebtn.hasDragListeners) {
+        morebtn.addEventListener("touchstart", () => isDragging = true);
+        document.addEventListener("touchmove", (e) => {
+          if (!isDragging) return;
+          updateWidth(e.touches[0].clientX);
+        });
+        document.addEventListener("touchend", () => isDragging = false);
+        morebtn.hasDragListeners = true;
+      }
+    }
+    function suchATurnOff() {
+      slidingWoooo = false;
+      switcheroni.innerHTML = "Button Mode";
+      morebtn.style.display = "none";
+      opener.style.display = "block";
+      closebtn.style.display = "none";
+      tabside.classList.remove("active");
+      tabside.style.transition = "width 0.3s ease-in-out";
+      tabside.style.width = "0";
+      reset();
+      closeNav();
+    }
+    switcheroni.addEventListener("click", () => {
+      if (!slidingWoooo) {
+        enableMe();
+      } else {
+        suchATurnOff();
+      }
     });
     console.log("navbar.js loaded.");
 console.log("Edit roulette is working.");

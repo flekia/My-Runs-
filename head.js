@@ -145,12 +145,6 @@
       document.getElementById("loading-screen").style.display = "none";
       document.getElementById("loader").style.display = "block"; 
     }
-     function reset() {
-      const tabside = document.getElementById("tabside");
-      const morebtn = document.getElementById("morebtn");
-      if (tabside) tabside.style.width = "0";
-      if (morebtn) morebtn.style.left = "0"
-    }
     window.addEventListener("resize", function() {
       adjustNavLayout();
       reset();
@@ -161,6 +155,7 @@
     themeChange(savedTheme);
     adjustNavLayout();
     isIt();
+    suchATurnOff();
     setTimeout(() =>{
       isLoading();
       document.body.classList.add("loads-ugh");

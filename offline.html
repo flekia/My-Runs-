@@ -270,6 +270,7 @@
   </div>
   <!--nav bar-->
   <div class="topnav" id="tabside">
+        <a href="#" class="closebtn" id="closebtn" onclick="closeNav()"><</a>
     <a class="active" href="#home">Home
       <img class="gifs" id="gifs1">
     </a>
@@ -289,7 +290,8 @@
     <a href="#themes">Themes
       <img class="gifs" id="gifs6">
     </a>
-  </div>
+    <span class="morebtnClm" id="morebtnm" onclick="openNav()">></span>
+</div>
 <div class="morebtnCl" id="morebtn"></div>  <div id="home" class="tab-content active">
     <!--runs display-->
     <h2 class="titles">Top Runs of All Time</h2>
@@ -361,7 +363,8 @@
     <button style="background: linear-gradient(lightgreen, lime, green, darkgreen);color: black; border: #388e3c 2px solid;" onclick="themeChange('leaf')">Leaf Green</button>
     <button style="background: black;color: white; border: gray 2px solid;" onclick="themeChange('vanta')">Pure Black</button>
     <button style="background: white;color: black; border: gainsboro 2px solid;" onclick="themeChange('white')">Pure White</button>
-    <button style="background: linear-gradient(purple, darkorchid, black);color: white; border: blueviolet 2px solid;" onclick="themeChange('purple')">Jade Theme</button>
+    <button style="background: linear-gradient(purple, darkorchid, black);color: white; border: blueviolet 2px solid;" onclick="themeChange('purple')">Jade Theme</button> <br> <br>
+        <button id="switchState" style="font-size: 20px; position: absolute; right: 10px;">Button Mode</button>
   </div>
   </div>
   <div>

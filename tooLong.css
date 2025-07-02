@@ -14,6 +14,21 @@
     padding-top: 0;
     background: inherit;
     overflow-y: auto;
+    display: none;
+  }
+  
+  .topnav.active{
+    width: 100px;
+    overflow: hidden;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 500vh;
+    z-index: 9999;
+    padding-top: 0;
+    background: inherit;
+    overflow-y: auto;
+    display: block;
   }
   .topnav.active.mobile {
     width: 100px;
@@ -27,9 +42,14 @@
     flex-direction: column;
     display: block;
   }
+  .topnav.active,
+  .topnav.active.mobile{
+    display: block;
+    width: 100px;
+    flex-direction: column;
+  }
   .topnav.closed{
     width: 0 !important;
-    display: block;
   }
   .topnav, .topnav.active.mobile, .topnav.closed{
     position: fixed;
@@ -68,14 +88,37 @@
   .purple .topnav,
   .purple .topnav.closed {
     background: linear-gradient(purple, darkslateblue, black);
-    border: 1px solid white;
+    border: 1px solid black;
   }
   .morebtnCl {
-    display: block;
     position: fixed;
+    width: 25px;
+    height: 80px;
     left: 50%;
     top: 50%;
     z-index: 9998;
+    background: var(--thumb-bg);
+    border-radius: 0 16px 16px 0;
+    font-size: 50px;
+    cursor: pointer;
+    border: none;
+    border-left: none;
+    line-height: 1;
+    text-align: center;
+    display: none;
+  }
+.default { --thumb-bg: linear-gradient(180deg, orange, red, darkred);}
+.leaf    { --thumb-bg: linear-gradient(180deg, lime, green, darkgreen); }
+.vanta   { --thumb-bg: linear-gradient(180deg, lightgray, darkgray, gray); }
+.white   { --thumb-bg: linear-gradient(180deg, gray, darkgray, white); }
+.purple  { --thumb-bg: linear-gradient(180deg, purple, darkslateblue, black); }
+
+    .morebtnClm {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 50%;
+    z-index: 10001;
     background: inherit;
     border-radius: 0 16px 16px 0;
     font-size: 50px;
@@ -83,6 +126,25 @@
     border: none;
     border-left: none;
     transition: background 0.2s;
+    line-height: 1;
+    text-align: center;
+  }
+    .topnav a.closebtn {
+    position: absolute; 
+    top: 50%;
+    left: 70px;
+    width: 20px;
+    height: 25px;
+    transform: translateY(-50%);
+    z-index: 10012;
+    background: inherit;
+    border-radius: 16px 0 0 16px;
+    padding: 18px 10px 18px 6px;
+    font-size: 50px;
+    cursor: pointer;
+    border: none;
+    border-right: none;
+    transition: background 0.5s;
     line-height: 1;
     text-align: center;
   }
@@ -141,7 +203,6 @@ body.nav-collapsed .tab-content {
   transform: .5s;
   border: black 2px solid;
 }
-
 .default .topnav a {
   padding: 8px 8px 8px 32px;
   padding: 8px 10px;
@@ -152,6 +213,15 @@ body.nav-collapsed .tab-content {
   align-items: center;
   gap: 10px;
   transition: 0.3s;
+}
+
+.default .topnav a.closebtn {
+  position: absolute;
+  text-align: center;
+  right: 0px;
+  font-size: 24px;
+  padding: 8px;
+  gap: 10px;
 }
 
 .default .topnav a:hover {
@@ -346,6 +416,15 @@ form button:hover {
   border: black 2px solid;
 }
 
+.leaf .topnav a.closebtn {
+  position: absolute;
+  text-align: center;
+  right: 0px;
+  font-size: 24px;
+  padding: 8px;
+  gap: 10px;
+}
+
 .leaf .topnav a {
   padding: 8px 8px 8px 32px;
   color: #f2f2f2;
@@ -481,6 +560,15 @@ form button:hover {
   border: white 1px solid;
 }
 
+.vanta .topnav a.closebtn {
+  position: absolute;
+  text-align: center;
+  right: 0px;
+  font-size: 24px;
+  padding: 8px;
+  gap: 10px;
+}
+
 .vanta .topnav a {
   padding: 8px 8px 8px 32px;
   color: #f2f2f2;
@@ -613,6 +701,17 @@ form button:hover {
   transition: 0.5s;
   transform: 0.5s;
   border: black 2px solid;
+}
+
+.white .topnav a.closebtn {
+  position: absolute;
+  text-align: center;
+  right: 0px;
+  font-size: 24px;
+  padding: 8px;
+  gap: 10px;
+  color: white;
+  background-color: black;
 }
 
 .white .topnav a {
@@ -765,9 +864,16 @@ form button:hover {
   overflow-x: hidden;
   position: fixed;
   flex-direction: column;
-  transition: 0.5s;
-  transform: 0.5s;
   border: black 1px solid;
+}
+
+.purple .topnav a.closebtn {
+  position: absolute;
+  text-align: center;
+  right: 0px;
+  font-size: 24px;
+  padding: 8px;
+  gap: 10px;
 }
 
 .purple .topnav a {
@@ -1130,8 +1236,18 @@ form button:hover {
 .topnav.desktop a.active{
   font-size: 0px !important;
 }
-.topnav.desktop #morebtn {
+.topnav.desktop .closebtn,
+.topnav.desktop #morebtnm,
+.topnav.desktop #morebtn,
+.topnav.desktop .switcher,
+.topnav.desktop .checker,
+.desktop #switchState {
   display: none !important;
+  visibility: hidden !important;
+}
+
+.switcher{
+  padding-left: 2px; left: 0; font-size: 20px;
 }
 
 .desktop .table, .topnav.desktop ~ .tab-content .table{
@@ -1167,23 +1283,3 @@ body.desktop .tab-content{
 script, style {
   display: none;
 }
-.morebtnCl {
-  position: fixed;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 9998;
-  border-radius: 0 8px 8px 0;
-  font-size: 24px;
-  cursor: pointer;
-  border-left: none;
-  background: var(--thumb-bg);
-  width: 25px;
-  height: 50px;
-}
-
-.default { --thumb-bg: linear-gradient(180deg, orange, red, darkred);}
-.leaf    { --thumb-bg: linear-gradient(180deg, lime, green, darkgreen); }
-.vanta   { --thumb-bg: linear-gradient(180deg, lightgray, darkgray, gray); }
-.white   { --thumb-bg: linear-gradient(180deg, gray, darkgray, white); }
-.purple  { --thumb-bg: linear-gradient(180deg, purple, darkslateblue, black); }
