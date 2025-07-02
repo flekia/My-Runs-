@@ -148,6 +148,7 @@
     window.addEventListener("resize", function() {
       adjustNavLayout();
       reset();
+      suchATurnOff();
     });
     window.themeChange = themeChange;
     document.addEventListener("DOMContentLoaded", function() {
