@@ -93,7 +93,7 @@
   .morebtnCl {
     position: fixed;
     width: 25px;
-    height: 80px;
+    height: 60px;
     left: 50%;
     top: 50%;
     z-index: 9998;
@@ -1244,6 +1244,15 @@ form button:hover {
 .desktop #switchState {
   display: none !important;
   visibility: hidden !important;
+}
+
+#switchState {
+  font-size: 8px;
+  position: absolute;
+  right: 10px;
+  border: blue 1px solid;
+  padding: 2px 4px;
+  background: var(--thumb-bg);
 }
 
 .switcher{
