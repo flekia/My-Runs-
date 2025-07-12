@@ -81,6 +81,10 @@ v7.0 (June 1, 2025)
 v7.5 (July 2, 2025)
 -There is now a slider, suggested from a friend
 
+v8.0 (July 13, 2025)
+-Added some fun facts in the loading screen
+-Added an easter egg in the loading screen 
+
 ==FIXES/THEMES--
 v6.5.1 (May 24, 2025)
 -Fixes the edit and add routes. 
@@ -103,6 +107,9 @@ v7.0.1 (June 10, 2025)
 v7.0.2 (June 17, 2025)
 -Instead of "webpage says," or so called alerts, My Runs! has popups, similar to what you will be greeted at the first time when you load onto the site.
 
-7.5.1 (July 4, 2025)
+v7.5.1 (July 4, 2025)
 -Fixed to have the slider have no transition
 -Added a switcher if you want the button instead (it's the default option).
+
+v8.0.1 (July 13, 2025)
+-Removed the nauseating background in the loading screen

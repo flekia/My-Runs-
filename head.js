@@ -135,6 +135,28 @@
 
     load.appendChild(bust);
     load.style.display = "block";
+    const top = document.getElementById("topping");
+        const bottom = document.getElementById("bottom");
+        const duhduh = Math.floor(Math.random() * 100) + 1; 
+        console.log(duhduh);
+        if (duhduh >= 95) {
+          top.innerHTML = "Bronado...";
+        } else {
+          top.innerHTML = "Loading..."; 
+        }
+        const texts = [
+          "This was created at April 11, 2025.", 
+          "I had this idea since March.", 
+          "Even though I have experience with the Arduino Uno, I would still go back to Tinkercad.",
+          "I didn't know that GitHub Pages would host a website.",
+          "I would also post updates on Instagram with this handle of thine: felikisfake",
+          "I have C6 Furina, E6 Topaz, M6 Yanagi, and hopefully an S6 Fleurdelys (Yes, Cartethyia, but I want the 8ft woman!!).",
+          "At first, I knew Python, then I forgot once I learned Javascript.",
+          "I have the local files for testing, then upload the final version to Github (And yet, Github only shows the problems, not Live Server✌️🤣)."
+        ];
+        const randomText = texts[Math.floor(Math.random() * texts.length)];
+        console.log("Fun fact:" + randomText);
+        bottom.innerHTML = "Fun fact about the developer: " + randomText;
     }
 
   function isIt() {
