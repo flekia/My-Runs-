@@ -151,13 +151,25 @@
 }
 body {
   margin: 0;
-  font-family: 'Comic Sans MS', 'Comic Sans' !important;
+  font-family: 'Comic Sans MS', 'Comic Sans', 'Comic Relief' !important;
   background-color: #5c1111;
   color: #f2f2f2;
   font-size: 14px;
   margin-left: 0px;
   transition: .3s ease-in-out;
   visibility: hidden;
+}
+
+.comic-relief-regular {
+  font-family: "Comic Relief", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.comic-relief-bold {
+  font-family: "Comic Relief", system-ui;
+  font-weight: 700;
+  font-style: normal;
 }
 
 body.loads-ugh {
@@ -1025,7 +1037,7 @@ form button:hover {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 25px;
+  bottom: 75px;
   text-align: center;
   font-size: 10px;
 }
@@ -1249,7 +1261,7 @@ form button:hover {
 }
 
 #switchState {
-  font-family: 'Comic Sans MS', 'Comic Sans';
+  font-family: 'Comic Sans MS', 'Comic Sans', 'Comic Relief' !important;
   font-size: 8px;
   position: absolute;
   right: 10px;

@@ -6,6 +6,9 @@
   <title>My Runs!</title>
   <link rel="icon" href="https://cdn.cdnstep.com/7UsQ6JTnJUwP7g5Nj81r/cover-1.thumb256.png" type="image/png">
   <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap" rel="stylesheet">
 
   <script src="head.js" defer></script>
 <link rel="stylesheet" href="tooLong.css">
@@ -288,7 +291,7 @@
     <a href="#importexport">Save/Load
       <img class="gifs" id="gifs5">
     </a>
-    <a href="#themes">Themes
+    <a href="#settings">Settings
       <img class="gifs" id="gifs6">
     </a>
     <span class="morebtnClm" id="morebtnm" onclick="openNav()">></span>
@@ -357,14 +360,14 @@
     <h2>Want to load your file?</h2>
     <input type="file" id="import-button">
   </div>
-  <!--themes-->
-  <div id="themes" class="tab-content">
+  <!--settings-->
+  <div id="settings" class="tab-content">
     <h2>Current themes are:</h2>
-    <button style="background: linear-gradient(45deg, yellow, orange, red);color: black; border: #aa2e25 2px solid;  font-family: 'Comic Sans MS', 'Comic Sans';" onclick="themeChange('default')">Default</button>
-    <button style="background: linear-gradient(lightgreen, lime, green, darkgreen);color: black; border: #388e3c 2px solid;font-family: 'Comic Sans MS', 'Comic Sans';" onclick="themeChange('leaf')">Leaf Green</button>
-    <button style="background: black;color: white; border: gray 2px solid;font-family: 'Comic Sans MS', 'Comic Sans';" onclick="themeChange('vanta')">Pure Black</button>
-    <button style="background: white;color: black; border: gainsboro 2px solid;font-family: 'Comic Sans MS', 'Comic Sans';" onclick="themeChange('white')">Pure White</button>
-    <button style="background: linear-gradient(purple, darkorchid, black);color: white; border: blueviolet 2px solid;font-family: 'Comic Sans MS', 'Comic Sans';" onclick="themeChange('purple')">Jade Theme</button> <br> <br>
+    <button style="background: linear-gradient(45deg, yellow, orange, red);color: black; border: #aa2e25 2px solid;  font-family: 'Comic Sans MS', 'Comic Sans', 'Comic Relief';" onclick="themeChange('default')">Default</button>
+    <button style="background: linear-gradient(lightgreen, lime, green, darkgreen);color: black; border: #388e3c 2px solid;font-family: 'Comic Sans MS', 'Comic Sans', 'Comic Relief';" onclick="themeChange('leaf')">Leaf Green</button>
+    <button style="background: black;color: white; border: gray 2px solid;font-family: 'Comic Sans MS', 'Comic Sans', 'Comic Relief';" onclick="themeChange('vanta')">Pure Black</button>
+    <button style="background: white;color: black; border: gainsboro 2px solid;font-family: 'Comic Sans MS', 'Comic Sans', 'Comic Relief';" onclick="themeChange('white')">Pure White</button>
+    <button style="background: linear-gradient(purple, darkorchid, black);color: white; border: blueviolet 2px solid;font-family: 'Comic Sans MS', 'Comic Sans', 'Comic Relief';" onclick="themeChange('purple')">Jade Theme</button> <br> <br>
     <button id="switchState">Button Mode</button>
   </div>
   </div>
