@@ -76,6 +76,8 @@
         topnav.style.flexDirection = "row";
         document.querySelectorAll('.tab-content').forEach(tab => tab.style.marginLeft = "0");
         if (morebtn) morebtn.style.display = "none";
+        const bottom = document.getElementById("bottom");
+        bottom.classList.add("pc");
       } else {
         document.body.classList.add("mobile");
         document.body.classList.remove("desktop");
@@ -86,6 +88,8 @@
         topnav.style.flexDirection = "column";
         document.querySelectorAll('.tab-content').forEach(tab => tab.style.marginLeft = "");
        if (morebtn) morebtn.style.display = "block";
+       const bottom = document.getElementById("bottom");
+        bottom.classList.remove("pc");
       }
     }
         //loading screen
