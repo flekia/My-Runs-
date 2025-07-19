@@ -75,21 +75,23 @@ async function checkthem() {
 
   await fetchingIP();
 
-  const video1 = "https://youtu.be/tXEPbotEjZE?si=I5tqckckyLVazLtC"; //thick of it
-  const video2 = "https://www.youtube.com/watch?v=AuTUI8QaSMA"; //chest pain
-  const video3 = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; //rickroll
-  const video4 = "https://www.youtube.com/watch?v=R93Uy0dQazE"; //coconut mall
-
+  const videos = ["https://www.youtube.com/embed/tXEPbotEjZE", //thick of it 
+    "https://www.youtube.com/embed/8pghr5JXdlU", //i put the new forgis
+    "https://www.youtube.com/embed/dQw4w9WgXcQ", //rickroll
+    "https://www.youtube.com/embed/1-nLxw5K3eA" //start digging in yo butt twin🥀😂✌️
+  ];
+  const spinning = videos[Math.floor(Math.random() * videos.length)];
+  const nunMuch = document.getElementById("nothingName");
+  const popup = document.getElementById("popupOverlayVid");
   const random = Math.floor(Math.random() * 101) + 1;
   console.log(`${random}`);
-  if (random <= 25) {
-    window.open(video1, "_blank");
-  } else if (random <= 50) {
-    window.open(video2, "_blank");
-  } else if (random <= 75) {
-    window.open(video3, "_blank");
-  } else if (random <= 100) {
-    window.open(video4, "_blank");
+ if (random <= 100) {
+  popup.style.display = "block";
+  const button = document.getElementById("closePopVid");
+  button.addEventListener("click", function() {
+    popup.style.display = "none";
+  nunMuch.src = '';});  
+  nunMuch.src = spinning;
   } else {
     const laying = document.getElementById("popupOverlayIP");
     const IPA = document.getElementById("IPGrabber");
