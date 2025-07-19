@@ -156,7 +156,9 @@
           "I would also post updates on Instagram with this handle of thine: felikisfake",
           "I have C6 Furina, E6 Topaz, M6 Yanagi, and hopefully an S6 Fleurdelys (Yes, Cartethyia, but I want the 8ft woman!!).",
           "At first, I knew Python, then I forgot once I learned Javascript.",
-          "I have the local files for testing, then upload the final version to Github (And yet, Github only shows the problems, not Live Server✌️🤣)."
+          "I have the local files for testing, then upload the final version to Github (And yet, Github only shows the problems, not Live Server✌️🤣).",
+          "I used to have a Google Drive uploading the files manually before discovering GitHub and its Pages.",
+          "I do not know as to why the Cache version is over 50, and there are more versions to count before discovering Github and Github Pages."
         ];
         const randomText = texts[Math.floor(Math.random() * texts.length)];
         console.log("Fun fact:" + randomText);

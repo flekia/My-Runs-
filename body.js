@@ -364,6 +364,7 @@ function editValues(event){
       mustard67Mangoes.style.display = "block";
       closeer.addEventListener("click", function() {
         mustard67Mangoes.style.display = "none"; 
+        closeer.innerHTML = "WHAT THE!!";
         itMayNotBeNothingtoYall.src = "";});
     };
     document.getElementById("closePopeditDisagree").onclick = function() {
