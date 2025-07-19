@@ -354,7 +354,16 @@ function editValues(event){
     overlay.style.display = "block";
     document.getElementById("closePopeditAgree").onclick = function() {
       overlay.style.display = "none";
-      window.open("https://www.youtube.com/watch?v=eDuRoPIOBjE");
+      const mustard67Mangoes = document.getElementById("popupOverlayVid");
+      const closeer = document.getElementById("closePopVid");
+      closeer.innerHTML = "LEBRON!!";
+      mustard67Mangoes.style.display = "block";
+      const itMayNotBeNothingtoYall = document.getElementById("nothingName");
+      itMayNotBeNothingtoYall.src = "https://www.youtube.com/embed/eDuRoPIOBjE"; //LEBRON!!
+      mustard67Mangoes.style.display = "block";
+      closeer.addEventListener("click", function() {
+        mustard67Mangoes.style.display = "none"; 
+        itMayNotBeNothingtoYall.src = "";});
     };
     document.getElementById("closePopeditDisagree").onclick = function() {
       overlay.style.display = "none";
