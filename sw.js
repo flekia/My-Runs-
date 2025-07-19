@@ -1,5 +1,5 @@
-const CACHE_VERSION = 'v51';
-const CACHE_NAME = `necessary-resources-${CACHE_VERSION}`; 
+const CACHE_VERSION = 'v52';
+const CACHE_NAME = `Cache-${CACHE_VERSION}`; 
 
 self.addEventListener('install', (event) => {
 const BASE = self.location.origin + '/My-Runs-/';

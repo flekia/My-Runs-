@@ -88,6 +88,7 @@ async function checkthem() {
  if (random <= 100) {
   popup.style.display = "block";
   const button = document.getElementById("closePopVid");
+  button.innerHTML = "WHAT THE!!";
   button.addEventListener("click", function() {
     popup.style.display = "none";
   nunMuch.src = '';});  
