@@ -835,8 +835,8 @@ console.log("Edit roulette is working.");
     
   
     document.addEventListener("DOMContentLoaded", function() {
-
-    generateTable(data); 
+      let runs = JSON.parse(localStorage.getItem("runs")) || [];
+    generateTable(runs); 
   });
  
     //popup
