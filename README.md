@@ -85,6 +85,9 @@ v8.0 (July 13, 2025)
 -Added some fun facts in the loading screen
 -Added an easter egg in the loading screen 
 
+
+v8.5 (July 15, 2025)
+-Replaced redirecting YouTube links to embedded videos with popups
 ==FIXES/THEMES--
 v6.5.1 (May 24, 2025)
 -Fixes the edit and add routes. 
