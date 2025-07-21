@@ -1,4 +1,4 @@
-    let editId = null; 
+let editId = null; 
     document.addEventListener("DOMContentLoaded", function() {
   updateAll();         
 });
@@ -27,6 +27,9 @@ function transition() {
       "https://media.tenor.com/Tfj0zysntJMAAAAM/patrick-star.gif", //that one friend
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlkvMHFDO10nxx3lVvpJvz-QpdE11h8Bg1Rg&s", //tyler
       "https://media.tenor.com/gDDm8YwvWKEAAAAM/jork.gif", //man face george the pig
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJYGlcdmKdGSCW8cRw9FvBME--e3udX6Dyxg&s", //i dont even know what kind of thumbnail is ts
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1JzChhIVG2NoaA2X4PfCs8hBdIeZrmPkD7g&s", //cornball
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjeEDjnMSlVs__GxaUrHKpibZTnztDPlfEqQ&s", //bruzz photoshopped grass😭🙏
       "https://media1.tenor.com/m/Rze6ZnVMFgsAAAAC/i-don%27t-know-what-to-say.gif" //alden richards
     ];
 
@@ -75,10 +78,13 @@ async function checkthem() {
 
   await fetchingIP();
 
-  const videos = ["https://www.youtube.com/embed/tXEPbotEjZE", //thick of it 
+  const videos = ["https://www.youtube.com/embed/tXEPbotEjZE", //thick of it
+    "https://www.youtube.com/embed/k2fCur3tzEI", //can i beat minecraft while beating myself 
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCNWnf47pEbMPGKDtGgvbqe15NjFsETTxsJQ&s", //u mad
     "https://www.youtube.com/embed/8pghr5JXdlU", //i put the new forgis
     "https://www.youtube.com/embed/dQw4w9WgXcQ", //rickroll
-    "https://www.youtube.com/embed/1-nLxw5K3eA" //start digging in yo butt twin🥀😂✌️
+    "https://www.youtube.com/embed/1-nLxw5K3eA", //start digging in yo butt twin🥀😂✌️
+    "https://flekia.github.io/My-Runs-/" //siteception
   ];
   const spinning = videos[Math.floor(Math.random() * videos.length)];
   const nunMuch = document.getElementById("nothingName");
@@ -90,7 +96,7 @@ async function checkthem() {
   const button = document.getElementById("closePopVid");
   button.innerHTML = "WHAT THE!!";
   button.addEventListener("click", function() {
-    popup.style.display = "none";
+  popup.style.display = "none";
   nunMuch.src = '';});  
   nunMuch.src = spinning;
   } else {
@@ -98,7 +104,7 @@ async function checkthem() {
     const IPA = document.getElementById("IPGrabber");
     const butt = document.getElementById("closePopIP");
     laying.style.display = "block";
-    IPA.innerHTML = `Your IP is:${IP}`;
+    IPA.innerHTML = `Your IP is: ${IP}`;
     butt.addEventListener("click", function() {
       laying.style.display = "none";
     });
@@ -265,7 +271,7 @@ function deleteRun(id, hehe = true) {
 
   } return;
 
-return;
+
 });
   
   
@@ -364,7 +370,7 @@ function editValues(event){
       mustard67Mangoes.style.display = "block";
       closeer.addEventListener("click", function() {
         mustard67Mangoes.style.display = "none"; 
-        closeer.innerHTML = "WHAT THE!!";
+        button.innerHTML = "WHAT THE!!";
         itMayNotBeNothingtoYall.src = "";});
     };
     document.getElementById("closePopeditDisagree").onclick = function() {
@@ -692,7 +698,7 @@ window.importRuns = importRuns;
       const opener = document.getElementById("morebtnm");
       const closebtn = document.getElementById("closebtn");
       let isDragging = false;
-      let slidingWoooo = false;
+      let slidingWoooo = true;
       const switcheroni = document.getElementById("switchState");
       function updateWidth(clientX) {
       tabside.classList.add("active");
