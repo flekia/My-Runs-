@@ -699,6 +699,7 @@ window.importRuns = importRuns;
       const closebtn = document.getElementById("closebtn");
       let isDragging = false;
       let slidingWoooo = true;
+      morebtn.classList.remove("itson");
       const switcheroni = document.getElementById("switchState");
       function updateWidth(clientX) {
       tabside.classList.add("active");
@@ -752,8 +753,9 @@ window.importRuns = importRuns;
     }
     function enableMe() {
       slidingWoooo = true;
+      localStorage.setItem("navMode", "slider");
       switcheroni.innerHTML = "Slider Mode";
-      morebtn.style.display = "block";
+      morebtn.classList.add("itson");
       opener.style.display = "none";
       closebtn.style.display = "none";
       tabside.classList.remove("mobile", "closed");
@@ -772,8 +774,9 @@ window.importRuns = importRuns;
     }
     function suchATurnOff() {
       slidingWoooo = false;
+      localStorage.setItem("navMode", "button");
       switcheroni.innerHTML = "Button Mode";
-      morebtn.style.display = "none";
+      morebtn.classList.remove("itson");
       opener.style.display = "block";
       closebtn.style.display = "none";
       tabside.classList.remove("active");
@@ -789,6 +792,19 @@ window.importRuns = importRuns;
         suchATurnOff();
       }
     });
+    document.addEventListener("touchend", (e) => {
+      if (isDragging) {
+        isDragging = false;
+      }
+    });
+    function mesugaki(){
+    const mode = localStorage.getItem("navMode");
+    if (mode === "slider") {
+      enableMe();
+    } else if (mode === "button") {
+      suchATurnOff();
+    }
+  }
     console.log("navbar.js loaded.");
 console.log("Edit roulette is working.");
   

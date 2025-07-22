@@ -9,11 +9,10 @@
     position: fixed;
     left: 0;
     top: 0;
-    height: 500vh;
+    height: 100%;
     z-index: 9999;
     padding-top: 0;
     background: inherit;
-    overflow-y: auto;
     display: none;
   }
   
@@ -90,7 +89,7 @@
     background: linear-gradient(purple, darkslateblue, black);
     border: 1px solid black;
   }
-  .morebtnCl {
+  #morebtn {
     position: fixed;
     width: 25px;
     height: 60px;
@@ -106,6 +105,25 @@
     line-height: 1;
     text-align: center;
     display: none;
+    visibility: hidden;
+  }
+  #morebtn.itson {
+    position: fixed;
+    width: 25px;
+    height: 60px;
+    left: 50%;
+    top: 50%;
+    z-index: 9998;
+    background: var(--thumb-bg);
+    border-radius: 0 16px 16px 0;
+    font-size: 50px;
+    cursor: pointer;
+    border: none;
+    border-left: none;
+    line-height: 1;
+    text-align: center;
+    display: block;
+    visibility: visible;
   }
 .default { --thumb-bg: linear-gradient(180deg, orange, red, darkred);}
 .leaf    { --thumb-bg: linear-gradient(180deg, lime, green, darkgreen); }
@@ -159,7 +177,6 @@ body {
   transition: .3s ease-in-out;
   visibility: hidden;
 }
-
 .comic-relief-regular {
   font-family: "Comic Relief", system-ui;
   font-weight: 400;
@@ -1032,6 +1049,7 @@ form button:hover {
   margin-right: auto;
   top: 0;
   text-align: center;
+  color: white;
 }
 #bottom {
   position: absolute;
@@ -1040,6 +1058,7 @@ form button:hover {
   bottom: 75px;
   text-align: center;
   font-size: 10px;
+  color: white;
 }
 #bottom.pc {
   position: absolute;
@@ -1047,7 +1066,7 @@ form button:hover {
   right: 0;
   bottom: 0;
   text-align: center;
-  font-size: 10px;
+  font-size: 20px;
 }
 #loading-screen img {
   position: absolute;
@@ -1267,8 +1286,7 @@ form button:hover {
   display: none !important;
   visibility: hidden !important;
 }
-
-#switchState {
+#switchState{
   font-family: 'Comic Sans MS', 'Comic Sans', 'Comic Relief' !important;
   font-size: 8px;
   position: absolute;
@@ -1277,7 +1295,6 @@ form button:hover {
   padding: 2px 4px;
   background: var(--thumb-bg);
 }
-
 .switcher{
   padding-left: 2px; left: 0; font-size: 20px;
 }

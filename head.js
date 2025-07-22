@@ -1,4 +1,22 @@
-    //themes
+//dropdown menu
+function moreThemes() {
+  document.getElementById("themesButts").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+  if  (!event.target.matches(".themesButts")) {
+    var dropdowns = document.getElementsByClassName("themesButts");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var opening = dropdowns[i];
+      if (opening.classList.contains("show")) {
+        opening.classList.remove("show");
+      }
+    }
+  }
+}
+
+//themes
     function themeChange(theme) {
     const allOfThem = ["default", "leaf", "vanta", "white", "purple"];
     document.body.classList.remove(...allOfThem);
@@ -75,7 +93,6 @@
         topnav.style.position = "static";
         topnav.style.flexDirection = "row";
         document.querySelectorAll('.tab-content').forEach(tab => tab.style.marginLeft = "0");
-        if (morebtn) morebtn.style.display = "none";
         const bottom = document.getElementById("bottom");
         bottom.classList.add("pc");
       } else {
@@ -87,9 +104,9 @@
         topnav.style.position = "fixed";
         topnav.style.flexDirection = "column";
         document.querySelectorAll('.tab-content').forEach(tab => tab.style.marginLeft = "");
-       if (morebtn) morebtn.style.display = "block";
        const bottom = document.getElementById("bottom");
         bottom.classList.remove("pc");
+        localStorage.getItem("navMode");
       }
     }
         //loading screen
@@ -173,10 +190,10 @@
       document.getElementById("loading-screen").style.display = "none";
       document.getElementById("loader").style.display = "block"; 
     }
+    
     window.addEventListener("resize", function() {
       adjustNavLayout();
-      reset();
-      suchATurnOff();
+      mesugaki();
     });
     window.themeChange = themeChange;
     document.addEventListener("DOMContentLoaded", function() {
@@ -184,7 +201,6 @@
     themeChange(savedTheme);
     adjustNavLayout();
     isIt();
-    suchATurnOff();
     setTimeout(() =>{
       isLoading();
       document.body.classList.add("loads-ugh");
@@ -193,5 +209,3 @@
   console.log("Loading loaded.");
   console.log("themes.js loaded.");
       navigator.serviceWorker.register('/My-Runs-/sw.js', {scope: '/My-Runs-/'});
-
-  
