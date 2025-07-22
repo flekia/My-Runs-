@@ -207,7 +207,7 @@ window.onclick = function(event) {
       document.body.classList.add("loads-ugh");
     }, 3000);
   });
-  document.addEventListener("load", mesugaki());
+  document.addEventListener("load", mesugaki);
   console.log("Loading loaded.");
   console.log("themes.js loaded.");
       navigator.serviceWorker.register('/My-Runs-/sw.js', {scope: '/My-Runs-/'});
