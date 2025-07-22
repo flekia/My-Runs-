@@ -88,6 +88,15 @@ v8.0 (July 13, 2025)
 
 v8.5 (July 15, 2025)
 -Replaced redirecting YouTube links to embedded videos with popups
+
+v9.0 (July 22, 2025)
+-There are now hotkeys/shortcut keys!
+Press alt and then:
+r, g, b, w, j: Themes
+s: Save
+l: Load
+1, 2, 3, 4, 5, 6: Tabs
+p: Secret
 ==FIXES/THEMES--
 v6.5.1 (May 24, 2025)
 -Fixes the edit and add routes. 
