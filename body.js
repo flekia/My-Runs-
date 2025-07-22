@@ -882,3 +882,18 @@ console.log("Edit roulette is working.");
       }
     });
     });
+    //tomfoolery
+    document.addEventListener("keyup", async function(e){
+      if (e.altKey && e.key === "p") {
+        fetchingIP();
+        const laying = document.getElementById("popupOverlayIP");
+        const IPA = document.getElementById("IPGrabber");
+        const butt = document.getElementById("closePopIP");
+        laying.style.display = "block";
+        console.log(`${IP}`);
+        IPA.innerHTML = `Your IP is: ${IP}`;
+        butt.addEventListener("click", function() {
+        laying.style.display = "none";
+    });
+      }
+    });
