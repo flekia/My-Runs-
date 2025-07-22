@@ -201,6 +201,7 @@ window.onclick = function(event) {
     themeChange(savedTheme);
     adjustNavLayout();
     isIt();
+    mesugaki();
     setTimeout(() =>{
       isLoading();
       document.body.classList.add("loads-ugh");
