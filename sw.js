@@ -1,5 +1,5 @@
-const CACHE_VERSION = 'v59';
-const CACHE_NAME = `Cache-${CACHE_VERSION}`; 
+const CACHE_VERSION = '#60';
+const CACHE_NAME = `${CACHE_VERSION}th retry`; 
 
 self.addEventListener('install', (event) => {
 const BASE = self.location.origin + '/My-Runs-/';
