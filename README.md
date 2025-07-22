@@ -116,3 +116,5 @@ v7.5.1 (July 4, 2025)
 
 v8.0.1 (July 13, 2025)
 -Removed the nauseating background in the loading screen
+-Fixed an issue where the page now saves your preferred mode on opening the navigation bar.
+-Fixed an issue where page loads with your preferred mode on opening the nav bar.
