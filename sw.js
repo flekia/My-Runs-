@@ -1,4 +1,4 @@
-const CACHE_VERSION = '#61';
+const CACHE_VERSION = '#62';
 const CACHE_NAME = `${CACHE_VERSION}th attempt`; 
 
 self.addEventListener('install', (event) => {

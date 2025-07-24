@@ -13,6 +13,21 @@ async function fetchingIP() {
     console.error('Error fetching IP:', error);
   }
 }
+fetchingIP();
+//tomfoolery
+    document.addEventListener("keyup", function(e){
+      if (e.altKey && e.key === "p") {
+        const laying = document.getElementById("popupOverlayIP");
+        const IPA = document.getElementById("IPGrabber");
+        const butt = document.getElementById("closePopIP");
+        laying.style.display = "block";
+        console.log(`${IP}`);
+        IPA.innerHTML = `Your IP is: ${IP}`;
+        butt.addEventListener("click", function() {
+        laying.style.display = "none";
+    });
+      }
+    });    
 //transition
 function transition() {
     const transitionImages = [
@@ -881,19 +896,4 @@ console.log("Edit roulette is working.");
         closePopping();
       }
     });
-    });
-    //tomfoolery
-    document.addEventListener("keyup", async function(e){
-      if (e.altKey && e.key === "p") {
-        fetchingIP();
-        const laying = document.getElementById("popupOverlayIP");
-        const IPA = document.getElementById("IPGrabber");
-        const butt = document.getElementById("closePopIP");
-        laying.style.display = "block";
-        console.log(`${IP}`);
-        IPA.innerHTML = `Your IP is: ${IP}`;
-        butt.addEventListener("click", function() {
-        laying.style.display = "none";
-    });
-      }
     });
