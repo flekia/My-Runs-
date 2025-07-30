@@ -175,7 +175,9 @@ window.onclick = function(event) {
           "At first, I knew Python, then I forgot once I learned Javascript.",
           "I have the local files for testing, then upload the final version to Github (And yet, Github only shows the problems, not Live Server✌️🤣).",
           "I used to have a Google Drive uploading the files manually before discovering GitHub and its Pages.",
-          "I do not know as to why the Cache version is over 50, and there are more versions to count before discovering Github and Github Pages."
+          "I do not know as to why the Cache version is over 50, and there are more versions to count before discovering Github and Github Pages.",
+          "I'm trying to learn 16-bit Assembly Windows edition as of now.",
+          "So far, the languages I know are vanilla HTML, CSS, JS, and currently Assembly."
         ];
         const randomText = texts[Math.floor(Math.random() * texts.length)];
         console.log("Fun fact:" + randomText);
