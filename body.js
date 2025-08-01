@@ -247,7 +247,7 @@ function generateTable(data) {
         <div class="tablebutts">
         <button id="tablebuttdel" onclick="deleteRun(${run.id})">Delete</button> 
         <button id="tablebuttedit" onclick="editRun(${run.id})">Edit</button> 
-        <button id="tablebuttnotes" onclick="notifytheWords('${run.note.replace(/'/g, "\\'")}')">View</button></td> 
+        <button id="tablebuttnotes" onclick="notifytheWords('${(run.note || "").replace(/'/g, "\\'")}')">View</button></td> 
           </div>
         </tr>`;                                             //global is /'/g, \\ is escape, and replace is remove single quotes
   });
