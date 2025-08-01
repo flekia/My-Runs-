@@ -374,6 +374,13 @@ th, td {
   margin: 5px 0;
 }
 
+.default #tablebuttnotes{
+  background: linear-gradient(red, yellow, orange);
+  width: 44px;
+  color: black;
+  margin: 5px 0;
+}
+
 .awards{
   width: 40px;
   vertical-align: middle;
@@ -517,6 +524,12 @@ form button:hover {
   width: 44px;
   color: white;
 }
+
+.leaf #tablebuttnotes {
+    background: linear-gradient(lime, green, darkgreen);
+  width: 44px;
+  color: white;
+}
 .leaf .topnav a.active #gifs1 {
   transform: scale(2);
   transition: 0.5s ease;
@@ -653,6 +666,12 @@ form button:hover {
   color: white;
 }
 .vanta #tablebuttedit {
+  background: darkslategray;
+  width: 44px;
+  color: white;
+}
+
+.vanta #tablebuttnotes{
   background: darkslategray;
   width: 44px;
   color: white;
@@ -824,6 +843,12 @@ form button:hover {
   color: black;
 }
 
+.white #tablebuttnotes {
+  background: lightgray;
+  width: 44px;
+  color: black;
+}
+
 .white .topnav a.active #gifs1 {
   transform: scale(2);
   transition: 0.5s ease;
@@ -965,6 +990,12 @@ form button:hover {
 .purple #tablebuttedit {
   background: darkorchid;
   width: 44px;
+  color: white;
+}
+
+.purple #tablebuttnotes {
+  background: darkorchid;
+  width: 55px;
   color: white;
 }
 
