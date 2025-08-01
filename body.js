@@ -84,6 +84,7 @@ function transition() {
     const runLocation = document.getElementById("run-location").value;
     const runMinutes = document.getElementById("run-minutes").value;
     const runSeconds = document.getElementById("run-seconds").value;
+    const notes = document.getElementById("note-runs").value;
 
 
 
@@ -156,7 +157,8 @@ async function checkthem() {
       date: dateOnly,
       where: runStart,
       location: runLocation,
-      duration: duration
+      duration: duration,
+      note: notes
     };
 
     let runs = JSON.parse(localStorage.getItem("runs")) || [];
@@ -244,13 +246,39 @@ function generateTable(data) {
       <td>
         <div class="tablebutts">
         <button id="tablebuttdel" onclick="deleteRun(${run.id})">Delete</button> 
-        <button id="tablebuttedit" onclick="editRun(${run.id})">Edit</button></td> 
+        <button id="tablebuttedit" onclick="editRun(${run.id})">Edit</button> 
+        <button id="tablebuttnotes" onclick="notifytheWords('${run.note.replace(/'/g, "\\'")}')">View</button></td> 
           </div>
-        </tr>`;
+        </tr>`;                                             //global is /'/g, \\ is escape, and replace is remove single quotes
   });
   table += "</tbody></table>";
   return table;
 }
+//notes
+function notifytheWords(note) {
+        const popup = document.getElementById("popupOverlayNotes");
+        const below = document.getElementById("noting");
+        const butt = document.getElementById("closePopNotes");
+    if (note && note.trim() !== "") {
+      below.innerHTML = note;
+      popup.style.display = "block";
+      butt.addEventListener("click", function() {
+        popup.style.display = "none";
+        below.innerHTML = "";
+      });
+      console.log(note);
+    } else {
+      below.innerHTML = "There is no note registered here."
+      popup.style.display = "block";
+      butt.addEventListener("click", function() {
+        popup.style.display = "none";
+        below.innerHTML = "";
+      });
+      console.log("Nothing noteworthy.");
+      }
+    }
+
+
 //delete option
 function deleteRun(id, hehe = true) {
   const confirmation = document.getElementById("popupOverlaydelrCon");
@@ -897,3 +925,4 @@ console.log("Edit roulette is working.");
       }
     });
     });
+    //shhh
