@@ -374,6 +374,7 @@ function editRun(id) {
     const [minutes, seconds] = runToEdit.duration.split(":");
     document.getElementById("run-minutes").value = minutes;
     document.getElementById("run-seconds").value = seconds;
+    document.getElementById("note-runs").value = runToEdit.note || "";
     
     editId = id;
     document.querySelectorAll(".topnav a").forEach(nav => nav.classList.remove("active"));
@@ -925,4 +926,5 @@ console.log("Edit roulette is working.");
       }
     });
     });
+
     //shhh
