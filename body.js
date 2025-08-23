@@ -45,6 +45,7 @@ function transition() {
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJYGlcdmKdGSCW8cRw9FvBME--e3udX6Dyxg&s", //i dont even know what kind of thumbnail is ts
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1JzChhIVG2NoaA2X4PfCs8hBdIeZrmPkD7g&s", //cornball
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjeEDjnMSlVs__GxaUrHKpibZTnztDPlfEqQ&s", //bruzz photoshopped grass😭🙏
+      "https://risibank.fr/cache/medias/0/39/3940/394080/full.jpeg", //FREAKY MASAME
       "https://media1.tenor.com/m/Rze6ZnVMFgsAAAAC/i-don%27t-know-what-to-say.gif" //alden richards
     ];
 
@@ -602,8 +603,6 @@ try {
   const hyperlink = document.querySelectorAll(".topnav a");
   const tabs = document.querySelectorAll(".tab-content");
   
-  
-  
   hyperlink.forEach(link => {
     link.addEventListener('click', function(e) {
       
@@ -630,8 +629,19 @@ try {
     console.error(`${tabId} is not found.`);
    }
    this.classList.add("active");
-    });
+   localStorage.setItem("activeity", tabId);
+      });
   });
+  let saved = localStorage.getItem("activeity");
+  const active = document.querySelector(`.topnav a[href="#${saved}"]`);
+  const tumabiKaDiyan = document.getElementById(saved);
+  if (active && tumabiKaDiyan) {
+       hyperlink.forEach(nav => nav.classList.remove("active"));
+    tabs.forEach(tab => tab.classList.remove("active"));
+    active.classList.add("active");
+    tumabiKaDiyan.classList.add("active");
+    console.log("Active tab is at: " + saved); 
+  }
 });
     console.log("tabs.js loaded.");
   

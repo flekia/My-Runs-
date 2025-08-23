@@ -147,6 +147,9 @@ window.onclick = function(event) {
       "https://media.tenor.com/PMeuaj7O20QAAAAm/dynamite-teri-teri.webp", //tuff
       "https://media.tenor.com/iem0YYteD4wAAAAM/thelema-thelemanutriscu.gif", //tufflema
       "https://media.tenor.com/BYGtvYo5-G0AAAAM/saata-andagii.gif", //sata andagi propaganda
+      "https://media.tenor.com/5pudIp-pauEAAAAm/umamusumeprettyderby.webp", //of fucking course
+      "https://media.tenor.com/zo_iTJmp8RwAAAAM/get-a-job-gng-jobsfosnobs.gif", //AHHHH
+      "https://media.tenor.com/Ar5lfWgnUBUAAAAm/satono-diamond-uma-musume.webp", //FREAK
       "https://media.tenor.com/rsbaMamvwTIAAAA1/pat-patrick-bateman.webp" //patrick
     ];
     const selection = gifsOnLoad[Math.floor(Math.random() * gifsOnLoad.length)];
@@ -171,13 +174,16 @@ window.onclick = function(event) {
           "Even though I have experience with the Arduino Uno, I would still go back to Tinkercad.",
           "I didn't know that GitHub Pages would host a website.",
           "I would also post updates on Instagram with this handle of thine: felikisfake",
-          "I have C6 Furina, E6 Topaz, M6 Yanagi, and hopefully an S6 Fleurdelys (Yes, Cartethyia, but I want the 8ft woman!!).",
+          "I have C6 Furina, E6 Topaz, M6 Yanagi, and hopefully an S6 Fleurdelys (Yes, Cartethyia, but I want the 8ft woman!! (I've left WuWa due to college)).",
           "At first, I knew Python, then I forgot once I learned Javascript.",
           "I have the local files for testing, then upload the final version to Github (And yet, Github only shows the problems, not Live Server✌️🤣).",
           "I used to have a Google Drive uploading the files manually before discovering GitHub and its Pages.",
           "I do not know as to why the Cache version is over 50, and there are more versions to count before discovering Github and Github Pages.",
           "I'm trying to learn 16-bit Assembly Windows edition as of now.",
-          "So far, the languages I know are vanilla HTML, CSS, JS, and currently Assembly."
+          "So far, the languages I know are vanilla HTML, CSS, JS, C++, and currently Assembly.",
+          "Willing to make Super Creek better man 😭😭😭",
+          "They're making me learn C++. Already made a bot generator using a for loop and the index inside that for loop thing 😎😎😎😎",
+          "You can type out emojis using Windows logo and the dot 🫸🫷"
         ];
         const randomText = texts[Math.floor(Math.random() * texts.length)];
         console.log("Fun fact:" + randomText);

@@ -1,5 +1,5 @@
-const CACHE_VERSION = '#66'
-const CACHE_NAME = `${CACHE_VERSION}th attempt`; 
+const CACHE_VERSION = '#67'
+const CACHE_NAME = `${CACHE_VERSION} MANGOES KENDRICK LAMAR 41 69 420 JOB APPLICATION EMPLOYMENT`; 
 
 self.addEventListener('install', (event) => {
 const BASE = self.location.origin + '/My-Runs-/';
