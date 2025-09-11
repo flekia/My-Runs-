@@ -1,4 +1,5 @@
-let editId = null; 
+let editId = null;
+window.historyChannel = null;  
     document.addEventListener("DOMContentLoaded", function() {
   updateAll();         
 });
@@ -46,6 +47,9 @@ function transition() {
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1JzChhIVG2NoaA2X4PfCs8hBdIeZrmPkD7g&s", //cornball
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjeEDjnMSlVs__GxaUrHKpibZTnztDPlfEqQ&s", //bruzz photoshopped grass😭🙏
       "https://risibank.fr/cache/medias/0/39/3940/394080/full.jpeg", //FREAKY MASAME
+      "https://i.kym-cdn.com/photos/images/newsfeed/003/131/988/5d6", //*tastes the food*
+      "https://i.kym-cdn.com/photos/images/newsfeed/003/131/934/db1.jpeg", //this is so fucking stupid
+      "https://i.kym-cdn.com/photos/images/newsfeed/003/131/929/df5.jpeg", //ohio
       "https://media1.tenor.com/m/Rze6ZnVMFgsAAAAC/i-don%27t-know-what-to-say.gif" //alden richards
     ];
 
@@ -165,9 +169,11 @@ async function checkthem() {
     let runs = JSON.parse(localStorage.getItem("runs")) || [];
     
     if (editId !== null) {
+      window.historyChannel = "edit";
       runs = runs.map(run => (run.id === editId ? {...newRun, id: editId} : run));
       editId = null;
     } else {
+      window.historyChannel = "new";
       runs.push(newRun);
     }
     localStorage.setItem("runs", JSON.stringify(runs));
@@ -193,7 +199,35 @@ function updateAll() {
   try{
  
   runs.sort((a, b) => timeToSeconds(a.duration) - timeToSeconds(b.duration));
-
+  const WSpeed = runs[0];
+  if (typeof window.oldRun !== "undefined" && WSpeed && WSpeed.id !== window.oldRun && (window.historyChannel === "new" || window.historyChannel === "edit")){
+    const random = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiwP1ZMyfYIeS6sNoXKRVfrH5TbE6UJShH8A&s";
+    const hehe = document.createElement("img");
+    hehe.src = random;
+    hehe.style.position = "fixed";
+    hehe.style.top = "0";
+    hehe.style.left =  "0";
+    hehe.style.width = "100vw";
+    hehe.style.height = "100vh";
+    hehe.style.zIndex = "9999";
+    hehe.style.pointerEvents = "none";
+    hehe.style.transition = "1s ease-in-out";
+    hehe.style.backgroundRepeat = "no-repeat";
+    hehe.style.backgroundSize = "cover";
+      document.body.appendChild(hehe);
+        setTimeout(() => {
+          hehe.style.opacity = "0";
+          hehe.style.transition = "5s ease-out";
+          setTimeout(() => {
+            document.body.removeChild(hehe);
+          }, 5000); //duration
+        }, 500); //end
+}
+if (WSpeed){
+    window.oldRun = WSpeed.id;
+  } else {
+    window.oldRun = null;
+  }
   updateLeaderboard(runs);
   updateFilteredRuns(runs, "Outside", "going-runs");
   updateFilteredRuns(runs, "Home", "home-runs");
@@ -202,6 +236,8 @@ function updateAll() {
     const leaderboard = document.getElementById("leaderboard-table");
     leaderboard.innerHTML = "<p>Error loading runs. Please try again.</p>";
   }
+  console.log(window.historyChannel);
+  window.historyChannel = null;
 }
 
 function updateLeaderboard(runs) {
@@ -292,7 +328,7 @@ function deleteRun(id, hehe = true) {
   });
   yesYes.addEventListener("click", function() {
     confirmation.style.display = "none";
-
+    window.historyChannel = 'delete';
   
   let runs = JSON.parse(localStorage.getItem("runs")) || [];
   runs = runs.filter(run => run.id !== id);
@@ -324,6 +360,7 @@ function deleteRun(id, hehe = true) {
 //if user wants to delete all of the runs
 
 function deletion() {
+  window.historyChannel = "deletes";
   const laymansTerms = document.getElementById("popupOverlaydeleCon");
   const theyDidIt = document.getElementById("closePopdalleY");
   const theyDidntDoIt = document.getElementById("closePopdalleN");
@@ -356,6 +393,7 @@ function deletion() {
 // edit option
 
 function editRun(id) {
+  window.history = "edit";
  let runs = JSON.parse(localStorage.getItem("runs")) || [];
  const laying = document.getElementById("popupOverlayeditR");
  const horseOfAgreement = document.getElementById("closePopeditY");
