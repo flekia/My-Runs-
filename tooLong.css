@@ -392,15 +392,15 @@ th, td {
 }
 
 .default .awards.top1{
-  background-image: url(https://media.tenor.com/foX6VjiXjx0AAAAm/topaz-honkai-star-rail.webp);
+  background-image: url(https://media.tenor.com/dCXBt4rpoTMAAAAj/topaz-honkai.gif);
 }
 
 .default .awards.top2{
-  background-image: url(https://media.tenor.com/gWchs73qUVkAAAAm/topaz-honkai-star-rail.webp);
+  background-image: url(https://media1.tenor.com/m/fgyh29QN-xsAAAAd/topaz.gif);
 }
 
 .default .awards.top3{
-  background-image: url(https://media.tenor.com/g0rDWziIPrYAAAAm/topaz-honkai-star-rail.webp);
+  background-image: url(https://media1.tenor.com/m/e5XZKsLn0D4AAAAd/chanmamaz-topaz.gif);
 }
 
 form {
@@ -580,7 +580,7 @@ form button:hover {
 }
 
 .leaf .awards.top3{
-  background-image: url(https://media.tenor.com/gzGvEU_h6SMAAAAm/huohuo-honkai-star-rail.webp);
+  background-image: url(https://media.tenor.com/tyN_5ZNIM0cAAAAM/genshin-impact-nefer.gif);
 }
   .vanta {
   background: black;
@@ -695,7 +695,7 @@ form button:hover {
   transform: scale(2);
   transition: 0.5s ease;
   position: relative;
-  bottom: 2.2px;
+  bottom: 5px;
 }
 
 .vanta .topnav a.active #gifs4 {
@@ -727,7 +727,7 @@ form button:hover {
 }
 
 .vanta .awards.top3{
-  background-image: url(https://media.tenor.com/R65Zl76ex8EAAAAm/xinyan-genshin-impact.webp);
+  background-image: url(https://media.tenor.com/AM1J40bHrWAAAAAM/xinyan-xinyan-genshin-impact.gif);
 }
 
 
@@ -892,7 +892,7 @@ form button:hover {
 }
 
 .white .awards.top1{
-  background-image: url(https://media.tenor.com/FwGdDBZOqtsAAAAm/anby-demara-zenless-zone-zero.webp);
+  background-image: url(https://media.tenor.com/o6-2Pav0Tu0AAAAm/zzz.webp);
 }
 
 .white .awards.top2{
@@ -900,7 +900,7 @@ form button:hover {
 }
 
 .white .awards.top3{
-  background-image: url(https://media.tenor.com/EgXzNuigGVQAAAAm/anby-demara-zenless-zone-zero.webp);
+  background-image: url(https://media.tenor.com/HOOMSzy7d_AAAAAM/anby-anby-demara.gif);
 }
 
 .purple {
@@ -1010,21 +1010,22 @@ form button:hover {
   transform: scale(2);
   transition: 0.5s ease;
   position: relative;
-  bottom: 3.1px;
+  bottom: 7px;
+  right: 4.5px;
 }
 
 .purple .topnav a.active #gifs3 {
-  transform: scale(2);
+  transform: scale(3);
   transition: 0.5s ease;
   position: relative;
-  bottom: 3px;
+  bottom: 4px;
 }
 
 .purple .topnav a.active #gifs4 {
   transform: scale(2);
   transition: 0.5s ease;
   position: relative;
-  bottom: 4px;
+  bottom: 6.5px;
 }
 
 .purple .topnav a.active #gifs5 {

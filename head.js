@@ -44,24 +44,24 @@ window.onclick = function(event) {
     vanta: [
     "https://media.tenor.com/9HmmIm4V1m8AAAAm/emote-emoji.webp",
     "https://media.tenor.com/8yMaKNefB98AAAAm/genshin-impact-emote.webp",
-    "https://media.tenor.com/5pkkS-EAVBQAAAAj/xinyan-genshin-impact.gif",
+    "https://media.tenor.com/hMXV0XF4fC4AAAAm/emote-emoji.webp",
     "https://media.tenor.com/YoV_tBt-zOcAAAAM/xinyan-bongo.gif",
     "https://media.tenor.com/TD98lHebGgQAAAA1/xinyan-bocchi-the-rock.webp",
     "https://media.tenor.com/DXz-7QOJ3RAAAAAM/xinyan-gi-xinyan.gif"
     ],
     white: [
     "https://media.tenor.com/u3mqzhX4JcwAAAAm/anby-%EC%A0%A0%EB%A0%88%EC%8A%A4.webp",
-    "https://media.tenor.com/MDHPyikmQFUAAAAm/anby-demara-zenless-zone-zero.webp",
-    "https://media.tenor.com/SoMb_HaNi08AAAAm/anby-demara-zenless-zone-zero.webp",
-    "https://media.tenor.com/1QdnK6AkjH4AAAAm/anby-demara-zenless-zone-zero.webp",
+    "https://media.tenor.com/nD4sFMRiAOQAAAAm/zzz.webp",
+    "https://media.tenor.com/lUEMxcJLN9wAAAA1/trigger-trigger-zzz.webp",
+    "https://media.tenor.com/h942LiINf4UAAAAM/anby-anby-zzz.gif",
     "https://media.tenor.com/V-v_afgiOdcAAAAm/zzz.webp",
-    "https://media.tenor.com/Q03pawk9lqkAAAAm/anby-demara-zenless-zone-zero.webp"
+    "https://media.tenor.com/-FUBhDsKkgYAAAAm/zzz.webp"
     ],
     purple: [
-    "https://media.tenor.com/q7llUSysOG0AAAAj/jade-honkai-star-rail.gif",
-    "https://media.tenor.com/aM4kKMfpwK4AAAAm/jade-honkai-star-rail.webp",
-    "https://media.tenor.com/rZHUdyq6GkoAAAAm/jade-honkai-star-rail.webp",
-    "https://media.tenor.com/gXIiaymM-IgAAAAm/jade-honkai-star-rail.webp",
+    "https://media.tenor.com/1xMCB9b1HVMAAAAm/jade-jade-hsr.webp",
+    "https://media.tenor.com/qr78H9Xd7isAAAAm/zzz.webp",
+    "https://media.tenor.com/jShovHlnPxUAAAAm/yanagi-walking-yanagi.webp",
+    "https://media.tenor.com/7yz2oCDwD7sAAAAm/lixovsk-zenless-zone-zero.webp",
     "https://cdn3.emoji.gg/emojis/6819-yaemiko-deadinside.png",
     "https://upload-os-bbs.hoyolab.com/upload/2022/02/07/13005748/6926ef4653633868ac4b3cb168e89779_8133525685464146317.gif"
     ],
