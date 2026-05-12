@@ -1,4 +1,4 @@
-const CACHE_VERSION = '#72'
+const CACHE_VERSION = '#73'
 const CACHE_NAME = `${CACHE_VERSION} 1st year college was a NIGHTMARE`; 
 
 self.addEventListener('install', (event) => {
@@ -58,7 +58,7 @@ self.addEventListener('fetch', event => {
         .catch(() => {
           console.warn("I'm serving the offline.html version.");
           return caches.match(self.location.origin + '/My-Runs-/offline.html');
-  })
+  });
 );
   } else {
      event.respondWith(
