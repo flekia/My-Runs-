@@ -146,7 +146,7 @@ async function checkthem() {
 }
 
 //renamed for id
-    const dateOnly = runDate.split("T)[0];
+    const dateOnly = runDate.split("T")[0];
     const duration = `${padTime(Number(runMinutes))}:${padTime(Number(runSeconds))}`;
     const newRun = {
       id: editId !== null ? editId : Date.now(),
