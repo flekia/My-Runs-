@@ -92,11 +92,14 @@ v8.5 (July 15, 2025)
 v9.0 (July 22, 2025)
 -There are now hotkeys/shortcut keys!
 Press alt and then:
-r, g, b, w, j: Themes
+r, t, b, w, j: Themes
 s: Save
 l: Load
 1, 2, 3, 4, 5, 6: Tabs
 p: Secret
+
+v10.0 (May 12, 2026)
+- Added a stopwatch for automatic input purposes. No need to bring a stopwatch yourself!
 ==FIXES/THEMES--
 v6.5.1 (May 24, 2025)
 -Fixes the edit and add routes. 
