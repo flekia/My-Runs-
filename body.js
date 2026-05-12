@@ -145,14 +145,8 @@ async function checkthem() {
   }
 }
 
-    // Process the run now that validation passed
-    checkthem();
-    const dateOnly = runDate.split("T")[0];
-
-//function for stopwatch mode handled below
-
-
 //renamed for id
+    const dateOnly = runDate.split("T)[0];
     const duration = `${padTime(Number(runMinutes))}:${padTime(Number(runSeconds))}`;
     const newRun = {
       id: editId !== null ? editId : Date.now(),
@@ -1044,6 +1038,7 @@ console.log("Edit roulette is working.");
       document.getElementById("run-seconds").value = seconds;
       popupOverlayWatch.style.display = "none";
       playBtn.textContent = "GO";
+      playBtn.disabled = false;
     });
     let wakeLock = null;
 
