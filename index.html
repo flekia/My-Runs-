@@ -288,6 +288,16 @@
       </div>
     </div>
   </div>
+  <!--stopwatch-->
+    <div class="popUp-overlay" id="popupOverlayWatch">
+    <div class="popUp" id="popUpWatch">
+      <div class="popUpContent">
+        <h2 id="timer">00:00:00</h2>
+        <button class="closedit" id="play">GO</button><br><br>
+        <button class="closedit" id="stop">STOP</button>
+      </div>
+    </div>
+  </div>
   <!--nav bar-->
   <div class="topnav" id="tabside">
         <a href="#" class="closebtn" id="closebtn" onclick="closeNav()"><</a>
@@ -358,7 +368,9 @@
       <label for="run-minutes">Minutes?</label>
       <input type="number" id="run-minutes" placeholder="Minutes" min="0"/>
       <label for="run-seconds">Seconds?</label>
-      <input type="number" id="run-seconds" placeholder="Seconds" min="0" max="59" /><br><br>
+      <input type="number" id="run-seconds" placeholder="Seconds" min="0" max="59" /><br>
+      <button id="stopwatch">Stopwatch Mode</button>
+      <br><br>
       <label for="note-runs">This is optional, but was there something noteworthy?</label>
       <input type="text" type="text" id="note-runs" placeholder="Something noteworthy...">
     <button type="submit">Add Run</button><br>
@@ -382,7 +394,7 @@
   <div id="settings" class="tab-content">
     <h2>Current themes are:</h2>
     <button accesskey="r" style="background: linear-gradient(45deg, yellow, orange, red);color: black; border: #aa2e25 2px solid;  font-family: 'Comic Sans MS', 'Comic Sans', 'Comic Relief';" onclick="themeChange('default')">Default</button>
-    <button accesskey="g" style="background: linear-gradient(lightgreen, lime, green, darkgreen);color: black; border: #388e3c 2px solid;font-family: 'Comic Sans MS', 'Comic Sans', 'Comic Relief';" onclick="themeChange('leaf')">Leaf Green</button>
+    <button accesskey="t" style="background: linear-gradient(lightgreen, lime, green, darkgreen);color: black; border: #388e3c 2px solid;font-family: 'Comic Sans MS', 'Comic Sans', 'Comic Relief';" onclick="themeChange('leaf')">Leaf Green</button>
     <button accesskey="b" style="background: black;color: white; border: gray 2px solid;font-family: 'Comic Sans MS', 'Comic Sans', 'Comic Relief';" onclick="themeChange('vanta')">Pure Black</button>
     <button accesskey="w" style="background: white;color: black; border: gainsboro 2px solid;font-family: 'Comic Sans MS', 'Comic Sans', 'Comic Relief';" onclick="themeChange('white')">Pure White</button>
     <button accesskey="j" style="background: linear-gradient(purple, darkorchid, black);color: white; border: blueviolet 2px solid;font-family: 'Comic Sans MS', 'Comic Sans', 'Comic Relief';" onclick="themeChange('purple')">Jade Theme</button> <br> <br>

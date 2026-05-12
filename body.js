@@ -84,14 +84,27 @@ function transition() {
     event.preventDefault();
 
     const runDate = document.getElementById("run-date").value;
-    const dateOnly = runDate.split("T")[0];
     const runStart = document.getElementById("run-start").value;
     const runLocation = document.getElementById("run-location").value;
     const runMinutes = document.getElementById("run-minutes").value;
     const runSeconds = document.getElementById("run-seconds").value;
     const notes = document.getElementById("note-runs").value;
 
-
+    //to check error
+    if (!runDate || !runStart || !runLocation || runMinutes === "" || runSeconds === "") {
+      const layman = document.getElementById("popupOverlayIPC");
+      const IAgree = document.getElementById("closePopIPY");
+      const IDisagree = document.getElementById("closePopIPN");
+      layman.style.display = "block";
+      IAgree.addEventListener("click", function(){
+        layman.style.display = "none";
+        checkthem();
+      },{once: true});
+      IDisagree.addEventListener("click", function(){
+        layman.style.display = "none";
+      }, {once: true});
+      return;
+    }
 
 fetchingIP();
 
@@ -132,27 +145,11 @@ async function checkthem() {
   }
 }
 
-//error so that it doesn't show
+    // Process the run now that validation passed
+    checkthem();
+    const dateOnly = runDate.split("T")[0];
 
- if (runDate === "" && runStart === "" && runLocation === "" && runMinutes !== "" && runSeconds !== "") {
-
- } else{
-
-    if (!runDate || !runStart|| !runLocation || runMinutes === "" || runSeconds === "") {
-      const layman = document.getElementById("popupOverlayIPC");
-      const IAgree = document.getElementById("closePopIPY");
-      const IDisagree = document.getElementById("closePopIPN");
-      layman.style.display = "block";
-      IAgree.addEventListener("click", function() {
-        layman.style.display = "none";
-        checkthem();
-      }, {once: true});
-      IDisagree.addEventListener("click", function(){
-        layman.style.display = "none";
-      });
-      return;
-    }
-  }
+//function for stopwatch mode handled below
 
 
 //renamed for id
@@ -924,7 +921,7 @@ console.log("Edit roulette is working.");
       rows.forEach(row => {
         const cells = row.querySelectorAll("td");
         let found = false;
-        cells.forEach(cell => {
+        cells.forEach(cell => {         
           if (cell.textContent.toLowerCase().includes(query))
             found = true;
         });
@@ -975,4 +972,96 @@ console.log("Edit roulette is working.");
     });
     });
 
+    //stopwatch functionality
+    let stopwatchRunning = false;
+    let stopwatchStartTime = 0;
+    let stopwatchInterval = null;
+
+    const stopwatchBtn = document.getElementById("stopwatch");
+    const playBtn = document.getElementById("play");
+    const stopBtn = document.getElementById("stop");
+    const timerDisplay = document.getElementById("timer");
+    const popupOverlayWatch = document.getElementById("popupOverlayWatch");
+
+    //stopwatch div
+    stopwatchBtn.addEventListener("click", function(e) {
+      e.preventDefault();
+      popupOverlayWatch.style.display = "block";
+      stopwatchRunning = false;
+      stopwatchStartTime = 0;
+      timerDisplay.textContent = "00:00:00";
+      playBtn.textContent = "GO";
+      
+      if (stopwatchInterval) {
+        clearInterval(stopwatchInterval);
+        stopwatchInterval = null;
+      }
+    });
+
+    //go button
+    playBtn.addEventListener("click", async function() {
+      if ('wakeLock' in navigator) {
+        try {
+          wakeLock = navigator.wakeLock.request('screen');
+          console.log("Wakelock: Active");
+        } catch (err){
+          console.error(`${err.name}`);
+        }
+      }
+      if (!stopwatchRunning) {
+        stopwatchRunning = true;
+        stopwatchStartTime = Date.now();
+        playBtn.textContent = "Ongoing...";
+        playBtn.disabled = true;
+
+        stopwatchInterval = setInterval(function() {
+          const elapsedMs = Date.now() - stopwatchStartTime;
+          const totalSeconds = Math.floor(elapsedMs / 1000);
+          const hours = Math.floor(totalSeconds / 3600);
+          const minutes = Math.floor((totalSeconds % 3600) / 60);
+          const seconds = totalSeconds % 60;
+
+          timerDisplay.textContent = 
+            `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+        }, 100);
+      }
+    });
+
+    //stop button
+    stopBtn.addEventListener("click", function() {
+      if (stopwatchInterval) {
+        clearInterval(stopwatchInterval);
+        stopwatchInterval = null;
+      }
+      stopwatchRunning = false;
+
+      //to convert time from div to required fields
+      const timeText = timerDisplay.textContent;
+      const timeParts = timeText.split(":");
+      const minutes = parseInt(timeParts[1], 10);
+      const seconds = parseInt(timeParts[2], 10);
+      document.getElementById("run-minutes").value = minutes;
+      document.getElementById("run-seconds").value = seconds;
+      popupOverlayWatch.style.display = "none";
+      playBtn.textContent = "GO";
+    });
+    let wakeLock = null;
+
+//wakelock (copied code)
+const requestWakeLock = async () => {
+  try {
+    wakeLock = await navigator.wakeLock.request('screen');
+    console.log('Wake Lock is active!');
+  } catch (err) {
+    console.error(`${err.name}, ${err.message}`);
+  }
+};
+
+// Re-request when the app comes back into focus
+document.addEventListener('visibilitychange', async () => {
+  if (wakeLock !== null && document.visibilityState === 'visible') {
+    await requestWakeLock();
+  }
+});
     //shhh
+console.log("This is to test if multiple browsers work.");

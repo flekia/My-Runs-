@@ -1,5 +1,5 @@
-const CACHE_VERSION = '#69'
-const CACHE_NAME = `${CACHE_VERSION} HAHA REDDITOR ATTEMPT AHAHAHAHAHAHA 69 67 67 67 67 HAHAHAHAHAHAHAHAHAHAHAHAH`; 
+const CACHE_VERSION = '#70'
+const CACHE_NAME = `${CACHE_VERSION} i'm back from college 1st year`; 
 
 self.addEventListener('install', (event) => {
 const BASE = self.location.origin + '/My-Runs-/';

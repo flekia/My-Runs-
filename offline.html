@@ -19,6 +19,7 @@
   <p id="bottom"></p></div>
   <div style="display: none;" id="loader" class="beepBoop">
     <!--popup when "logging in"-->
+    <!--popup when "logging in"-->
     <div class="popUp-overlay" id="popupOverlay">
     <div class="popUp" id="popUp">
       <button class="closeing" id="closePop">&times;</button>
@@ -281,13 +282,23 @@
       </div>
     </div>
   </div>
-    <!--notes-->
+  <!--notes-->
     <div class="popUp-overlay" id="popupOverlayNotes">
     <div class="popUp" id="popUpNotes">
       <div class="popUpContent">
         <h2>It says:</h2>
         <p id="noting"></p>
         <button class="closedit" id="closePopNotes">Alright...</button>
+      </div>
+    </div>
+  </div>
+  <!--stopwatch-->
+    <div class="popUp-overlay" id="popupOverlayWatch">
+    <div class="popUp" id="popUpWatch">
+      <div class="popUpContent">
+        <h2 id="timer">00:00:00</h2>
+        <button class="closedit" id="play">GO</button><br><br>
+        <button class="closedit" id="stop">STOP</button>
       </div>
     </div>
   </div>
@@ -304,7 +315,7 @@
       <img class="gifs" id="gifs3"
       >
     </a>
-    <a href="#publish" accesskey="4">Publish
+    <a href="#publish"accesskey="4">Publish
       <img class="gifs" id="gifs4">
     </a>
     <a href="#importexport" accesskey="5">Save/Load
@@ -313,8 +324,8 @@
     <a href="#settings" accesskey="6">Settings
       <img class="gifs" id="gifs6">
     </a>
-    <span class="morebtnClm" id="morebtnm" onclick="openNav()">></span>
-</div>
+        <span class="morebtnClm" id="morebtnm" onclick="openNav()">></span>
+  </div>
 <div class="morebtnCl" id="morebtn"></div>  <div id="home" class="tab-content active">
     <!--runs display-->
     <h2 class="titles">Top Runs of All Time</h2>
@@ -361,7 +372,9 @@
       <label for="run-minutes">Minutes?</label>
       <input type="number" id="run-minutes" placeholder="Minutes" min="0"/>
       <label for="run-seconds">Seconds?</label>
-      <input type="number" id="run-seconds" placeholder="Seconds" min="0" max="59" /><br><br>
+      <input type="number" id="run-seconds" placeholder="Seconds" min="0" max="59" /><br>
+      <button id="stopwatch">Stopwatch Mode</button>
+      <br><br>
       <label for="note-runs">This is optional, but was there something noteworthy?</label>
       <input type="text" type="text" id="note-runs" placeholder="Something noteworthy...">
     <button type="submit">Add Run</button><br>
@@ -376,16 +389,16 @@
   <!--loading/saving JSON files-->
   <div id="importexport" class="tab-content">
     <h2>Want to save your file?</h2>
-    <button accesskey="s" id="export-button">Save</button>
+    <button id="export-button" accesskey="s">Save</button>
     <input type="file" id="export-file" onchange="exportRuns" style="display: none;">
     <h2>Want to load your file?</h2>
-    <input accesskey="l" type="file" id="import-button">
+    <input type="file" id="import-button" accesskey="l">
   </div>
-  <!--settings-->
+  <!--themes-->
   <div id="settings" class="tab-content">
     <h2>Current themes are:</h2>
     <button accesskey="r" style="background: linear-gradient(45deg, yellow, orange, red);color: black; border: #aa2e25 2px solid;  font-family: 'Comic Sans MS', 'Comic Sans', 'Comic Relief';" onclick="themeChange('default')">Default</button>
-    <button accesskey="g" style="background: linear-gradient(lightgreen, lime, green, darkgreen);color: black; border: #388e3c 2px solid;font-family: 'Comic Sans MS', 'Comic Sans', 'Comic Relief';" onclick="themeChange('leaf')">Leaf Green</button>
+    <button accesskey="t" style="background: linear-gradient(lightgreen, lime, green, darkgreen);color: black; border: #388e3c 2px solid;font-family: 'Comic Sans MS', 'Comic Sans', 'Comic Relief';" onclick="themeChange('leaf')">Leaf Green</button>
     <button accesskey="b" style="background: black;color: white; border: gray 2px solid;font-family: 'Comic Sans MS', 'Comic Sans', 'Comic Relief';" onclick="themeChange('vanta')">Pure Black</button>
     <button accesskey="w" style="background: white;color: black; border: gainsboro 2px solid;font-family: 'Comic Sans MS', 'Comic Sans', 'Comic Relief';" onclick="themeChange('white')">Pure White</button>
     <button accesskey="j" style="background: linear-gradient(purple, darkorchid, black);color: white; border: blueviolet 2px solid;font-family: 'Comic Sans MS', 'Comic Sans', 'Comic Relief';" onclick="themeChange('purple')">Jade Theme</button> <br> <br>
