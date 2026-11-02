@@ -1,4 +1,4 @@
-const CACHE_VERSION = '#74'
+const CACHE_VERSION = '#75'
 const CACHE_NAME = `${CACHE_VERSION} 1st year college was a NIGHTMARE`; 
 
 self.addEventListener('install', (event) => {
