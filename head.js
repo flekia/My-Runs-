@@ -181,7 +181,7 @@ window.onclick = function(event) {
           "I do not know as to why the Cache version is over 50, and there are more versions to count before discovering Github and Github Pages.",
           "I'm trying to learn 16-bit Assembly Windows edition as of now.",
           "So far, the languages I know are vanilla HTML, CSS, JS, C++, and currently Assembly.",
-          "Willing to make Super Creek better man 😭😭😭",
+          "SUPER CREEK AT LVL 5 AND A 5 STAR, MARUZENSKY IS NEXT🔥🔥",
           "They're making me learn C++. Already made a bot generator using a for loop and the index inside that for loop thing 😎😎😎😎",
           "You can type out emojis using Windows logo and the dot 🫸🫷"
         ];
